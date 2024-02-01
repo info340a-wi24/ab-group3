@@ -1,0 +1,51 @@
+header {
+    background-color: darkslategray;
+    height: 150px;
+    margin-top: none;
+}
+
+nav {
+    font-family:'Courier New', Courier, monospace;
+    padding-top: 50px;
+    font-size: 25px;
+    text-align: center;
+    
+    
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    
+}
+
+.ae {
+    display: inline;
+    margin-right: 150px;
+}
+
+.lsu {
+    display: inline;
+    margin-left: 150px;
+}
+
+nav a img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-left: none;
+}
+
+form {
+    display: inline;  
+    
+    
+}
+
+input {
+    width: 180px;
+    height: 50px;
+    border-radius: 10px;
+    border-collapse: collapse; 
+}
