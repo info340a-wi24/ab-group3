@@ -38,8 +38,8 @@
     position: relative ;
     margin-top: -65px;
   
-    margin-left: 550px;  
-    width: 1000px;  
+    margin-left: 400px;  
+    width: 850px;  
     height: 100px;
     background-color: #6D9394;
     border-radius: 20px;
@@ -185,7 +185,7 @@
   
   .lsu {
       display: inline;
-      margin-left: 300px;
+      margin-left: 100px;
   }
   
   nav a img {
