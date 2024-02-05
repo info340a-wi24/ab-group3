@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box; 
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 150px;
+    justify-content: center;
+    gap: 30px;
+}
+
+.flex-item {
+    background-image: url(../img/Nikke.jpg);
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 105px;
+}
