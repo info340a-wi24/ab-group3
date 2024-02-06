@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box; 
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 150px;
+    justify-content: center;
+    gap: 30px;
+    flex-grow: 1;
+    width: 33%;
+    
+}
+
+
+.flex-item {
+    background-image: url('../img/Untitled_Artwork 15.PNG');
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 105px;
+}

@@ -193,5 +193,65 @@
       top: 0;
       left: 0;
       margin-left: none;
+      z-index: 5;
   }
+
+  header {
+    background-color: #DFEDEE ;
+    height: 150px;
+    width: 100%;
+    
+  }
+
+  /*@media (min-width: 430px) {
+    
+   .ae {
+    display: none;
+   }
+
+   .lsu {
+    display: none;
+   }
+
+   header {
+    width: 100%;
+   }
+   
+   
+}
+
+ @media (min-width: 430px) {
+    
+   .ae {
+    display: none;
+   }
+
+   .lsu {
+    display: none;
+   }
+
+   header {
+    width: 100%;
+   }
+   
+   
+}
+  
+ @media (min-width: 430px) {
+    
+   .ae {
+    display: none;
+   }
+
+   .lsu {
+    display: none;
+   }
+
+   header {
+    width: 100%;
+   }
+   
+   
+}*/
+  
   
