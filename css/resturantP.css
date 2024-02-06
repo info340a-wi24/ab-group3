@@ -6,13 +6,15 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 150px;
-    justify-content: center;
-    gap: 30px;
+    margin-left: 40px;
+    gap: 15px;
     flex-grow: 1;
-    width: 33%;
+    flex-direction: column;
+    flex-direction: row;
+    width: 50%;
+    
     
 }
-
 
 .flex-item {
     background-image: url('../img/Untitled_Artwork 15.PNG');
@@ -20,4 +22,28 @@
     border-radius: 10px;
     text-align: center;
     padding: 105px;
+    
 }
+
+img {
+    margin-left: 270px;
+    margin-top: 180px;
+}
+
+.profile {
+    margin-top: -20px;
+    margin-left: 370px;
+    
+}
+
+.sub {
+    
+    margin-left: 370px;
+}
+
+.sub p {
+    display: inline;
+    margin-left: -2px;
+    margin-right: 10px;
+}
+
