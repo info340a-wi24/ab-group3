@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box; 
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    margin-left: 40px;
+    gap: 15px;
+    flex-grow: 1;
+    flex-direction: column;
+    flex-direction: row;
+    width: 75%;
+    
+}
+
+.flex-item {
+    background-image: url('../img/Untitled_Artwork 15.PNG');
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 105px;
+    
+}
+
+img {
+    margin-left: 500px;
+    margin-top: 180px;
+}
+
+.profile {
+    margin-top: -20px;
+    margin-left: 600px;
+    
+}
+
+.sub {
+    
+    margin-left: 607px;
+}
+
+.sub p {
+    display: inline;
+    margin-left: -2px;
+    margin-right: 10px;
+}
+
+.vertical {
+    border-left: 2px solid darkgray;
+    height: 20px;
+    position: relative;
+    top: 2px;
+    right: 8px;
+    display: inline;
+    
+  }
+
+  .float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+    margin-top: -750px;
+}
+
+.float-child {
+    width: 20%;
+    height: fit-content;
+    float: right;
+    padding: 20px;
+    background-color: #D5E1E1;    
+}  
+
+.rate {
+    margin-left: 630px;
+    margin-top: 15px;
+}
+
+.rate a {
+    text-decoration: none;
+}
+
+.address {
+    text-align: center;
+}
+
+.map {
+    background: #6D9394;
+    border-radius: 12px;
+    box-shadow: #3D6B6C 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+    display: inline;
+    margin-left: 75px;
+    margin-right: -200px;
+    
+  }
+
+  a {
+    text-decoration: none;
+  }

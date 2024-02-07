@@ -190,8 +190,68 @@
   
   nav a img {
       position: fixed;
-      top: 0;
+      top: 20px;
       left: 0;
       margin-left: none;
+      z-index: 5;
   }
+
+  header {
+    background-color: #DFEDEE ;
+    height: 150px;
+    width: 100%;
+    
+  }
+
+  /*@media (min-width: 430px) {
+    
+   .ae {
+    display: none;
+   }
+
+   .lsu {
+    display: none;
+   }
+
+   header {
+    width: 100%;
+   }
+   
+   
+}
+
+ @media (min-width: 430px) {
+    
+   .ae {
+    display: none;
+   }
+
+   .lsu {
+    display: none;
+   }
+
+   header {
+    width: 100%;
+   }
+   
+   
+}
+  
+ @media (min-width: 430px) {
+    
+   .ae {
+    display: none;
+   }
+
+   .lsu {
+    display: none;
+   }
+
+   header {
+    width: 100%;
+   }
+   
+   
+}*/
+  
   
