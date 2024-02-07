@@ -6,8 +6,8 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 150px;
-    justify-content: center;
     gap: 30px;
+  
 }
 
 .flex-item {

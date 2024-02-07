@@ -5,14 +5,13 @@
 .flex-container {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 150px;
+    margin-top: 80px;
     margin-left: 40px;
     gap: 15px;
     flex-grow: 1;
     flex-direction: column;
     flex-direction: row;
-    width: 50%;
-    
+    width: 75%;
     
 }
 
@@ -26,19 +25,19 @@
 }
 
 img {
-    margin-left: 270px;
+    margin-left: 500px;
     margin-top: 180px;
 }
 
 .profile {
     margin-top: -20px;
-    margin-left: 370px;
+    margin-left: 600px;
     
 }
 
 .sub {
     
-    margin-left: 370px;
+    margin-left: 600px;
 }
 
 .sub p {
@@ -47,3 +46,12 @@ img {
     margin-right: 10px;
 }
 
+.vertical {
+    border-left: 2px solid darkgray;
+    height: 20px;
+    position: relative;
+    top: 2px;
+    right: 8px;
+    display: inline;
+    
+  }
