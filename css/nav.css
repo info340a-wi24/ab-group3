@@ -190,7 +190,7 @@
   
   nav a img {
       position: fixed;
-      top: 0;
+      top: 20px;
       left: 0;
       margin-left: none;
       z-index: 5;
