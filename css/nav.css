@@ -36,11 +36,11 @@
   
   #cover {
     position: relative ;
-    margin-top: -65px;
+    margin-top: -50px;
   
     margin-left: 400px;  
     width: 850px;  
-    height: 100px;
+    height: 65px;
     background-color: #6D9394;
     border-radius: 20px;
     box-shadow: 0 10px 40px #3D6B6C, 0 0 0 20px #ffffffeb;
@@ -56,12 +56,14 @@
   input[type="text"] {
     width: 100%;
     height: 96px;
-    font-size: 40px;
+    font-size: 30px;
     line-height: 1;
+
   }
   
   input[type="text"]::placeholder {
     color:#fff;
+    
   }
   
   #s-cover {
@@ -79,10 +81,10 @@
   
   #s-circle {
     position: relative;
-    top: -8px;
+    top: -15px;
     left: 0;
-    width: 43px;
-    height: 43px;
+    width: 35px;
+    height: 35px;
     margin-top: 0;
     border-width: 15px;
     border: 15px solid #fff;
@@ -93,11 +95,11 @@
   
   button span {
     position: absolute;
-    top: 68px;
+    top: 60px;
     left: 43px;
     display: block;
-    width: 45px;
-    height: 15px;
+    width: 39px;
+    height: 19px;
     background-color: transparent;
     border-radius: 10px;
     transform: rotateZ(52deg);
@@ -108,7 +110,7 @@
   button span:after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     right: 0;
     width: 45px;
     height: 15px;
@@ -153,16 +155,16 @@
   
   .vertical {
       border-left: 6px solid darkgray;
-      height: 50px;
+      height: 40px;
       position: relative;
-      top: 20px;
+      top: 15px;
       right: 15px;
     }
   
     
     nav {
       font-family:'Courier New', Courier, monospace;
-      padding-top: 50px;
+      padding-top: 20px;
       font-size: 25px;
       text-align: center;
       
@@ -190,7 +192,7 @@
   
   nav a img {
       position: fixed;
-      top: 20px;
+      top: 0;
       left: 0;
       margin-left: none;
       z-index: 5;
@@ -198,7 +200,7 @@
 
   header {
     background-color: #DFEDEE ;
-    height: 150px;
+    height: 75px;
     width: 100%;
     
   }
