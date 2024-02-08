@@ -35,9 +35,9 @@ button {
   margin-left: 25em;  
   width: 55em;  
   height: 4em;
-  background-color: #6D9394;
+  background-color: #B1E2CC;
   border-radius: 1em;
-  box-shadow: 0 1em 4em #3D6B6C, 0 0 0 1em #ffffffeb;
+  box-shadow: 0 1em 4em #AADAC5, 0 0 0 1em #ffffffeb;
   transform: scale(0.6);
  
 }
@@ -184,14 +184,12 @@ nav a img {
 }
 
 header {
-  background-color: #DFEDEE ;
+  background-color: #B9D8CA;
   height: 5em;
   width: 100%;
   position: fixed;
   
 }
-
-
 
 .flex-container {
     display: flex;
@@ -249,3 +247,112 @@ a {
     text-decoration: none;
 }
 
+.flex-containerR {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5em;
+  margin-left: 1em;
+  gap: 2em;
+  flex-grow: 1;
+  flex-direction: column;
+  flex-direction: row;
+  width: 73%;
+  
+}
+
+.flex-itemR {
+  background-image: url('../img/Untitled_Artwork 15.PNG');
+  background-size: cover;
+  border-radius: 1em;
+  padding: 7.5em;
+  
+}
+
+#profile {
+  margin-left: 35%;
+  margin-top: 7.5em;
+}
+
+.profileR {
+  margin-top: -1em;
+  margin-left: 24em;
+  font-size: 1.5em;
+  
+}
+
+.sub { 
+  margin-left: 38em;
+}
+
+.sub p {
+  display: inline;
+  margin-left: -.1em;
+  margin-right: .7em;
+}
+
+.verticalR {
+  border-left: .2em solid darkgray;
+  height: 1em;
+  position: relative;
+  top: .1em;
+  right: .4em;
+  display: inline; 
+}
+
+.float-container {
+  padding: 1em;
+  margin-top: -70em;
+  margin-right: 3em;
+}
+
+.float-child {
+  width: 20%;
+  height: fit-content;
+  float: right;
+  padding: 1em;
+  background-color: #D5E1E1; 
+  border-radius: 1em;   
+}  
+
+.rate {
+  margin-left: 39em;
+  margin-top: 1em;
+}
+
+.rate a {
+  text-decoration: none;
+}
+
+.address {
+  text-align: center;
+}
+
+.map {
+  background: #6D9394;
+  border-radius: .8em;
+  box-shadow: #3D6B6C 0 1em 2em --1em;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1.5em;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: .5em 1.5em;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  display: inline;
+  margin-left: 4.5em;
+  margin-right: -2em;
+  
+}
+
+a {
+  text-decoration: none;
+}

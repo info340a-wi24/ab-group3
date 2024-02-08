@@ -31,9 +31,9 @@
     margin-left: 25em;  
     width: 55em;  
     height: 4em;
-    background-color: #6D9394;
+    background-color: #B1E2CC;
     border-radius: 1em;
-    box-shadow: 0 1em 4em #3D6B6C, 0 0 0 1em #ffffffeb;
+    box-shadow: 0 1em 4em #AADAC5, 0 0 0 1em #ffffffeb;
     transform: scale(0.6);
    
   }
@@ -180,7 +180,7 @@
   }
 
   header {
-    background-color: #DFEDEE ;
+    background-color: #B9D8CA;
     height: 5em;
     width: 100%;
     position: fixed;
