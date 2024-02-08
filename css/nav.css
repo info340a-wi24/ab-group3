@@ -1,18 +1,9 @@
-* {
-    outline: none;
-  }
-  
   html,
   body {
     height: 100%;
     min-height: 100%;
-  }
-  
-  body {
     margin: 0;
-  
   }
-  
   
   .tb {
     display: table;
@@ -27,7 +18,7 @@
   input,
   button {
     color: #fff;
-    font-family:'Courier New', Courier, monospace;
+    display: block;
     padding: 0;
     margin: 0;
     border: 0;
@@ -36,58 +27,49 @@
   
   #cover {
     position: relative ;
-    margin-top: -50px;
-  
-    margin-left: 400px;  
-    width: 850px;  
-    height: 65px;
+    margin-top: -3em;
+    margin-left: 25em;  
+    width: 55em;  
+    height: 4em;
     background-color: #6D9394;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px #3D6B6C, 0 0 0 20px #ffffffeb;
+    border-radius: 1em;
+    box-shadow: 0 1em 4em #3D6B6C, 0 0 0 1em #ffffffeb;
     transform: scale(0.6);
    
   }
   
-  form {
-    height: 96px;
-    display: inline;
-  }
-  
   input[type="text"] {
     width: 100%;
-    height: 96px;
-    font-size: 30px;
-    line-height: 1;
-
+    height: 2em;
+    font-size: 2em;
   }
   
   input[type="text"]::placeholder {
-    color:#fff;
-    
+    color:#fff; 
   }
   
   #s-cover {
-    width: 1px;
-    padding-left: 35px;
+    width: 1em;
+    padding-left: 1em;
   }
   
-  button {
+  .search {
     position: relative;
-    display: block;
-    width: 84px;
-    height: 96px;
+    width: 5em;
+    height: 6em;
     cursor: pointer;
+    display: block;
   }
   
   #s-circle {
     position: relative;
-    top: -15px;
+    top: -1em;
     left: 0;
-    width: 35px;
-    height: 35px;
+    width: 4.5em;
+    height: 4.5em;
     margin-top: 0;
-    border-width: 15px;
-    border: 15px solid #fff;
+    border-width: 5em;
+    border: 1em solid #fff;
     background-color: transparent;
     border-radius: 50%;
     transition: 0.5s ease all;
@@ -95,13 +77,13 @@
   
   button span {
     position: absolute;
-    top: 60px;
-    left: 43px;
+    top: 4em;
+    left: 3em;
     display: block;
-    width: 39px;
-    height: 19px;
+    width: 2.5em;
+    height: 1.5em;
     background-color: transparent;
-    border-radius: 10px;
+    border-radius: 1em;
     transform: rotateZ(52deg);
     transition: 0.5s ease all;
   }
@@ -110,62 +92,61 @@
   button span:after {
     content: "";
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     right: 0;
-    width: 45px;
-    height: 15px;
+    width: 3em;
+    height: 1.5em;
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 1em;
     transform: rotateZ(0);
     transition: 0.5s ease all;
   }
   
   #s-cover:hover #s-circle {
-    top: -1px;
-    width: 67px;
-    height: 15px;
+    top: .1em;
+    width: 4em;
+    height: 1em;
     border-width: 0;
     background-color: #fff;
-    border-radius: 20px;
+    border-radius: 2em;
   }
   
   #s-cover:hover span {
     top: 50%;
-    left: 56px;
-    width: 25px;
-    margin-top: -9px;
+    left: 3em;
+    width: 2em;
+    margin-top: -.5em;
     transform: rotateZ(0);
   }
   
   #s-cover:hover button span:before {
-    bottom: 11px;
+    bottom: 1em;
     transform: rotateZ(52deg);
   }
   
   #s-cover:hover button span:after {
-    bottom: -11px;
+    bottom: -1em;
     transform: rotateZ(-52deg);
   }
   #s-cover:hover button span:before,
   #s-cover:hover button span:after {
-    right: -6px;
-    width: 40px;
+    right: -.2em;
+    width: 3em;
     background-color: #fff;
   }
   
   .vertical {
-      border-left: 6px solid darkgray;
-      height: 40px;
+      border-left: .3em solid darkgray;
+      height: 2.5em;
       position: relative;
-      top: 15px;
-      right: 15px;
+      top: 1em;
+      right: 1em;
     }
   
     
     nav {
-      font-family:'Courier New', Courier, monospace;
-      padding-top: 20px;
-      font-size: 25px;
+      padding-top: .5em;
+      font-size: 2em;
       text-align: center;
       
       
@@ -175,19 +156,19 @@
       text-decoration: none;
       font-size: 25px;
       color: black;
-      padding-left: 100px;
+      padding-left: 3.5em;
       
   }
   
   .ae {
       display: inline;
-      margin-right: 450px;
+      margin-right: 19em;
           
   }
   
   .lsu {
       display: inline;
-      margin-left: 100px;
+      margin-left: 2em;
   }
   
   nav a img {
@@ -200,60 +181,10 @@
 
   header {
     background-color: #DFEDEE ;
-    height: 75px;
+    height: 5em;
     width: 100%;
+    position: fixed;
     
   }
 
-  /*@media (min-width: 430px) {
-    
-   .ae {
-    display: none;
-   }
-
-   .lsu {
-    display: none;
-   }
-
-   header {
-    width: 100%;
-   }
-   
-   
-}
-
- @media (min-width: 430px) {
-    
-   .ae {
-    display: none;
-   }
-
-   .lsu {
-    display: none;
-   }
-
-   header {
-    width: 100%;
-   }
-   
-   
-}
-  
- @media (min-width: 430px) {
-    
-   .ae {
-    display: none;
-   }
-
-   .lsu {
-    display: none;
-   }
-
-   header {
-    width: 100%;
-   }
-   
-   
-}*/
-  
-  
+ 
