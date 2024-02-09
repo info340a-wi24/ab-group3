@@ -3,8 +3,8 @@
 }
 
 body {
-    font-family: "Gill Sans", sans-serif;   
-    font-size: 15px;
+    font-family: "Raleway", sans-serif;   
+    font-size: 95%;
 }
 
 .flex-container {
@@ -13,9 +13,9 @@ body {
 
 .explore-box {
     flex-wrap: wrap;
-    margin-top: 200px;
+    margin-top: 7.5rem;
     justify-content: center;
-    gap: 30px;
+    gap: 2rem;
 }
 
 img {
@@ -26,17 +26,17 @@ img {
 .post-box {
     background-color: lightgray;
     border-radius: 10px;
-    width: 750px;
-    height: 380px;
+    width: 59%;
+    height: 61%;
     position: fixed; 
-    bottom: 125px;
+    bottom: 20%;
 }
 
 .post-content img {
-    margin-top: 25px;
-    margin-left: 25px;
-    width: 300px;
-    height: 300px;
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+    width: 19rem;
+    height: 19rem;
 }
 
 .post-content p {
@@ -44,26 +44,26 @@ img {
 }
 
 .post-detail {
-    margin: 20px 90px;
+    margin: 1em 4em;
 }
 
 #comments {
-    margin-top: 35px;
+    margin-top: 1.5rem;
 }
 
 .circle {
-    height: 40px;
-    width: 40px;
+    height: 2.5rem;
+    width: 2.5rem;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
-    margin-right: 15px;
+    margin-right: 1rem;
 }
 
 .username div {
-    margin: 5px;
+    margin: .35em;
 }
 
 .commenter {
-    margin-bottom: 10px;
+    margin-bottom: .6em;
 }

@@ -27,7 +27,7 @@
   
   #cover {
     position: relative ;
-    margin-top: -3em;
+    margin-top: -5em;
     margin-left: 25em;  
     width: 55em;  
     height: 4em;
@@ -184,7 +184,8 @@
     height: 5em;
     width: 100%;
     position: fixed;
-    
+    top: 0;
+    left: 0;
   }
 
  
