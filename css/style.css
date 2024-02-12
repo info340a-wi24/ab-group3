@@ -9,6 +9,7 @@ body {
   min-height: 100%;
   margin: 0;
   padding-bottom: 6em;
+  font-family: 'raleway';
 }
 
 .tb {
@@ -193,7 +194,7 @@ header {
   
 }
 
-.flex-container {
+.flex-containerP {
     display: flex;
     flex-wrap: wrap;
     margin-top: 5em;
@@ -201,7 +202,7 @@ header {
   
 }
 
-.flex-item {
+.flex-itemP {
     background-image: url('../img/Untitled_Artwork 15.PNG');
     background-size: cover;
     border-radius: 1em;
@@ -359,10 +360,81 @@ a {
   text-decoration: none;
 }
 
-footer {
-  position: absolute;
-  left: 1em;
-  bottom: 0;
-  width: 100%;
-  top: 200%;
+
+.flex-container {
+  display: flex;
 }
+
+.explore-box {
+  flex-wrap: wrap;
+  margin-top: 200px;
+  justify-content: center;
+  gap: 30px;
+}
+
+img {
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.post-box {
+  background-color: lightgray;
+  align-items: center;
+  border-radius: 10px;
+  width: 750px;
+  height: 380px;
+  position: fixed; 
+  bottom: 125px;
+}
+
+.post-img {
+  margin: 2em;
+  width: 300px;
+  height: 300px;
+}
+
+.post-content p {
+  text-align: center;
+}
+
+.post-detail {
+  margin: 20px 90px;
+}
+
+#content {
+  margin-top: 35px;
+}
+
+
+
+.username div {
+  margin: 5px;
+}
+
+.commenter {
+  margin-bottom: 10px;
+}
+
+.circle {
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.card {
+  flex-direction: column;
+  margin: 1em;
+  align-items: center;
+}
+
+p {
+  margin: 0;
+}
+
+.stars {
+  flex-direction: row;
+}
+
