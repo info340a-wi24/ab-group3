@@ -286,19 +286,30 @@ header {
 /* footer section */
 footer {
     color: white;
-    background-color: #F798BB;
-    padding-bottom: 1%;
-    padding-top: 1%;
-    margin-top: 2.5%;
+    background-color: hsl(338, 86%, 78%);
+    margin-top: 3%;
+    height: 20vh;
 }
 
 footer p {
+    position: relative;
+    top: 1em;
+    margin-top: -1em;
     margin-left: 3em;
+}
+
+footer p:last-of-type {
+    top: 2em;
 }
 
 footer a {
     color: white;
     text-decoration: none;
+}
+
+.material-icons {
+    position: relative;
+    top: .3em;
 }
 
 /* business profile section */
