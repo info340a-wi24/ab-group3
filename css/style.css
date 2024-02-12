@@ -364,7 +364,7 @@ footer a {
 .float-child {
   width: 20%;
   height: fit-content;
-  float: right;
+  margin-left: 70em;
   padding: 1em;
   background-color: #D5E1E1; 
   border-radius: 1em;   
