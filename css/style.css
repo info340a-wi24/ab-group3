@@ -179,7 +179,7 @@ nav a {
 }
 
 nav a img {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     margin-left: none;
@@ -412,7 +412,7 @@ img {
 }
 
 .commenter {
-  margin-bottom: 10px;
+  bottom: 10px;
 }
 
 .circle {
@@ -438,3 +438,25 @@ p {
   flex-direction: row;
 }
 
+footer {
+  color: white;
+  background-color: #F798BB;
+  padding-bottom: 1%;
+  padding-top: 1%;
+  margin-top: 2.5%;
+  width: 100%;
+}
+
+footer p {
+  margin-left: 3em;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.material-icons {
+  position: relative;
+  top: .25em;
+}
