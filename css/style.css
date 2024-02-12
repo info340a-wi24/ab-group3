@@ -282,10 +282,6 @@ header {
     left: 0;
 }
 
-/* business profile section */
-
-/* personal profile section */
-
 
 /* footer section */
 footer {
@@ -304,6 +300,8 @@ footer a {
     color: white;
     text-decoration: none;
 }
+
+/* business profile section */
 
 .flex-containerR {
   display: flex;
@@ -388,11 +386,10 @@ footer a {
 .map {
   background: #50896A;
   border-radius: .8em;
-  box-shadow: #93BBA0 0 1em 2em --1em;
+  box-shadow: #93BBA0 0 1em 2em -1em;
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
-  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
   font-size: 1em;
   font-weight: 700;
   line-height: 1.5em;
@@ -416,80 +413,55 @@ a {
 }
 
 
-.flex-container {
-  display: flex;
+.flex-containerP {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5em;
+    gap: 2em;
+  
 }
 
-.explore-box {
-  flex-wrap: wrap;
-  margin-top: 200px;
-  justify-content: center;
-  gap: 30px;
+.flex-itemP {
+    background-image: url('../img/Untitled_Artwork 15.PNG');
+    background-size: cover;
+    border-radius: 1em;
+    text-align: center;
+    padding: 10em;
+    
 }
 
-img {
-  border-radius: 10px;
-  object-fit: cover;
+.profileP {
+    margin-left: 40%;
+    margin-top: 7em;
+    
 }
 
-.post-box {
-  background-color: lightgray;
-  align-items: center;
-  border-radius: 10px;
-  width: 750px;
-  height: 380px;
-  position: fixed; 
-  bottom: 125px;
-}
-
-.post-img {
-  margin: 2em;
-  width: 300px;
-  height: 300px;
-}
-
-.post-content p {
-  text-align: center;
-}
-
-.post-detail {
-  margin: 20px 90px;
-}
-
-#content {
-  margin-top: 35px;
+.profile {
+    margin-top: -2em;
+    text-align: center;
 }
 
 
-
-.username div {
-  margin: 5px;
-}
-
-.commenter {
-  margin-bottom: 10px;
-}
-
-.circle {
-  height: 2.5rem;
-  width: 2.5rem;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 1rem;
-}
-
-.card {
-  flex-direction: column;
-  margin: 1em;
-  align-items: center;
-}
-
-p {
-  margin: 0;
-}
-
-.stars {
-  flex-direction: row;
+.postButton {
+  background: #6D9394;
+  border-radius: .8em;
+  box-shadow: #3D6B6C 0 1em 2em -1em;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 1em;
+  line-height: 1.5em;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: .5em 1.5em;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  display: inline;
+  margin-left: 43%;
+  margin-right: -38em;
 }
 
