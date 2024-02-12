@@ -67,3 +67,25 @@ img {
 .commenter {
     margin-bottom: .6em;
 }
+
+footer {
+    color: white;
+    background-color: #F798BB;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    margin-top: 2.5%;
+}
+
+footer p {
+    margin-left: 3em;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.material-icons {
+    position: relative;
+    top: .25em;
+}
