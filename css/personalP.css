@@ -2,49 +2,236 @@
     box-sizing: border-box; 
 }
 
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 150px;
-    gap: 30px;
-  
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
 }
 
-.flex-item {
-    background-image: url('../img/Untitled_Artwork 15.PNG');
-    background-size: cover;
-    border-radius: 10px;
+.tb {
+  display: table;
+  width: 100%;
+}
+
+.td {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+input,
+button {
+  color: #fff;
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+#cover {
+  position: relative ;
+  margin-top: -3em;
+  margin-left: 25em;  
+  width: 55em;  
+  height: 4em;
+  background-color: #B1E2CC;
+  border-radius: 1em;
+  box-shadow: 0 1em 4em #AADAC5, 0 0 0 1em #ffffffeb;
+  transform: scale(0.6);
+ 
+}
+
+input[type="text"] {
+  width: 100%;
+  height: 2em;
+  font-size: 2em;
+}
+
+input[type="text"]::placeholder {
+  color:#fff; 
+}
+
+#s-cover {
+  width: 1em;
+  padding-left: 1em;
+}
+
+.search {
+  position: relative;
+  width: 5em;
+  height: 6em;
+  cursor: pointer;
+  display: block;
+}
+
+#s-circle {
+  position: relative;
+  top: -1em;
+  left: 0;
+  width: 4.5em;
+  height: 4.5em;
+  margin-top: 0;
+  border-width: 5em;
+  border: 1em solid #fff;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: 0.5s ease all;
+}
+
+button span {
+  position: absolute;
+  top: 4em;
+  left: 3em;
+  display: block;
+  width: 2.5em;
+  height: 1.5em;
+  background-color: transparent;
+  border-radius: 1em;
+  transform: rotateZ(52deg);
+  transition: 0.5s ease all;
+}
+
+button span:before,
+button span:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 3em;
+  height: 1.5em;
+  background-color: #fff;
+  border-radius: 1em;
+  transform: rotateZ(0);
+  transition: 0.5s ease all;
+}
+
+#s-cover:hover #s-circle {
+  top: .1em;
+  width: 4em;
+  height: 1em;
+  border-width: 0;
+  background-color: #fff;
+  border-radius: 2em;
+}
+
+#s-cover:hover span {
+  top: 50%;
+  left: 3em;
+  width: 2em;
+  margin-top: -.5em;
+  transform: rotateZ(0);
+}
+
+#s-cover:hover button span:before {
+  bottom: 1em;
+  transform: rotateZ(52deg);
+}
+
+#s-cover:hover button span:after {
+  bottom: -1em;
+  transform: rotateZ(-52deg);
+}
+#s-cover:hover button span:before,
+#s-cover:hover button span:after {
+  right: -.2em;
+  width: 3em;
+  background-color: #fff;
+}
+
+.vertical {
+    border-left: .3em solid darkgray;
+    height: 2.5em;
+    position: relative;
+    top: 1em;
+    right: 1em;
+  }
+
+  
+  nav {
+    padding-top: .5em;
+    font-size: 2em;
     text-align: center;
-    padding: 105px;
+    
     
 }
 
-img {
-    margin-left: 600px;
-    margin-top: 200px;
+nav a {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    padding-left: 3.5em;
+    
+}
+
+.ae {
+    display: inline;
+    margin-right: 19em;
+        
+}
+
+.lsu {
+    display: inline;
+    margin-left: 2em;
+}
+
+nav a img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-left: none;
+    z-index: 5;
+}
+
+header {
+  background-color: #B9D8CA;
+  height: 5em;
+  width: 100%;
+  position: fixed;
+  
+}
+
+.flex-containerP {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5em;
+    gap: 2em;
+  
+}
+
+.flex-itemP {
+    background-image: url('../img/Untitled_Artwork 15.PNG');
+    background-size: cover;
+    border-radius: 1em;
+    text-align: center;
+    padding: 10em;
+    
+}
+
+.profileP {
+    margin-left: 40%;
+    margin-top: 7em;
     
 }
 
 .profile {
-    margin-top: -20px;
+    margin-top: -2em;
     text-align: center;
 }
 
 
-.buttonP {
+.postButton {
   background: #6D9394;
-  border-radius: 12px;
-  box-shadow: #3D6B6C 0 10px 20px -10px;
+  border-radius: .8em;
+  box-shadow: #3D6B6C 0 1em 2em -1em;
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
-  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
+  font-size: 1em;
+  line-height: 1.5em;
   opacity: 1;
   outline: 0 solid transparent;
-  padding: 8px 18px;
+  padding: .5em 1.5em;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -52,10 +239,120 @@ img {
   word-break: break-word;
   border: 0;
   display: inline;
-  margin-left: 650px;
-  margin-right: -630px;
+  margin-left: 43%;
+  margin-right: -38em;
 }
 
 a {
     text-decoration: none;
+}
+
+.flex-containerR {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5em;
+  margin-left: 1em;
+  gap: 2em;
+  flex-grow: 1;
+  flex-direction: column;
+  flex-direction: row;
+  width: 73%;
+  
+}
+
+.flex-itemR {
+  background-image: url('../img/Untitled_Artwork 15.PNG');
+  background-size: cover;
+  border-radius: 1em;
+  padding: 7.5em;
+  
+}
+
+#profile {
+  margin-left: 35%;
+  margin-top: 7.5em;
+}
+
+.profileR {
+  margin-top: -1em;
+  margin-left: 24em;
+  font-size: 1.5em;
+  
+}
+
+.sub { 
+  margin-left: 38em;
+}
+
+.sub p {
+  display: inline;
+  margin-left: -.1em;
+  margin-right: .7em;
+}
+
+.verticalR {
+  border-left: .2em solid darkgray;
+  height: 1em;
+  position: relative;
+  top: .1em;
+  right: .4em;
+  display: inline; 
+}
+
+.float-container {
+  padding: 1em;
+  margin-top: -70em;
+  margin-right: 3em;
+}
+
+.float-child {
+  width: 20%;
+  height: fit-content;
+  float: right;
+  padding: 1em;
+  background-color: #D5E1E1; 
+  border-radius: 1em;   
+}  
+
+.rate {
+  margin-left: 39em;
+  margin-top: 1em;
+}
+
+.rate a {
+  text-decoration: none;
+}
+
+.address {
+  text-align: center;
+}
+
+.map {
+  background: #6D9394;
+  border-radius: .8em;
+  box-shadow: #3D6B6C 0 1em 2em --1em;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1.5em;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: .5em 1.5em;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  display: inline;
+  margin-left: 4.5em;
+  margin-right: -2em;
+  
+}
+
+a {
+  text-decoration: none;
 }

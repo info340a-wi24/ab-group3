@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: "Gill Sans", sans-serif;   
+  font-size: 15px;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.explore-box {
+  flex-wrap: wrap;
+  margin-top: 200px;
+  justify-content: center;
+  gap: 30px;
+}
+
+img {
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.post-box {
+  background-color: lightgray;
+  align-items: center;
+  border-radius: 10px;
+  width: 750px;
+  height: 380px;
+  position: fixed; 
+  bottom: 125px;
+}
+
+.post-img {
+  margin: 2em;
+  width: 300px;
+  height: 300px;
+}
+
+.post-content p {
+  text-align: center;
+}
+
+.post-detail {
+  margin: 20px 90px;
+}
+
+#content {
+  margin-top: 35px;
+}
+
+.username div {
+  margin: 5px;
+}
+
+.commenter {
+  margin-bottom: 10px;
+}

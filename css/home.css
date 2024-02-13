@@ -1,0 +1,18 @@
+.flex-container {
+  display: flex;
+}
+
+.card {
+  flex-direction: column;
+  margin: 1em;
+  align-items: center;
+}
+
+p {
+  margin: 0;
+}
+
+.stars {
+  flex-direction: row;
+}
+

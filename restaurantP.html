@@ -3,113 +3,163 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="ThiThi Le">
     <meta name="description" content="resturant profile page">
     <title>Restaurant profile</title>
-    <link rel="stylesheet" href="css/resturantP.css">
-    
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="img/Untitled_Artwork 15.PNG">
 </head>
-
 <body>
-    <div>
-        <img src="img/Untitled_Artwork 15.PNG" alt="placeholder img" height="200px" width="300px">
-    </div>
-    <div class="profile">
-        <p>Restaurant_Name</p>
-    </div>
-    <div class="sub">
-        <p>Subscribers</p>
-        <div class = "vertical"></div>
-        <p>24</p>
-    </div>
-    <div class="rate">
-       <a href="#ratings.html">Ratings</a> 
-    </div>
-    <div class="flex-container">
-        <div class="flex-item">
+    <header>
+        <nav>
+            <a href='home.html'> 
+                <img src='img/logo.PNG' alt='Official logo' width='100px' height='70px'>
+              </a>
+              <div class="ae">
+                <a class="active" href="home.html">Home</a>
+                <a href="exploreresults.html">Explore</a>
+              </div>  
+              
             
-        </div>
-        <div class="flex-item">
-            
-        </div>
-        <div class="flex-item">
-            
-        </div>
-        <div class="flex-item">
-            
-        </div>
-        <div class="flex-item">
-            
-        </div>
-        <div class="flex-item">
-            
-        </div>
-        <div class="flex-item">
-            
-        </div>
-        <div class="flex-item">
-            
-        </div>
-        <div class="flex-item">
-            
-        </div>  
-        <div class="flex-item">
-            
-        </div>     
-    </div>
-     <div class="container">
-   
-        <div class="float-container">
-
-            <div class="float-child">
-            <div class="time">
-                <ul>
-                    <p>Mon</p>
-                    <ul>
-                        <li>11:00 AM - 11:00 PM</li>
-                        <p>Closed Now</p>
-                    </ul>
-                    <p>Tue</p>
-                    <ul>
-                        <li>11:00 AM - 11:00 PM</li>
-                    </ul>
-                    <p>Wed</p>
-                    <ul>
-                        <li>11:00 AM - 11:00 PM</li>
-                    </ul>
-                    <p>Thu</p>
-                    <ul>
-                        <li>11:00 AM - 11:00 PM</li>
-                    </ul>
-                    <p>Fri</p>
-                    <ul>
-                        <li>11:00 AM - 11:00 PM</li>
-                    </ul>
-                    <p>Sat</p>
-                    <ul>
-                        <li>11:00 AM - 11:00 PM</li>
-                    </ul>
-                    <p>Sun</p>
-                    <ul>
-                        <li>11:00 AM - 11:00 PM</li>
-                    </ul>
-                    
-                </ul>
-                <br>
-                <div class="address">
-                <p>4106 Brooklyn Ave NE</p>
-                <p>Seattle, WA 98105</p>
+            <div class="lsu">
+                <a href="login.html">Login</a>
+                <a href="createaccount.html">Sign Up</a>
+            </div> 
+        </nav>  
+        <div id="cover">
+            <form method="get" action="">
+            <div class="tb">
+                <div class="td"><input type="text" placeholder="Search..." required></div>
+                <div class = "vertical"></div>
+                <div class="td"><input type="text" placeholder="Location"></div>
+                <div class="td" id="s-cover">
+                    <button class="search" type="submit">
+                        <div id="s-circle"></div>
+                        <span></span>
+                    </button>
                 </div>
-                <br>
-                <div>
-                    <a href="#map.html">
-                        <button class="map" type="button">Direction</button>
-                    </a>
-                </div>
+            </div>
+            </form>
+        </div>
+    </header>
+    <main>
+        <div>
+            <img src="img/Untitled_Artwork 15.PNG" alt="Profile picture for the resturant" id="profile" height="200px" width="300px">
+        </div>
+        <div class="profileR">
+            <p>Restaurant_Name</p>
+        </div>
+        <div class="sub">
+            <p>Subscribers</p>
+            <div class = "verticalR"></div>
+            <p>24</p>
+        </div>
+        <div class="rate">
+        <a href="#yelp.review">Ratings 4.5</a> 
+        </div>
+        <div class="flex-containerR">
+            <div class="flex-itemR">
                 
             </div>
+            <div class="flex-itemR">
+                
+            </div>
+            <div class="flex-itemR">
+                
+            </div>
+            <div class="flex-itemR">
+                
+            </div>
+            <div class="flex-itemR">
+                
+            </div>
+            <div class="flex-itemR">
+                
+            </div>
+            <div class="flex-itemR">
+                
+            </div>
+            <div class="flex-itemR">
+                
+            </div>
+            <div class="flex-itemR">
+                
+            </div>  
+            <div class="flex-itemR">
+                
+            </div>     
+        </div>
+        <div class="container">
+    
+            <div class="containerR">
+
+                <div class="childR">
+                    <div class="time">
+                        <ul>
+                            <p>Mon</p>
+                            <ul>
+                                <li>11:00 AM - 11:00 PM</li>
+                                <p>Closed Now</p>
+                            </ul>
+                            <p>Tue</p>
+                            <ul>
+                                <li>11:00 AM - 11:00 PM</li>
+                            </ul>
+                            <p>Wed</p>
+                            <ul>
+                                <li>11:00 AM - 11:00 PM</li>
+                            </ul>
+                            <p>Thu</p>
+                            <ul>
+                                <li>11:00 AM - 11:00 PM</li>
+                            </ul>
+                            <p>Fri</p>
+                            <ul>
+                                <li>11:00 AM - 11:00 PM</li>
+                            </ul>
+                            <p>Sat</p>
+                            <ul>
+                                <li>11:00 AM - 11:00 PM</li>
+                            </ul>
+                            <p>Sun</p>
+                            <ul>
+                                <li>11:00 AM - 11:00 PM</li>
+                            </ul>
+                            
+                        </ul>
+                        <br>
+                        <div class="address">
+                        <p>4106 Brooklyn Ave NE</p>
+                        <p>Seattle, WA 98105</p>
+                        </div>
+                        <br>
+                        <div>
+                            <a href="#gogglemap.link">
+                                <button class="map" type="button">Direction</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-     </div>  
+    </main>
+    <footer >
+        <p>
+            <a href="mailto:jah0311@uw.edu">
+                <span class="material-icons">email</span>
+                jah0311@uw.edu
+            </a>
+        </p>
+        <p>
+            <a href="mailto:Ptle04@uw.edu">
+                <span class="material-icons">email</span>
+                ptle04@uw.edu
+            </a>
+        </p>
+        <p>&copy; NomNom 2024</p>
+     </footer> 
 </body>
 </html>
