@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 html,
@@ -10,7 +10,7 @@ body {
 }
 
 body {
-    font-family: "Raleway", sans-serif;   
+    font-family: "Raleway", sans-serif;
     font-size: 95%;
 }
 
@@ -20,7 +20,7 @@ body {
 
 /* explore section */
 .explore-box {
-    flex-direction: column;
+flex-direction: column;
     flex-wrap: wrap;
     margin-top: 7.5rem;
     justify-content: center;
@@ -34,7 +34,7 @@ body {
 .img-box img {
     border-radius: 10px;
     object-fit: cover;
-    width: 20rem;
+width: 20rem;
     height: 20rem;
 }
 
@@ -47,7 +47,7 @@ body {
 }
 
 .post-content img {
-    display: none;
+display: none;
     margin-top: 1.5rem;
     margin-left: 1.5rem;
     width: 19rem;
@@ -294,8 +294,8 @@ header {
 footer {
     color: white;
     background-color: hsl(338, 86%, 78%);
-    margin-top: 20%;
-    height: 30vh;
+    margin-top: 3%;
+    height: 20vh;
 }
 
 footer p {
@@ -484,13 +484,34 @@ a {
   margin-right: -38em;
 }
 
-/* media query for 1250px width screens */
-@media (width >= 1250px) {
-   
+/* media queries */
+/* xs */
+@media (min-width: 475px) {
+
 }
 
-/* media query for 1550px width screens */
-@media (width >= 1550px) {
+/* sm */
+@media (min-width: 640px) {
+
+}
+
+/* md */
+@media (min-width: 768px) {
+
+}
+
+/* lg */
+@media (min-width: 1024px) {
+
+}
+
+/* xl */
+@media (min-width: 1280px) {
+
+}
+
+/* 2xl */
+@media (min-width: 1536px) {
     /* explore page */
     .explore-box {
         flex-wrap: wrap;
