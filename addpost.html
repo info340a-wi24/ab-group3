@@ -8,59 +8,59 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="img/Untitled_Artwork 15.PNG">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/addpost.css">
 </head>
 <body>
     <header>
-        <nav>
-            <a href='#index.html'> 
-                <img src='img/Untitled_Artwork 15.PNG' alt='Official logo' width='100px' height='70px'>
+        <nav class="flex-container navbar">
+            <a href='#index.html'>
+                <img src='img/logo.jpg' alt='Official logo' width='80px'>
               </a>
-              <div class="ae">
-                <a class="active" href="#home">Home</a>
-                <a href="exploreresults.html">Explore</a>
-              </div>  
-              
-            
-            <div class="lsu">
+            <div class="home-explore">
+            <a class="active" href="#home">Home</a>
+            <a href="explore.html">Explore</a>
+            </div>
+            <div class="login-signup">
                 <a href="login.html">Login</a>
                 <a href="createaccount.html">Sign Up</a>
-            </div> 
-        </nav>  
-        <div id="cover">
-            <form method="get" action="">
-            <div class="tb">
-                <div class="td"><input type="text" placeholder="Search..." required></div>
-                <div class = "vertical"></div>
-                <div class="td"><input type="text" placeholder="Location"></div>
-                <div class="td" id="s-cover">
-                    <button class="search" type="submit">
-                        <div id="s-circle"></div>
-                        <span></span>
-                    </button>
-                </div>
             </div>
+            <div class="user-profile">
+                <img aria-label="user-profile" class="user-profile-img" src="img/icon.png" alt="user-profile-img">
+            </div>
+        </nav>
+        <div id="searchbar">
+            <form method="get" action="">
+                <div class="search-fields">
+                    <div class="search-term"><input type="text" placeholder="Search" required></div>
+                    <div class = "vertical"></div>
+                    <div class="search-term"><input type="text" placeholder="Location"></div>
+                    <div class="search-term" id="search-btn-cover">
+                        <button class="search-btn" type="submit">
+                            <div id="search-btn-circle"></div>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
     </header>
     <main>
-            <div class="flex-container post-box">
-                <div class="flex-item post-img">
-                    <img src="img/nikocado.webp" alt="nikocado loving avocado" width="300" height="300">
-                </div>
-                <div id="content" class="flex-container">
-                    <form>
-                        <label for="post-img">Image:</label><br>
-                        <input type="file" id="post-img" name="post-img" accept="image/png, image/jpeg"/><br><br>
-                        <label for="post-title">Title:</label><br>
-                        <input type="text" id="post-title" name="post-title"><br><br>
-                        <label for="post-description">Description:</label><br>
-                        <input type="text" id="post-description" name="post-description"><br><br>
-                        <label for="post-tags">Tags:</label><br>
-                        <input type="text" id="post-tags" name="post-tags"><br><br>
-                        <input type="submit" value="Submit">
-                    </form>
-                </div>
+        <div class="flex-container post-box">
+            <div class="flex-item post-img">
+                <img src="img/nikocado.webp" alt="nikocado loving avocado" width="300" height="300">
+            </div>
+            <div id="content" class="flex-container">
+                <form>
+                    <label for="post-img">Image:</label><br>
+                    <input type="file" id="post-img" name="post-img" accept="image/png, image/jpeg"/><br><br>
+                    <label for="post-title">Title:</label><br>
+                    <input type="text" id="post-title" name="post-title"><br><br>
+                    <label for="post-description">Description:</label><br>
+                    <input type="text" id="post-description" name="post-description"><br><br>
+                    <label for="post-tags">Tags:</label><br>
+                    <input type="text" id="post-tags" name="post-tags"><br><br>
+                    <input type="submit" value="Submit">
+                </form>
             </div>
         </div>
     </main>

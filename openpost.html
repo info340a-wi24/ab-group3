@@ -13,34 +13,35 @@
 </head>
 <body>
     <header>
-        <nav>
-            <a href='#index.html'> 
-                <img src='img/Untitled_Artwork 15.PNG' alt='Official logo' width='100px' height='70px'>
+        <nav class="flex-container navbar">
+            <a href='#index.html'>
+                <img src='img/logo.jpg' alt='Official logo' width='80px'>
               </a>
-              <div class="ae">
-                <a class="active" href="#home">Home</a>
-                <a href="exploreresults.html">Explore</a>
-              </div>  
-              
-            
-            <div class="lsu">
+            <div class="home-explore">
+            <a class="active" href="#home">Home</a>
+            <a href="explore.html">Explore</a>
+            </div>
+            <div class="login-signup">
                 <a href="login.html">Login</a>
                 <a href="createaccount.html">Sign Up</a>
-            </div> 
-        </nav>  
-        <div id="cover">
-            <form method="get" action="">
-            <div class="tb">
-                <div class="td"><input type="text" placeholder="Search..." required></div>
-                <div class = "vertical"></div>
-                <div class="td"><input type="text" placeholder="Location"></div>
-                <div class="td" id="s-cover">
-                    <button class="search" type="submit">
-                        <div id="s-circle"></div>
-                        <span></span>
-                    </button>
-                </div>
             </div>
+            <div class="user-profile">
+                <img aria-label="user-profile" class="user-profile-img" src="img/icon.png" alt="user-profile-img">
+            </div>
+        </nav>
+        <div id="searchbar">
+            <form method="get" action="">
+                <div class="search-fields">
+                    <div class="search-term"><input type="text" placeholder="Search" required></div>
+                    <div class = "vertical"></div>
+                    <div class="search-term"><input type="text" placeholder="Location"></div>
+                    <div class="search-term" id="search-btn-cover">
+                        <button class="search-btn" type="submit">
+                            <div id="search-btn-circle"></div>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
     </header>

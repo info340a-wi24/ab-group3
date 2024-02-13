@@ -1,21 +1,13 @@
 * {
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 body {
-  font-family: "Gill Sans", sans-serif;   
   font-size: 15px;
 }
 
 .flex-container {
   display: flex;
-}
-
-.explore-box {
-  flex-wrap: wrap;
-  margin-top: 200px;
-  justify-content: center;
-  gap: 30px;
 }
 
 img {
@@ -26,10 +18,11 @@ img {
 .post-box {
   background-color: lightgray;
   align-items: center;
+  justify-content: center;
   border-radius: 10px;
-  width: 750px;
+  width: 100%;
+  margin: 0;
   height: 380px;
-  position: fixed; 
   bottom: 125px;
 }
 
@@ -49,12 +42,4 @@ img {
 
 #content {
   margin-top: 35px;
-}
-
-.username div {
-  margin: 5px;
-}
-
-.commenter {
-  margin-bottom: 10px;
 }
