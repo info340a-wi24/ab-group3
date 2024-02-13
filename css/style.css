@@ -319,6 +319,7 @@ footer a {
   flex-wrap: wrap;
   margin-top: 5em;
   margin-left: 1em;
+  margin-bottom: 18em;
   gap: 2em;
   flex-grow: 1;
   flex-direction: column;
@@ -375,7 +376,7 @@ footer a {
 .childR {
   width: 20%;
   height: fit-content;
-  margin-left: 70em;
+  margin-left: 75em;
   padding: 1em;
   background-color: #D5E1E1; 
   border-radius: 1em;   
