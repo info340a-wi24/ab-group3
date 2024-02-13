@@ -20,27 +20,34 @@ body {
 
 /* explore section */
 .explore-box {
+    flex-direction: column;
     flex-wrap: wrap;
     margin-top: 7.5rem;
     justify-content: center;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
-.flex-item img {
+.explore-box .img-box {
+    justify-content: center;
+}
+
+.img-box img {
     border-radius: 10px;
     object-fit: cover;
+    width: 20rem;
+    height: 20rem;
 }
 
 .post-box {
     background-color: lightgray;
     border-radius: 10px;
-    width: 59%;
-    height: 61%;
+    height: 50%;
     position: fixed; 
-    bottom: 20%;
+    bottom: 0;
 }
 
 .post-content img {
+    display: none;
     margin-top: 1.5rem;
     margin-left: 1.5rem;
     width: 19rem;
@@ -287,7 +294,7 @@ header {
 footer {
     color: white;
     background-color: hsl(338, 86%, 78%);
-    margin-top: 3%;
+    margin-top: 20%;
     height: 30vh;
 }
 
@@ -478,10 +485,13 @@ a {
 }
 
 /* media query for 1250px width screens */
+@media (width >= 1250px) {
+   
+}
 
-/* media query for 1500px width screens */
-@media (width >= 1500px) {
-    /* explore section */
+/* media query for 1550px width screens */
+@media (width >= 1550px) {
+    /* explore page */
     .explore-box {
         flex-wrap: wrap;
         margin-top: 7.5rem;
@@ -498,28 +508,26 @@ a {
         background-color: lightgray;
         border-radius: 10px;
         width: 60%;
-        height: 55%;
+        height: 51%;
         position: fixed; 
         bottom: 20%;
         font-size: 1.35rem;
     }
 
     .post-content img {
-        margin-top: 3rem;
-        margin-left: 3rem;
-        width: 25rem;
-        height: 25rem;
+        margin: 3rem;
+        width: 20rem;
+        height: 20rem;
     }
 
-    .post-content p {
+    .post-content section {
         text-align: center;
         position: relative;
-        left: 1em;
-        top: 1em;
+        bottom: 1em;
     }
 
     .post-detail {
-        margin: 2em 3em;
+        margin: 0;
     }
 
     #comments {
@@ -541,15 +549,5 @@ a {
 
     .commenter {
         margin-bottom: .6em;
-    }
-
-    .post-img {
-        margin: 2em;
-        width: 300px;
-        height: 300px;
-    }
-    
-    #content {
-        margin-top: 35px;
     }
 }
