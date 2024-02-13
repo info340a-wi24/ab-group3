@@ -191,7 +191,7 @@ header {
   
 }
 
-.flex-container {
+.flex-containerP {
     display: flex;
     flex-wrap: wrap;
     margin-top: 5em;
@@ -199,7 +199,7 @@ header {
   
 }
 
-.flex-item {
+.flex-itemP {
     background-image: url('../img/Untitled_Artwork 15.PNG');
     background-size: cover;
     border-radius: 1em;
