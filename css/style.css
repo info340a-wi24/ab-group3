@@ -57,7 +57,6 @@ body {
     font-size: 3rem;
 }
 
-
 .post-content {
     flex-direction: column;
     justify-content: center;
@@ -315,7 +314,7 @@ footer {
     color: white;
     background-color: hsl(338, 86%, 78%);
     margin-top: 15%;
-    height: 20vh;
+    height: 20%;
 }
 
 footer p {
@@ -508,36 +507,158 @@ a {
 /* xs */
 @media (min-width: 475px) {
     /* explore page */
+
+    /* open post */
     .post-box {
-        font-size: 1.1em;
+        font-size: 1.2em;
     }
     
     .post-detail {
         margin-top: 1.5rem;
     }
+
+    .circle {
+        width: 3.75rem;
+        height: 3.75rem;
+    }
 }
 
 /* sm */
 @media (min-width: 640px) {
+    /*explore page */
+    .explore-box {
+        flex-direction: row;
+    }
 
+    .img-box img {
+        width: 17rem;
+        height: 17rem;
+    }
+
+    /* open post */
+    .post-box {
+        font-size: 1.4em;
+    }
+    
+    .post-detail {
+        margin-top: 2.3rem;
+    }
+
+    .circle {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
 }
 
 /* md */
 @media (min-width: 754px) {
+    /*explore page */
+    .img-box img {
+        width: 20rem;
+        height: 20rem;
+    }
 
+    /* open post */
+    .post-box {
+        font-size: 1.5em;
+    }
+    
+    .post-detail {
+        margin-top: 2.5rem;
+    }
+
+    .circle {
+        width: 4.75rem;
+        height: 4.75rem;
+    }
 }
 
 /* lg */
 @media (min-width: 1024px) {
+    /*explore page */
+    .img-box img {
+        width: 18rem;
+        height: 18rem;
+    }
 
+    footer {
+        margin-top: 7.5%;
+    }
+
+    /* open post */
+    .post-box {
+        height: 60%;
+        width: 75%;
+        bottom: 20%;
+        flex-direction: row;
+    }
+    
+    #dragdown {
+        color: #50896A;
+        top: -3.5%;
+        left: 45%;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 4rem;
+        width: 0;
+        height: 0;
+    }
+    
+    .post-content {
+        margin: 2rem;
+        width: 100%;
+    }
+    
+    .post-detail {
+        font-size: 0.9em;
+    }
+    
+    .circle {
+        height: 4rem;
+        width: 4rem;
+    }
 }
 
 /* xl */
 @media (min-width: 1280px) {
+    /*explore page */
+    .img-box img {
+        width: 17rem;
+        height: 17rem;
+    }
 
+    /* open post */
+    .post-detail {
+        font-size: 1em;
+    }
+    
+    
 }
 
 /* 2xl */
 @media (min-width: 1536px) {
-    
+    /*explore page */
+    .img-box img {
+        width: 16rem;
+        height: 16rem;
+    }
+
+    footer {
+        margin-top: 5%;
+    }
+
+    /* open post */
+    .post-box {
+        width: 70%;
+    }
+
+    .post-detail {
+        font-size: 1.1em;
+    }
+
+    .circle {
+        height: 4.5rem;
+        width: 4.5rem;
+    }
 }
