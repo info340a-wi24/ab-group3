@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="your name">
+    <meta name="description" content="description of your page">
+    <title>Explore Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="flex-container navbar">
+            <a href='index.html'>
+                <img src='img/logo.jpg' alt='logo' width='80px'>
+              </a>
+            <div class="flex-container home-explore">
+            <a class="active" href="index.html">Home</a>
+            <a href="explore.html">Explore</a>
+            <a href="create.html">Create</a>
+            </div>
+            <div id="searchbar" class="flex-container">
+                <form method="get" action="">
+                    <div class="search-fields">
+                        <div class="search-term"><input type="text" placeholder="Search:" required></div>
+                        <div class="search-term"><input type="text" placeholder="Location:"></div>
+                        <div class="search-term" id="search-btn-cover">
+                            <button class="search-btn" type="submit">
+                                <div id="search-btn-circle"></div>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="flex-container login-signup">
+                <a href="login.html">Login</a>
+                <a href="signup.html">Sign Up</a>
+            </div>
+            <a class="user-profile hidden" href="personalP.html">
+                <img aria-label="user-profile" class="user-profile-img" src="img/nikocado.webp" alt="user-profile-img">
+            </a>
+        </nav>
+    </header>
+    <main>
+        <div class="flex-container post-box">
+            <div class="flex-item post-img">
+                <img src="img/nikocado.webp" alt="nikocado loving avocado" width="300" height="300">
+            </div>
+            <div id="content" class="flex-container">
+                <form>
+                    <label for="post-img">Image:</label><br>
+                    <input type="file" id="post-img" name="post-img" accept="image/png, image/jpeg"/><br><br>
+                    <label for="post-title">Title:</label><br>
+                    <input type="text" id="post-title" name="post-title"><br><br>
+                    <label for="post-description">Description:</label><br>
+                    <input type="text" id="post-description" name="post-description"><br><br>
+                    <label for="post-tags">Tags:</label><br>
+                    <input type="text" id="post-tags" name="post-tags"><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>
+            <a href="mailto:jah0311@uw.edu, ptle04@uw.edu, phucn24@uw.edu, tlu2004@uw.edu">
+                <span class="material-icons">email</span>
+                contact@nomnom.com
+            </a>
+        </p>
+        <p>&copy; NomNom 2024</p>
+    </footer>
+</body>
+</html>
