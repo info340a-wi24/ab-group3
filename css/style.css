@@ -20,7 +20,7 @@ body {
 
 /* explore section */
 .explore-box {
-flex-direction: column;
+    flex-direction: column;
     flex-wrap: wrap;
     margin-top: 7.5rem;
     justify-content: center;
@@ -34,17 +34,17 @@ flex-direction: column;
 .img-box img {
     border-radius: 10px;
     object-fit: cover;
-width: 20rem;
+    width: 20rem;
     height: 20rem;
 }
 
 .post-box {
+    min-height: 100%;
     background-color: lightgray;
     border-radius: 10px;
-    height: 100%;
     position: fixed; 
     bottom: 0;
-z-index: 2;
+    z-index: 2;
     flex-direction: column;
 }
 
@@ -64,34 +64,33 @@ z-index: 2;
 }
 
 .post-content img {
-width: 100%;
-    height: 25rem;
+    width: 100%;
     object-fit: cover;
 }
 
 .post-content section {
     text-align: center;
-position: relative;
+    position: relative;
 }
 
 .post-detail {
     font-size: 1.15em;
-    margin: 2.5rem 2rem;
+    margin: 2.5em 2em;
     flex-direction: column;
     justify-content: center;
 }
 
 #comments {
-    margin-top: 1.5rem;
+    margin-top: 1.5em;
 }
 
 .circle {
-    height: 3rem;
-    width: 3rem;
+    height: 3em;
+    width: 3em;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
-    margin-right: 1rem;
+    margin-right: 1em;
 }
 
 .username div {
@@ -303,7 +302,7 @@ footer {
     color: white;
     background-color: hsl(338, 86%, 78%);
     margin-top: 15%;
-    height: 20%;
+    height: 30%;
 }
 
 footer p {
@@ -606,22 +605,21 @@ a {
     .circle {
         height: 4rem;
         width: 4rem;
-        }
+    }
 }
 
 /* xl */
-@media (min-width: 1280px) {
+@media (min-width: 1280px ) {
     /*explore page */
     .img-box img {
         width: 17rem;
         height: 17rem;
     }
-
+    
     /* open post */
     .post-detail {
         font-size: 1em;
     }
-    
     
 }
 
