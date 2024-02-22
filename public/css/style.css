@@ -56,7 +56,10 @@ div .card {
 }
 
 /* explore section */
-.gg-bookmark,
+.explore-page {
+    flex-direction: column;
+}
+/* .gg-bookmark,
 .gg-bookmark::after {
     z-index: 0;
     display: block;
@@ -106,27 +109,37 @@ div .card {
     position: absolute;
     color: white;
     margin-left: 40px;
-}
+} */
 
 .explore-box {
     flex-direction: column;
     flex-wrap: wrap;
-    margin-top: 7.5rem;
+    margin-top: 1rem;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 1rem;
 }
 
-.explore-box .img-box {
+.img-box {
+    justify-content: center
+}
+
+.img-box img {
+    object-fit: cover;
+    border-radius: 10px;
+    max-height: 100%;
+    width: 20rem;
+}
+
+/* .img-box {
     justify-content: center;
     flex-direction: column;
+} */
 
-}
-
-.img-box-img {
+/* .img-box-img {
     border-radius: 10px;
     object-fit: cover;
     width: 20rem;
-}
+} */
 
 .post-box {
     background-color: lightgray;
@@ -382,18 +395,20 @@ footer {
     color: white;
     background-color: hsl(338, 86%, 78%);
     margin-top: 15%;
-    height: 20%;
+}
+
+.footer-container {
+    flex-direction: column;
+    padding-bottom: 2.5%;
+}
+
+footer p:first-child {
+    position: relative;
+    top: 1.4em;
 }
 
 footer p {
-    position: relative;
-    top: 1em;
-    margin-top: -1em;
-    margin-left: 3em;
-}
-
-footer p:last-of-type {
-    top: 2em;
+    margin-left: 2em;
 }
 
 footer a {
@@ -596,11 +611,6 @@ a {
         flex-direction: row;
     }
 
-    .img-box img {
-        width: 17rem;
-        height: 17rem;
-    }
-
     /* open post */
     .post-box {
         font-size: 1.4em;
@@ -619,10 +629,6 @@ a {
 /* md */
 @media (min-width: 754px) {
 /*explore page */
-    .img-box img {
-        width: 20rem;
-        height: 20rem;
-    }
 
     /* open post */
     .post-box {
@@ -642,10 +648,7 @@ a {
 /* lg */
 @media (min-width: 1024px) {
 /*explore page */
-    .img-box img {
-        width: 18rem;
-        height: 18rem;
-    }
+    
 
     footer {
         margin-top: 7.5%;
@@ -689,10 +692,7 @@ a {
 /* xl */
 @media (min-width: 1280px) {
     /*explore page */
-    .img-box img {
-        width: 17rem;
-        height: 17rem;
-    }
+    
 
     /* open post */
     .post-detail {
@@ -705,10 +705,7 @@ a {
 /* 2xl */
 @media (min-width: 1536px) {
     /*explore page */
-    .img-box img {
-        width: 16rem;
-        height: 16rem;
-    }
+    
 
     footer {
         margin-top: 5%;
