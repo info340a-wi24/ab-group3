@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import ProfileImgs from './personal';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         ))
       )}
     </div>
+    
   )
 }
 
