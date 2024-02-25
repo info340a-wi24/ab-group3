@@ -56,7 +56,10 @@ div .card {
 }
 
 /* explore section */
-.gg-bookmark,
+.explore-page {
+    flex-direction: column;
+}
+/* .gg-bookmark,
 .gg-bookmark::after {
     z-index: 0;
     display: block;
@@ -106,27 +109,54 @@ div .card {
     position: absolute;
     color: white;
     margin-left: 40px;
+} */
+
+.explore-option {
+    justify-content: center;
 }
 
+.explore-option a {
+    padding: 1%;
+    margin: 1% 3%;
+    border-radius: 2em;
+}
+
+.explore-option a:first-child {
+    background-color: #F39999;
+}
 .explore-box {
     flex-direction: column;
     flex-wrap: wrap;
-    margin-top: 7.5rem;
+    margin-top: 1rem;
     justify-content: center;
-    gap: 2.5rem;
 }
 
-.explore-box .img-box {
+.img-box {
+    flex-direction: column;
+}
+
+.img-box a {
+    justify-content: center;
+    margin: .8rem 2.35rem;
+}
+
+.img-box img {
+    object-fit: cover;
+    border-radius: 10px;
+    max-height: 100%;
+    width: 95%;
+}
+
+/* .img-box {
     justify-content: center;
     flex-direction: column;
+} */
 
-}
-
-.img-box-img {
+/* .img-box-img {
     border-radius: 10px;
     object-fit: cover;
     width: 20rem;
-}
+} */
 
 .post-box {
     background-color: lightgray;
@@ -382,18 +412,20 @@ footer {
     color: white;
     background-color: hsl(338, 86%, 78%);
     margin-top: 15%;
-    height: 20%;
+}
+
+.footer-container {
+    flex-direction: column;
+    padding-bottom: 2.5%;
+}
+
+footer p:first-child {
+    position: relative;
+    top: 1.4em;
 }
 
 footer p {
-    position: relative;
-    top: 1em;
-    margin-top: -1em;
-    margin-left: 3em;
-}
-
-footer p:last-of-type {
-    top: 2em;
+    margin-left: 2em;
 }
 
 footer a {
@@ -591,14 +623,12 @@ a {
 
 /* sm */
 @media (min-width: 640px) {
-/*explore page */
+    /*explore page */
     .explore-box {
         flex-direction: row;
     }
-
     .img-box img {
-        width: 17rem;
-        height: 17rem;
+        width: 15rem;
     }
 
     /* open post */
@@ -618,10 +648,9 @@ a {
 
 /* md */
 @media (min-width: 754px) {
-/*explore page */
+    /*explore page */
     .img-box img {
-        width: 20rem;
-        height: 20rem;
+        width: 18rem;
     }
 
     /* open post */
@@ -641,11 +670,11 @@ a {
 
 /* lg */
 @media (min-width: 1024px) {
-/*explore page */
+    /*explore page */
     .img-box img {
-        width: 18rem;
-        height: 18rem;
+        width: 16rem;
     }
+
 
     footer {
         margin-top: 7.5%;
@@ -689,10 +718,7 @@ a {
 /* xl */
 @media (min-width: 1280px) {
     /*explore page */
-    .img-box img {
-        width: 17rem;
-        height: 17rem;
-    }
+    
 
     /* open post */
     .post-detail {
@@ -705,9 +731,11 @@ a {
 /* 2xl */
 @media (min-width: 1536px) {
     /*explore page */
+    .img-box a {
+        margin: .8rem;
+    }
     .img-box img {
-        width: 16rem;
-        height: 16rem;
+        width: 12.5rem;
     }
 
     footer {
