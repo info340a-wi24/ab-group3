@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 
-function ProfileInfo() {
+function ProfileInfo({name, profilePic}) {
 
     return (
         <div>
             <div>
-            <img className="profileP" src="img/Untitled_Artwork 15.PNG" alt="Users profile picture" height="200px" width="300px"/>
+            <img className="profileP" src={profilePic.url} alt="User's profile picture" height="200px" width="300px"/>
             </div> 
             <div className="profile">
-                <p>@User_name</p>
+                <p>@{name}</p>
             </div>
             <a href="personalP.html">
                 <button className="postButton" type="button">Saved Post</button>
@@ -17,42 +17,16 @@ function ProfileInfo() {
     );
 }
 
-function ProfileImgs() {
+function ProfileImgs({images}) {
     return (
     <div className="flex-containerP">
-        <div className="flex-itemP">
-            
-        </div>
-        <div className="flex-itemP">
-            
-        </div>
-        <div className="flex-itemP">
-            
-        </div>
-        <div className="flex-itemP">
-            
-        </div>
-        <div className="flex-itemP">
-            
-        </div>
-        <div className="flex-itemP">
-            
-        </div>
-        <div className="flex-itemP">
-            
-        </div>
-        <div className="flex-itemP">
-            
-        </div>
-        <div className="flex-itemP">
-            
-        </div>
-        <div className="flex-itemP">
-            
-        </div>
-        <div className="flex-itemP">
-            
-        </div> 
+        {images.map((image, index) => (
+         <div className="flex-itemP" key={index}>
+            <img src={image.url} alt={image.alt}/>
+         </div>
+        
+        ))}
+        
     </div>
     );
 }
