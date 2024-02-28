@@ -112,23 +112,40 @@ div .card {
     margin-left: 40px;
 }
 
+.explore-option {
+    justify-content: center;
+}
+
+.explore-option a {
+    padding: 1%;
+    margin: 1% 3%;
+    border-radius: 2em;
+}
+
+.explore-option a:first-child {
+    background-color: #F39999;
+}
 .explore-box {
     flex-direction: column;
     flex-wrap: wrap;
     margin-top: 1rem;
     justify-content: center;
-    gap: 1rem;
 }
 
 .img-box {
-    justify-content: center
+    flex-direction: column;
+}
+
+.img-box a {
+    justify-content: center;
+    margin: .8rem 2.35rem;
 }
 
 .img-box img {
     object-fit: cover;
     border-radius: 10px;
     max-height: 100%;
-    width: 20rem;
+    width: 95%;
 }
 
 /* .img-box {
@@ -607,9 +624,12 @@ a {
 
 /* sm */
 @media (min-width: 640px) {
-/*explore page */
+    /*explore page */
     .explore-box {
         flex-direction: row;
+    }
+    .img-box img {
+        width: 15rem;
     }
 
     /* open post */
@@ -629,7 +649,10 @@ a {
 
 /* md */
 @media (min-width: 754px) {
-/*explore page */
+    /*explore page */
+    .img-box img {
+        width: 18rem;
+    }
 
     /* open post */
     .post-box {
@@ -648,8 +671,11 @@ a {
 
 /* lg */
 @media (min-width: 1024px) {
-/*explore page */
-    
+    /*explore page */
+    .img-box img {
+        width: 16rem;
+    }
+
 
     footer {
         margin-top: 7.5%;
@@ -706,7 +732,12 @@ a {
 /* 2xl */
 @media (min-width: 1536px) {
     /*explore page */
-    
+    .img-box a {
+        margin: .8rem;
+    }
+    .img-box img {
+        width: 12.5rem;
+    }
 
     footer {
         margin-top: 5%;
