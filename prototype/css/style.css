@@ -249,6 +249,7 @@ header {
     margin-bottom: 0.5em;
 }
 
+/* opening post */
 .post-box {
     flex-direction: column;
     font-size: .9rem;
@@ -263,6 +264,7 @@ header {
 
 .post-detail {
     margin: 1em;
+    flex-direction: column;
 }
 
 .post-img {
@@ -273,6 +275,7 @@ header {
     object-fit: cover;
     border-radius: 25px 25px 0 0;
     width: 100%;
+    height: 100%;
 }
 
 .profile-pic {
@@ -334,8 +337,12 @@ header {
     font-size: 1.7rem;
 }
 
+.comment-count {
+    display: none;
+}
+
 main > p {
-    margin: 2em 0 0 1em;
+    margin: 2em 0 0 1.5em;
     font-weight: bold;
 }
 
@@ -452,8 +459,6 @@ footer a {
         height: 8rem;
         width: 12rem;
     }
-
-    
 }
 
 @media (min-width: 640px) {
@@ -471,10 +476,59 @@ footer a {
         width: 15rem;
     }
 
+    /* opening post */
     .post-box {
         flex-direction: row;
+        border-radius: 25px;
+        width: 650px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
+    .post-img img {
+        border-radius: 25px 0 0 25px;
+    }
+
+    .post-detail {
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+    }
+
+    .post-creator {
+        margin-bottom: 4em;
+    }
+
+    .post-detail section {
+        margin-bottom: 1em;
+    }
+
+    .post-util div:first-child {
+        font-size: 2rem;
+    }
+
+    .post-util div:last-child {
+        display: none;
+    }
+
+    .post-util button {
+        margin-right: .27em;
+        margin-top: .4em;
+    }
+
+    .comment-count {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        order: -1;
+        margin: 0 .5em;
+
+    }
+
+    main > p {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
 }
 
 /* md */
@@ -489,6 +543,10 @@ footer a {
         width: 18rem;
     }
 
+    /* opening post */
+    .post-box {
+        width: 700px;
+    }
 }
 
 /* lg */
@@ -500,6 +558,16 @@ footer a {
     footer {
         margin-top: 7.5%;
     }
+
+    /* opening post */
+    .post-box {
+        width: 900px;
+    } 
+
+    .post-util button {
+        margin-right: .65em;
+    }
+    
 }
 
 /* xl */
@@ -513,6 +581,9 @@ footer a {
         height: 10rem;
         width: 15rem;
     }
+
+    /* opening post */
+    
     
 }
 
@@ -527,4 +598,7 @@ footer a {
     footer {
         margin-top: 5%;
     }
+
+    /* opening post */
+
 }
