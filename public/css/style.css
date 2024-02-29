@@ -59,7 +59,8 @@ div .card {
 .explore-page {
     flex-direction: column;
 }
-/* .gg-bookmark,
+
+.gg-bookmark,
 .gg-bookmark::after {
     z-index: 0;
     display: block;
@@ -109,7 +110,7 @@ div .card {
     position: absolute;
     color: white;
     margin-left: 40px;
-} */
+}
 
 .explore-option {
     justify-content: center;
