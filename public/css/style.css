@@ -125,27 +125,29 @@ div .card {
 .explore-option a:first-child {
     background-color: #F39999;
 }
+
 .explore-box {
     flex-direction: column;
     flex-wrap: wrap;
     margin-top: 1rem;
     justify-content: center;
+    gap: 2em;
 }
 
-.img-box {
-    flex-direction: column;
-}
-
-.img-box a {
+.explore-box a {
     justify-content: center;
-    margin: .8rem 2.35rem;
+    flex-grow: 1;
 }
 
-.img-box img {
+.explore-box img {
     object-fit: cover;
     border-radius: 10px;
     max-height: 100%;
-    width: 95%;
+    max-width: 15rem;
+}
+
+.explore-box a:first-child {
+    flex-grow: 5;
 }
 
 /* .img-box {
