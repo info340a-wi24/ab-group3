@@ -11,6 +11,15 @@ body {
     display: flex;
 }
 
+.NomNom-button {
+    padding: 1em;
+    border-radius: 2em;
+    width: 6em;
+    color: white;
+    font-weight: bold;
+}
+
+
 /* navbar section*/
 .navbar {
     z-index: 999;
@@ -314,14 +323,9 @@ header {
  #publish {
     display: inline-block;
     background-color: #B5CB99;
-    color: #fff;
-    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
-
-
 
 
 /* footer section */
