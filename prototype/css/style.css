@@ -245,21 +245,83 @@ header {
     margin-bottom: 0.5em;
 }
 
-.post-box {
+.flex-container .post-box{
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.form-container {
+    background-color: #DCDFDD ;
+    border-radius: 2em;
+    width: 30%;
+    display: flex;
     flex-direction: column;
+    margin-left: 20%;
 }
 
-.post-img, .post-detail {
-    flex-grow: 1;
+.container2 {
+    width: 45%;
+    margin-left: 6em;
 }
 
-.post-img {
-    align-items: center;
+.description-container label,
+.description-container textarea {
+    display: block;
+    margin-bottom: 10px;
 }
 
-.post-img img {
-    object-fit: cover;
+#dropArea {
+    margin-top: 40%;
+    text-align: center;
 }
+
+#dropArea input {
+    margin-left: 20%;
+}
+
+.description-container {
+    border-radius: 2em;
+    width: calc(50% - 10px);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+
+.post-box {
+    margin-top: 10em;
+    height: 35em;
+    padding: 2em;  
+    margin-left: 5%;
+} 
+
+
+
+.description-container textarea {
+    border-radius: .75em;
+    height: fit-content;
+    display: flex;
+    width: 100%;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.button {
+    cursor: pointer;
+}
+
+ #publish {
+    display: inline-block;
+    background-color: #B5CB99;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
 
 
 /* footer section */
@@ -323,7 +385,6 @@ footer a {
 
     
 }
-    
 
 @media (min-width: 640px) {
     /* home page */
