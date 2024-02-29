@@ -756,3 +756,29 @@ a {
         width: 4.5rem;
     }
 }
+
+.flex-container.example1:hover img {
+    opacity: 0.8;
+}
+
+.flex-container.example1:hover .icons {
+    visibility: visible;
+}
+
+.flex-container.example1 {
+    position: relative;
+    display: inline-block;
+    background-color: black;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.icons {
+    position: absolute;
+    top: 10%;
+    left: 93%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    color: red;
+}
+
