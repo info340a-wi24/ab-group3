@@ -338,11 +338,19 @@ header {
     color: black;
 }
 
+.post-util .material-icons {
+    position: relative;
+    font-size: 2rem;
+    text-decoration: none;
+}
+
 .comment-dropdown {
     display: none;
 }
 
 .comment-dropdown .material-icons {
+    position: relative;
+    top: .45em;
     color: black;
 }
 
@@ -390,6 +398,8 @@ main > p {
 .comment-count .material-icons {
     margin: .2em .5em 0 0;
     font-size: 1.4rem;
+    position: relative;
+    top: 0.3em;
 }
 
 .comment-section {
@@ -399,6 +409,10 @@ main > p {
 
 .commenter {
     margin-top: 1em;
+}
+
+.commenter:last-child {
+    margin-bottom: 2em;
 }
 
 .commenter .profile-pic {
@@ -413,7 +427,6 @@ main > p {
 
 .comment-entry {
     flex-direction: row;
-    margin-top: 2em;
     padding: 1em 0 1em 0;
     justify-content: center;
     box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 20%);
@@ -423,12 +436,12 @@ main > p {
     border-radius: 20px;
     width: 75%;
     padding: .5em;
+    resize: vertical;
 }
 
 .comment-entry button {
-    padding: .25em;
+    padding: .5em;
     background-color: #F39999;
-    font-size: .75rem;
     width: 4em;
     margin-left: 1em;
 }
@@ -527,7 +540,7 @@ footer a {
     text-decoration: none;
 }
 
-.material-icons {
+footer .material-icons {
     position: relative;
     top: .3em;
 }
@@ -585,6 +598,10 @@ footer a {
         margin-right: auto;
     }
 
+    .post-img {
+        width: 100%;
+    }
+
     .post-img img {
         border-radius: 25px 0 0 25px;
     }
@@ -602,11 +619,12 @@ footer a {
         margin-bottom: 1em;
     }
 
-    .post-util div:first-child {
+    .post-util .material-icons:first-child {
+        top: .3em;
         font-size: 2rem;
     }
 
-    .post-util div:last-child {
+    .post-util .material-icons:last-child {
         display: none;
     }
 
@@ -671,6 +689,10 @@ footer a {
     .post-box {
         width: 700px;
     }
+
+    .post-img {
+        width: 92%;
+    }
 }
 
 /* lg */
@@ -688,10 +710,13 @@ footer a {
         width: 900px;
     } 
 
+    .post-img {
+        width: 70%;
+    }
+
     .post-util button {
         margin-right: .65em;
-    }
-    
+    } 
 }
 
 /* xl */
