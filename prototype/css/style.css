@@ -335,10 +335,15 @@ header {
 .post-util .material-icons {
     border: 1em;
     font-size: 1.7rem;
+    color: black;
 }
 
-.comment-count {
+.comment-dropdown {
     display: none;
+}
+
+.comment-dropdown .material-icons {
+    color: black;
 }
 
 main > p {
@@ -346,8 +351,89 @@ main > p {
     font-weight: bold;
 }
 
-/* Thi Thi's Work */
+/* comment section */
+.comment-box {
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 20%);
+    z-index: 100;
+}
 
+.comment-box > a {
+    align-self: center;
+}
+
+#minimize-bar {
+    height: .25em;
+    margin-top: .4em;
+    background-color: lightgray;
+    border-radius: 20px;
+    width: 75px;
+}
+
+.comment-count {
+    justify-content: space-between;
+    box-shadow: 1px 1px rgb(0 0 0 / 20%);
+}
+
+.comment-count > p {
+    margin-left: .75em;
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+.comment-count .material-icons {
+    margin: .2em .5em 0 0;
+    font-size: 1.4rem;
+}
+
+.comment-section {
+    overflow: auto;
+    height: 300px;
+}
+
+.commenter {
+    margin-top: 1em;
+}
+
+.commenter .profile-pic {
+    flex-grow: 0;
+    margin: 0 .5em;
+}
+
+.commenter .username p:first-child {
+    font-size: .85rem;
+    margin-bottom: .2em;
+}
+
+.comment-entry {
+    flex-direction: row;
+    margin-top: 2em;
+    padding: 1em 0 1em 0;
+    justify-content: center;
+    box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 20%);
+}
+
+.comment-entry textarea {
+    border-radius: 20px;
+    width: 75%;
+    padding: .5em;
+}
+
+.comment-entry button {
+    padding: .25em;
+    background-color: #F39999;
+    font-size: .75rem;
+    width: 4em;
+    margin-left: 1em;
+}
+
+/* Thi Thi's Work */
 .upload-box {
     display: flex;
     margin-top: 10em;
@@ -414,8 +500,6 @@ main > p {
     border: none;
     cursor: pointer;
 }
-
-
 
 /* footer section */
 footer {
@@ -531,19 +615,43 @@ footer a {
         margin-top: .4em;
     }
 
-    .comment-count {
+    .comment-dropdown {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         order: -1;
         margin: 0 .5em;
-
     }
 
     main > p {
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+    }
+
+    /* comment section */
+    .comment-box {
+        position: static;
+        order: -2;
+        box-shadow: none;
+    }
+
+    #minimize-bar {
+        display: none;
+    }
+
+    .comment-count {
+        display: none;
+    }
+
+    .comment-section {
+        height: 200px;
+    }
+
+    .comment-entry {
+        box-shadow: none;
+        padding-bottom: 0;
+        margin-top: 0;
     }
 }
 
