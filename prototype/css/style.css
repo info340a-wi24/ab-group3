@@ -168,7 +168,7 @@ header {
     z-index: 999;
 }
 
-/* discovery page */
+/* home option */
 .home-option {
     flex-wrap: wrap;
     justify-content: center;
@@ -197,10 +197,11 @@ header {
     transition: all .5s ease-in-out;
 }
 
+/* discovery page */
 .post-list {
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: 1rem;
+    margin: 2em 1rem 0;
     justify-content: center;
     gap: 1em;
 }
@@ -224,11 +225,10 @@ header {
 /* following page */
 .restaurant-list {
     margin-top: 2em;
-    gap: 3em;
 }
 
 .restaurant-figure {
-    width: 20rem;
+    width: 10rem;
     margin: 0;
     padding-bottom: .3em;
     border-radius: 10px;
@@ -243,7 +243,7 @@ header {
     object-fit: cover;
     border-radius: 10px 10px 0 0;
     width: 100%;
-    height: 12rem;
+    height: 6rem;
 }
 
 figcaption {
@@ -527,7 +527,7 @@ main > p {
     margin: 0 1em;
     background-image: url(../img/Nikke.jpg);
     background-size: cover;
-    border-radius: 20px;
+    border-radius: 10px;
     justify-content: space-between;
 }
 
@@ -557,6 +557,24 @@ main > p {
     width: 10rem;
     height: 100%;
     border-radius: 10px;
+}
+
+.profile-details {
+    flex-direction: column;
+    gap: 1em;
+    margin: 1em 1em 0;
+}
+
+.profile-details .profile-openings {
+    text-align: center;
+    padding: 1em 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+
+.profile-details .profile-contact {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
 }
 
 /* footer section */
@@ -706,6 +724,19 @@ footer .material-icons {
     /* discovery page */
     .home-option a {
         margin: .2em 1.5em;
+    }
+
+    /* following page */
+    .restaurant-list {
+        gap: 3em;
+    }
+
+    .restaurant-figure {
+        width: 20rem;
+    }
+
+    .restaurant-figure img {
+        height: 12rem;
     }
 
     /* opening post */
