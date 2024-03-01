@@ -19,6 +19,11 @@ body {
     font-weight: bold;
 }
 
+.general-layout {
+    flex-direction: column;
+    margin-top: 10em;
+}
+
 /* navbar section*/
 .navbar {
     z-index: 999;
@@ -163,12 +168,7 @@ header {
     z-index: 999;
 }
 
-/* home */
-.general-layout {
-    flex-direction: column;
-    margin-top: 10em;
-}
-
+/* discovery page */
 .home-option {
     flex-wrap: wrap;
     justify-content: center;
@@ -220,33 +220,36 @@ header {
     width: 95%;
 }
 
+/* following page */
 .restaurant-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-top: 2em;
     gap: 2rem;
-    margin-top: 1rem;
 }
 
-.restaurant-box {
-    flex-direction: column;
+.restaurant-figure {
+    width: 80%;
+    margin: 0;
+    padding-bottom: .3em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+
+.restaurant-figure a {
     text-decoration: none;
 }
 
-.restaurant-box img {
+.restaurant-figure img {
     object-fit: cover;
-    border-radius: 10px;
-    height: 65%;
-    width: 80%;
-    margin: .5em;
-    align-self: center;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height: 12rem;
 }
 
-.restaurant-box figcaption {
+figcaption {
     color: black;
     text-align: center;
     font-weight: bold;
-    margin-bottom: 0.5em;
+    margin: 0.5em;
 }
 
 /* opening post */
@@ -255,7 +258,7 @@ header {
     font-size: .9rem;
     margin-top: -3em;
     border-radius: 25px 25px 0 0;
-    box-shadow: 2px 2px 2px rgb(0 0 0 / 20%);
+    box-shadow: 0 0 20px rgb(0 0 0 / 20%);
 }
 
 .post-img, .post-detail {
@@ -368,7 +371,7 @@ main > p {
     left: 0;
     background-color: white;
     border-radius: 20px 20px 0 0;
-    box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 20%);
+    box-shadow: 0 0 20px rgb(0 0 0 / 20%);
     z-index: 100;
 }
 
@@ -386,7 +389,7 @@ main > p {
 
 .comment-count {
     justify-content: space-between;
-    box-shadow: 1px 1px rgb(0 0 0 / 20%);
+    box-shadow: 0 1px rgb(0 0 0 / 20%);
 }
 
 .comment-count > p {
@@ -429,7 +432,7 @@ main > p {
     flex-direction: row;
     padding: 1em 0 1em 0;
     justify-content: center;
-    box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 20%);
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
 }
 
 .comment-entry textarea {
@@ -446,11 +449,10 @@ main > p {
     margin-left: 1em;
 }
 
-/* Thi Thi's Work */
+/* create page */
 .upload-box {
     display: flex;
     justify-content: space-between;
-
 }
 
 .form-container {
@@ -550,7 +552,7 @@ footer .material-icons {
 }
 
 @media (min-width: 475px) {
-    /* home page */
+    /* discovery page */
     .home-option a {
         margin: .2em 3em;
     }
@@ -567,25 +569,32 @@ footer .material-icons {
         margin: .75rem;
     }
 
-    .restaurant-box img {
-        height: 8rem;
+    /* following page */
+    .restaurant-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .restaurant-figure {
         width: 12rem;
+        margin: 0;
+    }
+
+    .restaurant-figure img {
+        width: 100%;
+        height: 7rem;
     }
 }
 
 @media (min-width: 640px) {
-    /* home page */
+    /* discovery page */
     .home-option a {
         margin: .2em 4.2em;
     }
 
     .home-box {
         flex-direction: row;
-    }
-
-    .restaurant-box img {
-        height: 10rem;
-        width: 15rem;
     }
 
     /* opening post */
@@ -674,14 +683,9 @@ footer .material-icons {
 
 /* md */
 @media (min-width: 754px) {
-    /* home page */
+    /* discovery page */
     .home-option a {
         margin: .2em 1.5em;
-    }
-
-    .restaurant-box img {
-        height: 12rem;
-        width: 18rem;
     }
 
     /* opening post */
@@ -696,9 +700,6 @@ footer .material-icons {
 
 /* lg */
 @media (min-width: 1024px) {
-    /* home page */
-    
-
     /* footer */
     footer {
         margin-top: 7.5%;
@@ -720,7 +721,7 @@ footer .material-icons {
 
 /* xl */
 @media (min-width: 1280px) {
-    /* home page */
+    /* discovery page */
     .home-option a {
         margin: .2em 2em;
     }
@@ -729,15 +730,11 @@ footer .material-icons {
         height: 10rem;
         width: 15rem;
     }
-
-    /* opening post */
-    
-    
 }
 
 /* 2xl */
 @media (min-width: 1536px) {
-    /* home page */
+    /* discovery page */
     .column-box a {
         margin: .8rem;
     }
@@ -746,7 +743,4 @@ footer .material-icons {
     footer {
         margin-top: 5%;
     }
-
-    /* opening post */
-
 }
