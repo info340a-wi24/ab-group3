@@ -55,61 +55,9 @@ div .card {
     background-color: lightgrey;
 }
 
-/* explore section */
+/* explore section*/
 .explore-page {
     flex-direction: column;
-}
-
-.gg-bookmark,
-.gg-bookmark::after {
-    z-index: 0;
-    display: block;
-    box-sizing: border-box;
-    border-top-right-radius: 3px;
-}
-.gg-bookmark {
-    margin-left: 240px;
-    margin-top: -1px;
-    color: white;
-    z-index: 0;
-    border: 2px solid;
-    border-bottom: 0;
-    border-top-left-radius: 3px;
-    overflow: hidden;
-    position: absolute;
-    transform: scale(var(--ggs,1));
-    width: 14px;
-    height: 20px;
-
-}
-
-.gg-bookmark::after {
-    box-shadow: 0px 0px 10px pink;
-    z-index: 0;
-    content: "";
-    position: relative;
-    width: 12px;
-    height: 12px;
-    border-top: 2px solid;
-    border-right: 2px solid;
-    transform: rotate(-45deg);
-    top: 13px;
-    left: -1px;
-}
-
-.icon {
-    position: absolute;
-    z-index: 2;
-    max-width: 20px;
-    max-height: 20px;
-}
-
-.restaurant-name {
-    font-size: .8em;
-    z-index: 2;
-    position: absolute;
-    color: white;
-    margin-left: 40px;
 }
 
 .explore-option {
@@ -139,23 +87,82 @@ div .card {
     flex-grow: 1;
 }
 
+/* hover - thomas */
+
+.gg-bookmark,
+.gg-bookmark::after {
+    z-index: 0;
+    display: block;
+    box-sizing: border-box;
+    border-top-right-radius: 3px;
+}
+
+.gg-bookmark {
+    margin-left: 200px;
+    margin-top: -1px;
+    color:black;
+    z-index: 0;
+    border: 2px solid;
+    border-bottom: 0;
+    border-top-left-radius: 3px;
+    overflow: hidden;
+    position: absolute;
+    transform: scale(var(--ggs,1));
+    width: 20px;
+    height: 30px;
+
+}
+
+.gg-bookmark::after {
+    box-shadow: 0px 0px 10px pink;
+    z-index: 0;
+    content: "";
+    position: relative;
+    width: 20px;
+    height: 22px;
+    border-top: 2px solid;
+    border-right: 2px solid;
+    transform: rotate(-45deg);
+    top: 13px;
+    left: -1px;
+}
+
+.icon {
+    position: absolute;
+    z-index: 2;
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.restaurant-name {
+    font-size: .8em;
+    z-index: 2;
+    position: absolute;
+    color: white;
+    margin-left: 40px;
+}
+
+
+
+
+/* 
 .explore-box img {
     object-fit: cover;
     border-radius: 10px;
     max-height: 100%;
     max-width: 15rem;
-}
+} */
 
 .explore-box a:first-child {
     flex-grow: 5;
 }
 
-/* .img-box {
+.img-box {
     justify-content: center;
     flex-direction: column;
-} */
+}
 
-/* .img-box-img {
+/* .img-box img {
     border-radius: 10px;
     object-fit: cover;
     width: 20rem;
@@ -235,13 +242,13 @@ position: relative;
     margin-top: 35px;
 }
 
-/* .icon {
+.icon {
     margin-right: 20px;
     border-radius: 50%;
     object-fit: none;
     max-width: 50px;
     max-height: 50px;
-} */
+}
 
 /* home page */
 .card {
