@@ -202,32 +202,33 @@ header {
     flex-wrap: wrap;
     margin-top: 1rem;
     justify-content: center;
+    gap: 1em;
 }
 
 .column-box {
     flex-direction: column;
+    gap: 1em;
 }
 
 .column-box a {
     justify-content: center;
-    margin: .8rem 2.35rem;
 }
 
 .column-box img {
     object-fit: cover;
     border-radius: 10px;
     max-height: 100%;
-    width: 95%;
+    width: 10rem;
 }
 
 /* following page */
 .restaurant-list {
     margin-top: 2em;
-    gap: 2rem;
+    gap: 3em;
 }
 
 .restaurant-figure {
-    width: 80%;
+    width: 20rem;
     margin: 0;
     padding-bottom: .3em;
     border-radius: 10px;
@@ -508,11 +509,54 @@ main > p {
     cursor: pointer;
 }
 
- #publish {
+#publish {
     display: inline-block;
     background-color: #B5CB99;
     border: none;
     cursor: pointer;
+}
+
+/* profile page */
+.profile-page {
+    margin-top: -3em;
+    flex-direction: column;
+}
+
+.profile-banner {
+    padding: 5em 0;
+    margin: 0 1em;
+    background-image: url(../img/Nikke.jpg);
+    background-size: cover;
+    border-radius: 20px;
+    justify-content: space-between;
+}
+
+.profile-banner .profile-pic {
+    margin: 0 2% 0 5%;
+    flex-grow: 0;
+}
+
+.profile-banner .follow-box {
+    margin-right: 1em;
+}
+
+.profile-context {
+    flex-direction: column-reverse;
+}
+
+.post-collection {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1em;
+    justify-content: center;
+    gap: 1em;
+}
+
+.post-collection img {
+    object-fit: cover;
+    width: 10rem;
+    height: 100%;
+    border-radius: 10px;
 }
 
 /* footer section */
@@ -552,11 +596,12 @@ footer .material-icons {
 }
 
 @media (min-width: 475px) {
-    /* discovery page */
+    /* home options */
     .home-option a {
         margin: .2em 3em;
     }
 
+    /* discovery page */
     .post-list {
         flex-direction: row;
     }
@@ -564,37 +609,12 @@ footer .material-icons {
     .column-box img {
         width: 12.5rem;
     }
-
-    .column-box a {
-        margin: .75rem;
-    }
-
-    /* following page */
-    .restaurant-list {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .restaurant-figure {
-        width: 12rem;
-        margin: 0;
-    }
-
-    .restaurant-figure img {
-        width: 100%;
-        height: 7rem;
-    }
 }
 
 @media (min-width: 640px) {
-    /* discovery page */
+    /* home options */
     .home-option a {
         margin: .2em 4.2em;
-    }
-
-    .home-box {
-        flex-direction: row;
     }
 
     /* opening post */
@@ -721,24 +741,14 @@ footer .material-icons {
 
 /* xl */
 @media (min-width: 1280px) {
-    /* discovery page */
+    /* home options */
     .home-option a {
         margin: .2em 2em;
-    }
-
-    .restaurant-box img {
-        height: 10rem;
-        width: 15rem;
     }
 }
 
 /* 2xl */
 @media (min-width: 1536px) {
-    /* discovery page */
-    .column-box a {
-        margin: .8rem;
-    }
-
     /* footer */
     footer {
         margin-top: 5%;
