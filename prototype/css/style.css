@@ -19,6 +19,11 @@ body {
     font-weight: bold;
 }
 
+.general-layout {
+    flex-direction: column;
+    margin-top: 10em;
+}
+
 /* navbar section*/
 .navbar {
     z-index: 999;
@@ -163,13 +168,7 @@ header {
     z-index: 999;
 }
 
-/* home */
-
-.general-layout {
-    flex-direction: column;
-    margin-top: 10em;
-}
-
+/* home option */
 .home-option {
     flex-wrap: wrap;
     justify-content: center;
@@ -198,10 +197,11 @@ header {
     transition: all .5s ease-in-out;
 }
 
+/* discovery page */
 .post-list {
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: 1rem;
+    margin: 2em 1rem 0;
     justify-content: center;
     gap: 1em;
 }
@@ -214,33 +214,162 @@ header {
     z-index: -1;
 }
 
+/* following page */
 .restaurant-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1rem;
+    margin-top: 2em;
 }
 
-.restaurant-box {
-    flex-direction: column;
+.restaurant-figure {
+    width: 10rem;
+    margin: 0;
+    padding-bottom: .3em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+
+.restaurant-figure a {
     text-decoration: none;
 }
 
-.restaurant-box img {
+.restaurant-figure img {
     object-fit: cover;
-    border-radius: 10px;
-    height: 65%;
-    width: 80%;
-    margin: .5em;
-    align-self: center;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height: 6rem;
 }
 
-.restaurant-box figcaption {
+figcaption {
     color: black;
     text-align: center;
     font-weight: bold;
-    margin-bottom: 0.5em;
+    margin: 0.5em;
+}
+
+/* hover - thomas */
+.column-box {
+    flex-direction: column;
+    margin-top: -.5rem;
+}
+
+.post {
+    flex-direction: column;
+}
+
+.post-interaction {
+    margin-bottom: 1em;
+    width: 14rem;
+    justify-content: flex-end;
+    opacity: 0;
+}
+
+.post-interaction div {
+    position: absolute;
+}
+
+.restaurant-name {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: -3rem;
+    justify-content: flex-start;
+    z-index: 2;
+    align-items: center;
+}
+
+.heart {
+    width: 5rem;
+}
+
+.restaurant-name p {
+    opacity: 0;
+    width: 14rem;
+    padding-right: 4rem
+}
+
+.post:hover > .post-interaction {
+    opacity: 1;
+    transition: opacity .2s;
+}
+
+.post:hover > .restaurant-name p {
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.post:hover > a img {
+    filter: brightness(50%);
+    opacity: .9;
+    transition: all .3s;
+}
+
+.bookmark, .bookmark::after {
+    display: block;
+    box-sizing: border-box;
+    border-top-right-radius: 3px;
+    opacity: 1;
+}
+
+.bookmark {
+    margin-top: 0.7rem;
+    color: white;
+    z-index: 0;
+    border: 2px solid;
+    border-bottom: 2em none;
+    border-bottom-style:hidden;
+    border-top-left-radius: 3px;
+    transform: scale(var(--ggs,1));
+    box-shadow: .3rem -.1rem .3rem -.2rem grey;
+    width: 1.6em;
+    height: 2em;
+    overflow: hidden;
+}
+
+.bookmark::after {
+    position: absolute;
+    z-index: 1;
+    content: "";
+    width: 1.6em;
+    height: 1.5em;
+    transform: rotate(-45deg);
+    border-top: white solid;
+    border-right: white solid;
+    top: 1.4em;
+    left: -2px;
+    box-shadow: 0rem 0rem 1rem 5rem white;
+    opacity: 1;
+}
+
+.bookmark:hover {
+    height: 3.5em;
+    transition: all 80ms;
+}
+
+.bookmark:hover::after {
+    top: 2.9em;
+    box-shadow: 0rem 0rem 1rem 5rem white;
+    transition: all 60ms;
+}
+
+.icon {
+    max-width: 30px;
+    max-height: 30px;
+}
+
+
+.post-btns {
+    position: relative;
+    z-index: 3;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.post-link {
+    position: relative;
+    z-index: -1;
+    text-decoration: none;
+
 }
 
 /* hover - thomas */
@@ -376,7 +505,7 @@ header {
     font-size: .9rem;
     margin-top: -3em;
     border-radius: 25px 25px 0 0;
-    box-shadow: 2px 2px 2px rgb(0 0 0 / 20%);
+    box-shadow: 0 0 20px rgb(0 0 0 / 20%);
 }
 
 .post-img, .post-detail {
@@ -459,11 +588,19 @@ header {
     color: black;
 }
 
+.post-util .material-icons {
+    position: relative;
+    font-size: 2rem;
+    text-decoration: none;
+}
+
 .comment-dropdown {
     display: none;
 }
 
 .comment-dropdown .material-icons {
+    position: relative;
+    top: .45em;
     color: black;
 }
 
@@ -481,7 +618,7 @@ main > p {
     left: 0;
     background-color: white;
     border-radius: 20px 20px 0 0;
-    box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 20%);
+    box-shadow: 0 0 20px rgb(0 0 0 / 20%);
     z-index: 100;
 }
 
@@ -499,7 +636,7 @@ main > p {
 
 .comment-count {
     justify-content: space-between;
-    box-shadow: 1px 1px rgb(0 0 0 / 20%);
+    box-shadow: 0 1px rgb(0 0 0 / 20%);
 }
 
 .comment-count > p {
@@ -511,6 +648,8 @@ main > p {
 .comment-count .material-icons {
     margin: .2em .5em 0 0;
     font-size: 1.4rem;
+    position: relative;
+    top: 0.3em;
 }
 
 .comment-section {
@@ -520,6 +659,10 @@ main > p {
 
 .commenter {
     margin-top: 1em;
+}
+
+.commenter:last-child {
+    margin-bottom: 2em;
 }
 
 .commenter .profile-pic {
@@ -534,32 +677,29 @@ main > p {
 
 .comment-entry {
     flex-direction: row;
-    margin-top: 2em;
     padding: 1em 0 1em 0;
     justify-content: center;
-    box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 20%);
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
 }
 
 .comment-entry textarea {
     border-radius: 20px;
     width: 75%;
     padding: .5em;
+    resize: vertical;
 }
 
 .comment-entry button {
-    padding: .25em;
+    padding: .5em;
     background-color: #F39999;
-    font-size: .75rem;
     width: 4em;
     margin-left: 1em;
 }
 
-/* Thi Thi's Work */
+/* create page */
 .upload-box {
     display: flex;
-    margin-top: 10em;
     justify-content: space-between;
-
 }
 
 .form-container {
@@ -615,11 +755,72 @@ main > p {
     cursor: pointer;
 }
 
- #publish {
+#publish {
     display: inline-block;
     background-color: #B5CB99;
     border: none;
     cursor: pointer;
+}
+
+/* profile page */
+.profile-page {
+    margin-top: -3em;
+    flex-direction: column;
+}
+
+.profile-banner {
+    padding: 5em 0;
+    margin: 0 1em;
+    background-image: url(../img/Nikke.jpg);
+    background-size: cover;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+.profile-banner .profile-pic {
+    margin: 0 2% 0 5%;
+    flex-grow: 0;
+}
+
+.profile-banner .follow-box {
+    margin-right: 1em;
+}
+
+.profile-context {
+    flex-direction: column-reverse;
+}
+
+.post-collection {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1em;
+    justify-content: center;
+    gap: 1em;
+}
+
+.post-collection img {
+    object-fit: cover;
+    width: 10rem;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.profile-details {
+    flex-direction: column;
+    gap: 1em;
+    margin: 1em 1em 0;
+}
+
+.profile-details .profile-openings {
+    text-align: center;
+    padding: 1em 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+
+.profile-details .profile-contact {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
 }
 
 /* footer section */
@@ -648,7 +849,7 @@ footer a {
     text-decoration: none;
 }
 
-.material-icons {
+footer .material-icons {
     position: relative;
     top: .3em;
 }
@@ -659,11 +860,12 @@ footer a {
 }
 
 @media (min-width: 475px) {
-    /* home page */
+    /* home options */
     .home-option a {
         margin: .2em 3em;
     }
 
+    /* discovery page */
     .post-list {
         flex-direction: row;
     }
@@ -671,27 +873,12 @@ footer a {
     .post {
         width: 17rem;
     }
-
-
-    .restaurant-box img {
-        height: 8rem;
-        width: 12rem;
-    }
 }
 
 @media (min-width: 640px) {
-    /* home page */
+    /* home options */
     .home-option a {
         margin: .2em 4.2em;
-    }
-
-    .home-box {
-        flex-direction: row;
-    }
-
-    .restaurant-box img {
-        height: 10rem;
-        width: 15rem;
     }
 
     /* opening post */
@@ -701,6 +888,10 @@ footer a {
         width: 650px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .post-img {
+        width: 100%;
     }
 
     .post-img img {
@@ -720,11 +911,12 @@ footer a {
         margin-bottom: 1em;
     }
 
-    .post-util div:first-child {
+    .post-util .material-icons:first-child {
+        top: .3em;
         font-size: 2rem;
     }
 
-    .post-util div:last-child {
+    .post-util .material-icons:last-child {
         display: none;
     }
 
@@ -775,27 +967,36 @@ footer a {
 
 /* md */
 @media (min-width: 754px) {
-    /* home page */
+    /* discovery page */
     .home-option a {
         margin: .2em 1.5em;
     }
 
-    .restaurant-box img {
+    /* following page */
+    .restaurant-list {
+        gap: 3em;
+    }
+
+    .restaurant-figure {
+        width: 20rem;
+    }
+
+    .restaurant-figure img {
         height: 12rem;
-        width: 18rem;
     }
 
     /* opening post */
     .post-box {
         width: 700px;
     }
+
+    .post-img {
+        width: 92%;
+    }
 }
 
 /* lg */
 @media (min-width: 1024px) {
-    /* home page */
-    
-
     /* footer */
     footer {
         margin-top: 7.5%;
@@ -806,37 +1007,27 @@ footer a {
         width: 900px;
     } 
 
+    .post-img {
+        width: 70%;
+    }
+
     .post-util button {
         margin-right: .65em;
-    }
-    
+    } 
 }
 
 /* xl */
 @media (min-width: 1280px) {
-    /* home page */
+    /* home options */
     .home-option a {
         margin: .2em 2em;
     }
-
-    .restaurant-box img {
-        height: 10rem;
-        width: 15rem;
-    }
-
-    /* opening post */
-    
-    
 }
 
 /* 2xl */
 @media (min-width: 1536px) {
-    /* home page */
-
     /* footer */
     footer {
         margin-top: 5%;
     }
-
-
 }

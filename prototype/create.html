@@ -10,86 +10,89 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <nav class="flex-container navbar">
-            <a href='index.html'>
-                <img src='img/logo.jpg' alt='logo' width='80px'>
-              </a>
-            <div class="flex-container home-explore">
-            <a class="NomNom-button active" href="index.html">Home</a>
-            <a href="explore.html">Explore</a>
-            <a href="create.html">Create</a>
-            </div>
-            <div id="searchbar" class="flex-container">
-                <form method="get" action="">
-                    <div class="search-fields">
-                        <div class="search-term"><input type="text" placeholder="Search:" required></div>
-                        <div class="search-term"><input type="text" placeholder="Location:"></div>
-                        <div class="search-term" id="search-btn-cover">
-                            <button class="search-btn" type="submit">
-                                <div id="search-btn-circle"></div>
-                                <span></span>
-                            </button>
+    <div class="flex-container general-layout">
+        <header>
+            <nav class="flex-container navbar">
+                <a href='index.html'>
+                    <img src='img/logo.jpg' alt='logo' width='80px'>
+                </a>
+                <div class="flex-container home-explore">
+                <a class="NomNom-button active" href="index.html">Home</a>
+                <a href="explore.html">Explore</a>
+                <a href="create.html">Create</a>
+                </div>
+                <div id="searchbar" class="flex-container">
+                    <form method="get" action="">
+                        <div class="search-fields">
+                            <div class="search-term"><input type="text" placeholder="Search:" required></div>
+                            <div class="search-term"><input type="text" placeholder="Location:"></div>
+                            <div class="search-term" id="search-btn-cover">
+                                <button class="search-btn" type="submit">
+                                    <div id="search-btn-circle"></div>
+                                    <span></span>
+                                </button>
+                            </div>
                         </div>
+                    </form>
+                </div>
+                <div class="flex-container login-signup">
+                    <a href="login.html">Login</a>
+                    <a href="signup.html">Sign Up</a>
+                </div>
+                <a class="user-profile hidden" href="personalP.html">
+                    <img aria-label="user-profile" class="user-profile-img" src="img/nikocado.webp" alt="user-profile-img">
+                </a>
+            </nav>
+        </header>
+        <main>
+            <div class="flex-container upload-box">
+                <div class="form-container">
+                    <div class="drop-area" id="dropArea">
+                        <h3>Drag & Drop Files Here</h3>
+                        <p>or</p>
+                        <label for="fileInput" class="button">Click to Select Files</label>
+                        <br>
+                        <br>
+                        <input type="file" id="fileInput" multiple accept="image/*" required>
+                    </div>
+                </div>
+                <form class="container2">
+                    <div >
+                            <div class="description-container">
+                                <label for="title">Title</label>
+                                <textarea id="title" name="title" rows="2" placeholder="Add a title" required></textarea>
+                            </div>
+                            <div class="description-container">
+                                <label for="description1">Description</label>
+                                <textarea id="description" name="description" rows="2" placeholder="Add a caption" required></textarea>
+                            </div>
+                            <div class="description-container">
+                                <label for="description1">Links</label>
+                                <textarea id="description" name="description" rows="2" placeholder="Link restaurant" ></textarea>
+                            </div>
+                            <div class="description-container">
+                                <label for="description1">Tags</label>
+                                <textarea id="description" name="description" rows="2" placeholder="Add tags" ></textarea>
+                                <br>
+                                <div class="publish-button">
+                                    <button class="NomNom-button" id="publish">Publish</button>
+                                </div>
+                            </div>   
                     </div>
                 </form>
+            </div> 
+        </main>
+        <footer>
+            <div class="flex-container footer-container">
+                <p>
+                    <a href="mailto:jah0311@uw.edu, ptle04@uw.edu, phucn24@uw.edu, tlu2004@uw.edu">
+                        <span class="material-icons">email</span>
+                        contact@nomnom.com
+                    </a>
+                </p>
+                <p>&copy; NomNom 2024</p>
             </div>
-            <div class="flex-container login-signup">
-                <a href="login.html">Login</a>
-                <a href="signup.html">Sign Up</a>
-            </div>
-            <a class="user-profile hidden" href="personalP.html">
-                <img aria-label="user-profile" class="user-profile-img" src="img/nikocado.webp" alt="user-profile-img">
-            </a>
-        </nav>
-    </header>
-    <main>
-        <div class="flex-container upload-box">
-            <div class="form-container">
-                <div class="drop-area" id="dropArea">
-                    <h3>Drag & Drop Files Here</h3>
-                    <p>or</p>
-                    <label for="fileInput" class="button">Click to Select Files</label>
-                    <br>
-                    <br>
-                    <input type="file" id="fileInput" multiple accept="image/*" required>
-                </div>
-            </div>
-            <form class="container2">
-                <div >
-                        <div class="description-container">
-                            <label for="title">Title</label>
-                            <textarea id="title" name="title" rows="2" placeholder="Add a title" required></textarea>
-                        </div>
-                        <div class="description-container">
-                            <label for="description1">Description</label>
-                            <textarea id="description" name="description" rows="2" placeholder="Add a caption" required></textarea>
-                        </div>
-                        <div class="description-container">
-                            <label for="description1">Links</label>
-                            <textarea id="description" name="description" rows="2" placeholder="Link restaurant" ></textarea>
-                        </div>
-                        <div class="description-container">
-                            <label for="description1">Tags</label>
-                            <textarea id="description" name="description" rows="2" placeholder="Add tags" ></textarea>
-                            <br>
-                            <div class="publish-button">
-                                <button class="NomNom-button" id="publish">Publish</button>
-                            </div>
-                        </div>   
-                </div>
-            </form>
-        </div> 
-    </main>
-    <footer>
-        <p>
-            <a href="mailto:jah0311@uw.edu, ptle04@uw.edu, phucn24@uw.edu, tlu2004@uw.edu">
-                <span class="material-icons">email</span>
-                contact@nomnom.com
-            </a>
-        </p>
-        <br>
-        <p>&copy; NomNom 2024</p>
-    </footer>
+        </footer>
+    </div>
 </body>
 </html>
