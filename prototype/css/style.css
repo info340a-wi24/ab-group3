@@ -26,17 +26,21 @@ body {
 
 /* navbar section*/
 .navbar {
+    height: 5rem;
     z-index: 999;
     justify-content: space-around;
     align-items: center;
 }
 
 .active {
+    border-style: solid;
+    border-color: #66705b;
     background-color: #B5CB99;
 }
 
 .home-explore, .login-signup {
     align-items: center;
+    justify-content: flex-end;
 }
 
 .home-explore a, .login-signup a {
@@ -66,14 +70,14 @@ input, button {
 }
 
 #searchbar {
-    font-size: 10px;
-    background-color: #f2f2f2;
-    border-radius: 20px;
-    width: 30%;
-    height: 3.5em;
-    margin: 0;
+    font-size: .5rem;
+    background-color: white;
+    border-style: solid #d4d4d4;
+    border-radius: 3em;
+    height: 4em;
     align-items: center;
     justify-content: center;
+    box-shadow: .1rem .1rem .5em .08rem rgba(109, 100, 104, 0.4);
 }
 
 input[type="text"] {
@@ -136,10 +140,9 @@ button span:after {
 }
 
 nav {
-      padding-top: .5em;
-      font-size: 2em;
-      text-align: center;
-      background-color: white;
+    font-size: 2em;
+    text-align: center;
+    background-color: white;
 }
 
 nav a {
@@ -161,11 +164,11 @@ nav a {
 
 header {
     width: 100%;
+    height: 5rem;
+    box-shadow: 0 .1rem .3rem rgb(0 0 0 / 20%);
     position: fixed;
     top: 0;
     left: 0;
-    background-color: white;
-    z-index: 999;
 }
 
 /* home option */
@@ -173,6 +176,8 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 2rem;
+    margin-top: -2em;
+    margin-bottom: 2em;
 }
 
 .home-option a {
@@ -190,12 +195,12 @@ header {
     font-weight: bold;
 }
 
-.home-option a:not(#chosen-option):hover {
+/* .home-option a:not(#chosen-option):hover {
     color: #F39999;
     font-weight: bold;
     text-shadow: lightgray 4px 2px;
     transition: all .5s ease-in-out;
-}
+} */
 
 /* discovery page */
 .post-list {
