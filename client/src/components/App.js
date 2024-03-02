@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import '../App.css'
 
+import { createDiscoveryColumns } from './discovery'
+
 function App() {
+  let windowWidth = window.innerWidth;
+  window.addEventListener("resize", () => {
+    windowWidth = window.innerWidth;
+  })
 
   const[data, setData] = useState([{}])
 
@@ -57,127 +63,7 @@ function App() {
                 <a href="saved.html" class="NomNom-button">Saved</a>
                 <a href="recents.html" class="NomNom-button">Recents</a>
             </div>
-            <div class="flex-container post-list">
-                <div class="flex-container column-box">
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 1.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 2.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 3.jpeg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 4.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 5.avif")} alt="hot sexy nikke girls" />
-                    </a>
-                </div>
-                <div class="flex-container column-box">
-                <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 1.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 2.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 3.jpeg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 4.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 5.avif")} alt="hot sexy nikke girls" />
-                    </a>
-                </div>
-                <div class="flex-container column-box">
-                <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 1.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 2.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 3.jpeg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 4.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 5.avif")} alt="hot sexy nikke girls" />
-                    </a>
-                </div>
-                <div class="flex-container column-box">
-                <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 1.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 2.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 3.jpeg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 4.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 5.avif")} alt="hot sexy nikke girls" />
-                    </a>
-                </div>
-                <div class="flex-container column-box">
-                <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 1.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 2.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 3.jpeg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 4.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 5.avif")} alt="hot sexy nikke girls" />
-                    </a>
-                </div>
-                <div class="flex-container column-box">
-                <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 1.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 2.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 3.jpeg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 4.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 5.avif")} alt="hot sexy nikke girls" />
-                    </a>
-                </div>
-                <div class="flex-container column-box">
-                <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 1.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 2.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 3.jpeg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 4.jpg")} alt="hot sexy nikke girls" />
-                    </a>
-                    <a href="openpost.html" class="flex-container">
-                        <img src={require("../data/img/food 5.avif")} alt="hot sexy nikke girls" />
-                    </a>
-                </div>
-            </div>
+            <createDiscoveryColumns photoGallery windowWidth={windowWidth}/>
         </main>
         <footer>
             <div class="flex-container footer-container">
