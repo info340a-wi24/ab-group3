@@ -867,7 +867,9 @@ footer .material-icons {
 @media (min-width: 475px) {
     /* home options */
     .home-option a {
-        margin: .2em 3em;
+        font-size: smaller;
+        margin: .2em 0em;
+        margin-top: -3em;
     }
 
     /* discovery page */
@@ -877,6 +879,19 @@ footer .material-icons {
 
     .post {
         width: 17rem;
+    }
+
+    .home-explore, .login-signup {
+        display: none;
+    }
+
+    .navbar section a img {
+        margin-left: -3em;
+        width: 3em;
+    }
+
+    header {
+        box-shadow: none;
     }
 }
 
@@ -1019,6 +1034,10 @@ footer .material-icons {
     .post-util button {
         margin-right: .65em;
     } 
+    
+    .home-explore, .login-signup {
+        display: block;
+    }
 }
 
 /* xl */
