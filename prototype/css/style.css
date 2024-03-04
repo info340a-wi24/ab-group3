@@ -206,37 +206,6 @@ header {
     transition: all .5s ease-in-out;
 } */
 
-/* following page */
-.restaurant-list {
-    margin-top: 2em;
-}
-
-.restaurant-figure {
-    width: 10rem;
-    margin: 0;
-    padding-bottom: .3em;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
-}
-
-.restaurant-figure a {
-    text-decoration: none;
-}
-
-.restaurant-figure img {
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-    width: 100%;
-    height: 6rem;
-}
-
-figcaption {
-    color: black;
-    text-align: center;
-    font-weight: bold;
-    margin: 0.5em;
-}
-
 /* discovery page */
 .post-list {
     flex-direction: row;
@@ -378,6 +347,38 @@ figcaption {
     z-index: -1;
     text-decoration: none;
 
+}
+
+/* following page */
+.restaurant-list {
+    margin-top: 2em;
+    gap: 2em;
+}
+
+.restaurant-figure {
+    width: 15rem;
+    margin: 0;
+    padding-bottom: .3em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+
+.restaurant-figure a {
+    text-decoration: none;
+}
+
+.restaurant-figure img {
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height: 8rem;
+}
+
+figcaption {
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    margin: 0.5em;
 }
 
 /* opening post */
@@ -745,7 +746,6 @@ footer .material-icons {
     .home-option a {
         font-size: smaller;
         margin: .2em 4em;
-        /* margin-top: -3em; */
     }
 
     /* discovery page */
@@ -769,12 +769,34 @@ footer .material-icons {
     header {
         box-shadow: none;
     }
+
+    /* following page */
+
+    .restaurant-figure {
+        width: 12rem;
+    }
+
+    .restaurant-figure img {
+        height: 7rem;
+    }
 }
 
 @media (min-width: 640px) {
     /* home options */
     .home-option a {
         margin: .2em 1.5em;
+    }
+
+    .restaurant-list {
+        gap: 3em;
+    }
+
+    .restaurant-figure {
+        width: 15rem;
+    }
+
+    .restaurant-figure img {
+        height: 10rem;
     }
 
     /* opening post */
@@ -869,10 +891,6 @@ footer .material-icons {
     }
 
     /* following page */
-    .restaurant-list {
-        gap: 3em;
-    }
-
     .restaurant-figure {
         width: 20rem;
     }
