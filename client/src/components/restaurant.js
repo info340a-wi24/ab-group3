@@ -1,3 +1,4 @@
+'use strict';
 import React, {useState} from 'react';
 import { sub } from 'server/router';
 
