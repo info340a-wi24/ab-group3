@@ -710,10 +710,11 @@ main > p {
 .form-container {
     background-color: #DCDFDD ;
     border-radius: 2em;
-    width: 35%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     margin-left: 20%;
+
 }
 
 .container2 {
@@ -736,7 +737,7 @@ main > p {
 }
 
 #dropArea input {
-    margin-left: 20%;
+    margin-left: 30%;
 }
 
 .description-container {
@@ -1054,4 +1055,151 @@ footer .material-icons {
     footer {
         margin-top: 5%;
     }
+}
+
+/* create post */
+
+/* sm */
+@media (min-width: 375px) {
+    .upload-box{
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    .drop-area {
+        margin-bottom: 30%;
+        
+    }
+
+    .form-container {
+    background-color: #DCDFDD ;
+    border-radius: 2em;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-left: -30%;
+    }
+
+    .container2 {
+        width: 50%;    
+    }
+
+    .form-container,
+    .container2 {
+        margin-bottom: 2em;
+        margin-right: 0; 
+        margin-bottom: 10%; 
+        margin-left: 5%;
+    }
+
+}
+
+
+@media (min-width: 640px) {
+    .upload-box{
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    .drop-area {
+        margin-bottom: 30%;
+        
+    }
+
+    .form-container {
+    background-color: #DCDFDD ;
+    border-radius: 2em;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-left: -30%;
+    }
+
+    .container2 {
+        width: 50%;  
+    }
+
+    .form-container,
+    .container2 {
+        margin-bottom: 2em;
+        margin-right: 0; 
+        margin-bottom: 10%; 
+        margin-left: 5%;
+    }
+
+}
+
+/*md */
+@media (min-width: 754px) {
+    .upload-box{
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    .drop-area {
+        margin-bottom: 30%;
+        
+    }
+
+    .form-container {
+    background-color: #DCDFDD ;
+    border-radius: 2em;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-left: -30%;
+    justify-items: center;
+    }
+
+    .container2 {
+        width: 50%;    
+    }
+
+    .form-container,
+    .container2 {
+        margin-bottom: 2em;
+        margin-right: 0; 
+        margin-bottom: 10%; 
+        margin-left: 15%;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .upload-box {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .form-container {
+        margin-left: 20%;
+    }
+
+}
+
+@media (min-width: 1280px) {
+    .upload-box {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .form-container {
+        margin-left: 20%;
+    }
+
+}
+
+@media (min-width: 1536px) {
+    .upload-box {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .form-container {
+        margin-left: 20%;
+    }
+
 }
