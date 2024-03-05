@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import { sub } from 'server/router';
 
+
 function RestaurantInfo({restaurantName, restaurantPic, subscribers, ratings}) {
 
     return (

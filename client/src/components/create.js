@@ -1,5 +1,6 @@
 'use strict';
 import React, {useState} from 'react';
+import firebase from 'firebase/app';
 
 function CreatePost(UploadImg, Descriptions) {
 
@@ -25,35 +26,29 @@ function CreatePost(UploadImg, Descriptions) {
     }
 
     const handlePublish = () => {
-        // Code for publish button
         const postData = {
             title: title,
             description: description,
             links: links,
             tags: tags.split(',').map(tag => tag.trim())
-        }
+        };
 
-        
+        fetch('YOUR_API_ENDPOINT', { // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(postData)
+        })
+        .then(response => {
+            console.log('Post published successfully:', response);
+        })
+        .catch(error => {
+            console.error('Error publishing post:', error);
+        });
     };
 
-    fetch('', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(postData)
-    })
-    .then(response => {
-        
-        console.log('Post published successfully:', response);
-    })
-    .catch(error => {
-       
-        console.error('Error publishing post:', error);
-    });
-
- 
-};
+   
 
 
     return (
@@ -80,7 +75,7 @@ function CreatePost(UploadImg, Descriptions) {
                     </div>
                     <div className="description-container">
                         <label htmlFor="links">Links</label>
-                        <textarea id="description" name="description" value={links} rows="2" onChange={(d) => setLinks(d.target.value)} placeholder="Link restaurant" ></textarea>
+                        <textarea id="links" name="links" value={links} rows="2" onChange={(d) => setLinks(d.target.value)} placeholder="Enter Restaurant Links"  type="url" pattern="https?://.+"></textarea>
                     </div>
                     <div className="description-container">
                         <label htmlFor="tags">Tags</label>
@@ -102,4 +97,7 @@ function CreatePost(UploadImg, Descriptions) {
     
 
 
+}
+
+    
 export default CreatePost;
