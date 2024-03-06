@@ -26,7 +26,7 @@ function App() {
         <header>
             <nav class="flex-container navbar">
                 <a href='index.html'>
-                    <img src={require("../data/img/logo.jpg")} alt='logo' width='80px' />
+                    <img src={"../../img/logo.jpg"} alt='logo' width='80px' />
                   </a>
                 <div class="flex-container home-explore">
                 <a class="NomNom-button active" href="index.html">Home</a>
