@@ -70,6 +70,7 @@ input, button {
 }
 
 #searchbar {
+    align-self: center;
     font-size: .5rem;
     background-color: white;
     border-style: solid #d4d4d4;
@@ -283,11 +284,32 @@ figcaption {
     align-items: center;
 }
 
-.heart {
+.heart, .heart-filled {
     width: 5rem;
+    position: relative;
+    z-index: 50;
+}
+.heart-filled {
+    opacity: 0;
+}
+.heart-container {
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
 }
 
+.heart-container:hover > .heart {
+    display: none;
+}
+
+.heart-container:hover > .heart-filled {
+    opacity: 1;
+    transition: all .4s;
+}
+
+
 .restaurant-name p {
+    cursor: pointer;
     opacity: 0;
     width: 14rem;
     padding-right: 4rem
@@ -310,6 +332,7 @@ figcaption {
 }
 
 .bookmark, .bookmark::after {
+    cursor: pointer;
     display: block;
     box-sizing: border-box;
     border-top-right-radius: 3px;
@@ -348,13 +371,13 @@ figcaption {
 
 .bookmark:hover {
     height: 3.5em;
-    transition: all 80ms;
+    transition: all .6s;
 }
 
 .bookmark:hover::after {
     top: 2.9em;
     box-shadow: 0rem 0rem 1rem 5rem white;
-    transition: all 60ms;
+    transition: all .4s;
 }
 
 .icon {
