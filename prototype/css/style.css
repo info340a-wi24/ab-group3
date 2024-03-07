@@ -56,13 +56,48 @@ header {
 }
 
 .more {
-    width: 1em;
-    height: 1em;
+    width: 1.2em;
+    height: 1.2em;
     padding: 0;
     margin: .5em;
     align-self: center;
     display: block;
 }
+
+.dropdown {
+    display: flex;
+    justify-items: flex-end;
+    flex-direction: column;
+}
+
+.dropdown-content {
+display: none;
+width: 130px;
+margin-top: 2em;
+position: absolute;
+box-shadow: .1rem .1rem .5em .08rem rgba(109, 100, 104, 0.4);
+border-radius: 10px;
+z-index: 1;
+flex-direction: column;
+flex-wrap: nowrap;
+}
+
+.dropdown-content a {
+    text-decoration: none;
+    font-size: 1em;
+    color: black;
+    width: 100%;
+}
+
+.dropdown-content a:hover {
+    background-color: #d4d4d4;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+background-color: white;
+}
+
 
 .home-explore {
     align-items: center;
