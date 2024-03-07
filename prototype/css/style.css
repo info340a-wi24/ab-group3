@@ -759,6 +759,10 @@ main > p {
     flex-direction: column-reverse;
 }
 
+.profile-contact {
+    flex-direction: column;
+}
+
 .post-collection {
     flex-direction: row;
     flex-wrap: wrap;
