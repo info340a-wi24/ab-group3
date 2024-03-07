@@ -685,11 +685,9 @@ main > p {
     font-size: 1.4rem;
 }
 
-.comment-count .material-icons .like-count {
+.like-count {
     display: inline;
     font-size: 1rem;
-    position: relative;
-    left: .25em;
 }
 
 .comment-count .material-icons:hover {
