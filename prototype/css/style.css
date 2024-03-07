@@ -19,6 +19,16 @@ body {
     font-weight: bold;
 }
 
+.NomNom-button:hover {
+    border: black solid;
+    cursor: pointer;
+}
+
+.material-icons:hover {
+    color: #F39999;
+    cursor: pointer;
+}
+
 .general-layout {
     flex-direction: column;
     margin-top: 10em;
@@ -72,15 +82,15 @@ header {
 }
 
 .dropdown-content {
-display: none;
-width: 130px;
-margin-top: 2em;
-position: absolute;
-box-shadow: .1rem .1rem .5em .08rem rgba(109, 100, 104, 0.4);
-border-radius: 10px;
-z-index: 1;
-flex-direction: column;
-flex-wrap: nowrap;
+    display: none;
+    width: 130px;
+    margin-top: 2em;
+    position: absolute;
+    box-shadow: .1rem .1rem .5em .08rem rgba(109, 100, 104, 0.4);
+    border-radius: 10px;
+    z-index: 1;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 .dropdown-content a {
@@ -95,8 +105,8 @@ flex-wrap: nowrap;
 }
 
 .dropdown:hover .dropdown-content {
-display: block;
-background-color: white;
+    display: block;
+    background-color: white;
 }
 
 
@@ -263,6 +273,10 @@ header {
     background-color: #F39999;
     color: white;
     font-weight: bold;
+}
+
+.home-option a:hover {
+    border: none;
 }
 
 /* .home-option a:not(#chosen-option):hover {
@@ -438,7 +452,6 @@ header {
 }
 
 /* explore page */
-
 .group-outer {
     flex-direction: column;
     width: 100%;
@@ -504,8 +517,6 @@ figcaption {
     height: 16rem;
 }
 
-
-
 /* opening post */
 .post-box {
     flex-direction: column;
@@ -566,6 +577,10 @@ figcaption {
     font-size: .8rem;
 }
 
+.profile-pic:hover, .username p:first-child:hover {
+    cursor: pointer;
+}
+
 .follow-box {
     flex-grow: 1;
     align-self: center;
@@ -583,11 +598,8 @@ figcaption {
     justify-content: space-between;
 }
 
-.post-util button:nth-child(1) {
-    background-color: #F39999;
-    padding: .75em 0;
-    width: 5em;
-    margin-top: 0;
+.post-util > button:first-child:hover {
+    color: #F39999;
 }
 
 .post-util .material-icons {
@@ -608,6 +620,13 @@ figcaption {
     width: 1em;
     margin: 0;
     position: static;
+}
+
+.post-util div button {
+    background-color: #F39999;
+    padding: .75em 0;
+    width: 5em;
+    margin-top: 0;
 }
 
 .comment-dropdown {
@@ -638,7 +657,7 @@ main > p {
     z-index: 100;
 }
 
-.comment-box > a {
+.comment-box > div:first-child {
     align-self: center;
 }
 
@@ -662,10 +681,19 @@ main > p {
 }
 
 .comment-count .material-icons {
-    margin: .2em .5em 0 0;
+    margin-right: .5em;
     font-size: 1.4rem;
+}
+
+.comment-count .material-icons .like-count {
+    display: inline;
+    font-size: 1rem;
     position: relative;
-    top: 0.3em;
+    left: .25em;
+}
+
+.comment-count .material-icons:hover {
+    color: #F39999;
 }
 
 .comment-section {
