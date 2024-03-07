@@ -992,10 +992,7 @@ footer .material-icons {
 
 /* xl */
 @media (min-width: 1280px) {
-    /* home options */
-    .home-option a {
-        margin: .2em 2em;
-    }
+
 }
 
 /* 2xl */
