@@ -495,6 +495,17 @@ figcaption {
     margin: 0.5em;
 }
 
+/* saved and recent */
+.post-storage {
+    gap: 2em;
+}
+
+.post-storage a img {
+    height: 16rem;
+}
+
+
+
 /* opening post */
 .post-box {
     flex-direction: column;
@@ -572,10 +583,11 @@ figcaption {
     justify-content: space-between;
 }
 
-.post-util button {
+.post-util button:nth-child(1) {
     background-color: #F39999;
     padding: .75em 0;
     width: 5em;
+    margin-top: 0;
 }
 
 .post-util .material-icons {
@@ -590,13 +602,21 @@ figcaption {
     text-decoration: none;
 }
 
+.post-util .material-icons:first-child {
+    background-color: white;
+    padding: 0;
+    width: 1em;
+    margin: 0;
+    position: static;
+}
+
 .comment-dropdown {
     display: none;
 }
 
 .comment-dropdown .material-icons {
     position: relative;
-    top: .45em;
+    top: .1em;
     color: black;
 }
 
