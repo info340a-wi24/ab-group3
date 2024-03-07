@@ -525,8 +525,6 @@ main > p {
 .profile-banner {
   padding: 5em 0;
   margin: 0 1em;
-  background-image: url(./data/img/Nikke.jpg);
-  background-size: cover;
   border-radius: 10px;
   justify-content: space-between;
 }
