@@ -36,6 +36,7 @@ header {
     align-items: center;
 }
 
+
 .navbar section {
     margin-left: .5em;
     flex-wrap: nowrap;
@@ -48,18 +49,18 @@ header {
 }
 
 .logo {
-    width: 2em;
-    margin: .2em;
+    width: 1.5em;
     margin-top: .5em;
     align-self: center;
     justify-self: center;
 }
 
 .more {
-    width: 1.2em;
-    height: 1.2em;
+    width: 1em;
+    height: 1em;
     padding: 0;
-    margin: .5em;
+    margin: .6em;
+    margin-left: -.6em;
     align-self: center;
     display: block;
 }
@@ -143,13 +144,13 @@ input, button {
 }
 
 #searchbar {
-    width: 30em;
+    width: 20em;
     align-self: center;
     font-size: .5rem;
     background-color: white;
     border-style: solid #d4d4d4;
     border-radius: 3em;
-    height: 4em;
+    height: 3em;
     align-items: center;
     justify-content: center;
     box-shadow: .1rem .1rem .5em .08rem rgba(109, 100, 104, 0.4);
@@ -221,12 +222,13 @@ nav {
 }
 
 .user-profile {
-    margin: 1em;
+    margin: .5em;
+    margin-top: .6em;
 }
 
 .user-profile img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 100%;
 }
 
@@ -434,6 +436,32 @@ header {
     text-decoration: none;
 
 }
+
+/* explore page */
+
+.group-outer {
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+
+.group {
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    border-radius: 1em;
+    width: 100%;
+    justify-content: space-evenly;
+    height: 10em;
+}
+
+.group figure img {
+    height: 10em;
+}
+
+
+.stars-container {
+    width: 1em;
+}
+
 
 /* following page */
 .restaurant-list {
@@ -829,6 +857,15 @@ footer .material-icons {
 }
 
 @media (min-width: 475px) {
+    #searchbar {
+        width: 30em;
+        height: 4em;
+    }
+    .user-profile img {
+        width: 50px;
+        height: 50px;
+        margin-top: .5em;
+    }
     /* home options */
     .home-option a {
         margin: 0;
@@ -841,6 +878,15 @@ footer .material-icons {
 
     .post {
         width: 17rem;
+    }
+
+    .logo {
+        width: 2em;
+        margin-top: .5em;
+    }
+
+    .more {
+        margin-top: .7em;
     }
 
 

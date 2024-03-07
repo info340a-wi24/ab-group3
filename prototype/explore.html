@@ -14,11 +14,27 @@
         <header>
             <nav class="flex-container navbar">
                 <section class="flex-container">
+
+                    <section class="dropdown">
+                        <img class="more" src="img/more.png" alt="hamburger-dropdown-menu">
+                        <div class="flex-container dropdown-content">
+                            <a href="explore.html">Explore</a>
+                            <a href="create.html">Create</a>
+                            <a href="">Link</a>
+                            <a href="">Link</a>
+                            <a href="">Link</a>
+                            <a href="">Link</a>
+                            <a href="">Link</a>
+                            <a href="">Link</a>
+                            <a href="">Link</a>
+                        </div>
+                    </section>
+                    
                     <a href='index.html'>
-                        <img src='img/logo.jpg' alt='logo' width='80px'>
+                        <img class="active logo" src='img/logo.jpg' alt='logo'>
                     </a>
                     <div class="flex-container home-explore">
-                        <a class="NomNom-button active" href="explore.html">Explore</a>
+                        <a href="explore.html">Explore</a>
                         <a href="create.html">Create</a>
                     </div>
                 </section>
@@ -37,53 +53,61 @@
                             </div>
                         </form>
                     </div>
-                    <div class="flex-container login-signup">
-                        <a href="login.html">Login</a>
-                        <a href="signup.html">Sign Up</a>
-                    </div>
-                    <a class="user-profile hidden" href="personalP.html">
+                    <a class="user-profile" href="personalP.html">
                         <img aria-label="user-profile" class="user-profile-img" src="img/nikocado.webp" alt="user-profile-img">
                     </a>
                 </section>
             </nav>
         </header>
         <main>
-            <div class="flex-container upload-box">
-                <div class="form-container">
-                    <div class="drop-area" id="dropArea">
-                        <h3>Drag & Drop Files Here</h3>
-                        <p>or</p>
-                        <label for="fileInput" class="button">Click to Select Files</label>
-                        <br>
-                        <br>
-                        <input type="file" id="fileInput" multiple accept="image/*" required>
-                    </div>
-                </div>
-                <form class="container2">
-                    <div >
-                            <div class="description-container">
-                                <label for="title">Title</label>
-                                <textarea id="title" name="title" rows="2" placeholder="Add a title" required></textarea>
-                            </div>
-                            <div class="description-container">
-                                <label for="description1">Description</label>
-                                <textarea id="description" name="description" rows="2" placeholder="Add a caption" required></textarea>
-                            </div>
-                            <div class="description-container">
-                                <label for="description1">Links</label>
-                                <textarea id="description" name="description" rows="2" placeholder="Link restaurant" ></textarea>
-                            </div>
-                            <div class="description-container">
-                                <label for="description1">Tags</label>
-                                <textarea id="description" name="description" rows="2" placeholder="Add tags" ></textarea>
-                                <br>
-                                <div class="publish-button">
-                                    <button class="NomNom-button" id="publish">Publish</button>
-                                </div>
-                            </div>   
-                    </div>
-                </form>
-            </div> 
+            <div class="flex-container home-option">
+                <a href="index.html" class="NomNom-button">Discover</a>
+                <a id="chosen-option" href="following.html" class="NomNom-button">Following</a>
+                <a href="saved.html" class="NomNom-button">Saved</a>
+                <a href="recents.html" class="NomNom-button">Recents</a>
+            </div>
+            <div class="flex-container post-list restaurant-list">
+                <section class="flex-container group-outer">
+                    <h2>reccomended</h2>
+                    <section class="flex-container group">
+                        <div class="flex-container">
+                            <figure class="restaurant-figure">
+                                <a href="profile.html">
+                                    <img src="img/food 1.jpg" alt="hot sexy nikke girls">
+                                    <figcaption>Jah's Big Meat BBQ</figcaption>
+                                </a>
+                            </figure>
+                        </div>
+                        
+                        <figure class="restaurant-figure">
+                            <a href="profile.html">
+                                <img src="img/food 2.jpg" alt="hot sexy nikke girls">
+                                <figcaption>Jah's Big Meat BBQ</figcaption>
+                            </a>
+                        </figure>
+                        <figure class="restaurant-figure">
+                            <a href="profile.html">
+                                <img src="img/food 3.jpeg" alt="hot sexy nikke girls">
+                                <figcaption>Jah's Big Meat BBQ</figcaption>
+                            </a>
+                        </figure>
+                        <figure class="restaurant-figure">
+                            <a href="profile.html">
+                                <img src="img/food 4.jpg" alt="hot sexy nikke girls">
+                                <figcaption>Jah's Big Meat BBQ</figcaption>
+                            </a>
+                        </figure>
+                        <figure class="restaurant-figure">
+                            <a href="profile.html">
+                                <img src="img/food 1.jpg" alt="hot sexy nikke girls">
+                                <figcaption>Jah's Big Meat BBQ</figcaption>
+                            </a>
+                        </figure>
+                    </section>
+
+                </section>
+                
+            </div>
         </main>
         <footer>
             <div class="flex-container footer-container">
