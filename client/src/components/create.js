@@ -1,6 +1,7 @@
 'use strict';
 import React, {useState} from 'react';
 import firebase from 'firebase/app';
+import 'firebase/firestore'; 
 
 function CreatePost(UploadImg, Descriptions) {
 
@@ -9,6 +10,7 @@ function CreatePost(UploadImg, Descriptions) {
     const [links, setLinks] = useState('');
     const [tags, setTags] = useState('');
     const [tagInput, setTagInput] = useState('');
+    const [file, setFile] = useState(null);
 
     const handleTagInputChange = (event) => {
         setTagInput(event.target.value);
@@ -26,26 +28,54 @@ function CreatePost(UploadImg, Descriptions) {
     }
 
     const handlePublish = () => {
-        const postData = {
+
+        //check if title and description are not empty
+        if (!title.trim() || !description.trim()) {
+            alert('Title and description are required');
+            return;
+        }
+
+
+       const db = firebase.firestore();
+
+        db.collection('post').add ({
             title: title,
             description: description,
             links: links,
-            tags: tags.split(',').map(tag => tag.trim())
-        };
+            tags:  tags
+        })
 
-        fetch('YOUR_API_ENDPOINT', { // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(postData)
+        .then((docRef) => {
+            console.log('Document writen with ID: ', docRef.id);
+
+            setTitle('');
+            setDescription('');
+            setLinks('');
+            setTags([]);
+            setTagInput('');
         })
-        .then(response => {
-            console.log('Post published successfully:', response);
-        })
-        .catch(error => {
-            console.error('Error publishing post:', error);
+
+        .catch((error) => {
+            console.error('Error adding document: ', error);
+            alert('An error occured while publishing the post. Please try again later.')
         });
+
+        console.log('Publishing post...');
+    };
+
+    const handleDrop = (event) => {
+        event.preventDefault();
+        const droppedFiles = event.dataTransfer.files[0];
+        setFile(droppedFiles);
+    };
+
+    const handleFileInputChange = (event) => {
+        const selectedFile = event.target.files[0];
+        setFile(selectedFile);
+    }
+
+    const handleFileInputClick = () => {
+        document.getElementById('fileInput').value = '';
     };
 
    
@@ -54,28 +84,28 @@ function CreatePost(UploadImg, Descriptions) {
     return (
         <div className="flex-container upload-box">
         <div className="form-container">
-            <div className="drop-area" id="dropArea">
+            <div className="drop-area" id="dropArea" onDrop={handleDrop} onDrag={(event) => event.preventDefault()} onClick={handleFileInputClick}>
                 <h3>Drag & Drop Files Here</h3>
                 <p>or</p>
                 <label for="fileInput" className="button">Click to Select Files</label>
                 <br/>
                 <br/>
-                <input type="file" id="fileInput" multiple accept="image/*" required/>
+                <input type="file" id="fileInput" multiple accept="image/*"  onChange={handleFileInputChange} style={{display: 'none'}} required/>
             </div>
         </div>
         <form className="container2">
             <div >
                     <div className="description-container">
                         <label htmlFor="title">Title</label>
-                        <textarea id="title" name="title" rows="2" value={title} onChange={(d) => setTitle(d.target.value)} placeholder="Add a title" required></textarea>
+                        <textarea id="title" name="title" rows="2" value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Add a title" ></textarea>
                     </div>
                     <div className="description-container">
                         <label htmlFor="description">Description</label>
-                        <textarea id="description" name="description" value={description} onChange={(d) => setDescription(d.target.value)} rows="2" placeholder="Add a caption" required></textarea>
+                        <textarea id="description" name="description" value={description} onChange={(event) => setDescription(event.target.value)} rows="2" placeholder="Add a caption" ></textarea>
                     </div>
                     <div className="description-container">
                         <label htmlFor="links">Links</label>
-                        <textarea id="links" name="links" value={links} rows="2" onChange={(d) => setLinks(d.target.value)} placeholder="Enter Restaurant Links"  type="url" pattern="https?://.+"></textarea>
+                        <textarea id="links" name="links" value={links} rows="2" onChange={(event) => setLinks(event.target.value)} placeholder="Enter Restaurant Links"  type="url" pattern="https?://.+"></textarea>
                     </div>
                     <div className="description-container">
                         <label htmlFor="tags">Tags</label>
@@ -87,7 +117,7 @@ function CreatePost(UploadImg, Descriptions) {
                         </div>
                         <br/>
                         <div className="publish-button">
-                            <button className="NomNom-button" id="publish" onClick={handlePublish}>Publish</button>
+                            <button className="NomNom-button" id="publish" onClick={handlePublish} disabled={!file}>Publish</button>
                         </div>
                     </div>   
             </div>
