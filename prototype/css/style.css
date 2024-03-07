@@ -25,9 +25,13 @@ body {
 }
 
 /* navbar section*/
+header {
+    position: relative;
+    z-index: 999;
+}
+
 .navbar {
     height: 5rem;
-    z-index: 999;
     justify-content: space-around;
     align-items: center;
 }
@@ -220,38 +224,6 @@ header {
     z-index: -1;
 }
 
-/* following page */
-.restaurant-list {
-    margin-top: 2em;
-}
-
-.restaurant-figure {
-    width: 10rem;
-    margin: 0;
-    padding-bottom: .3em;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
-}
-
-.restaurant-figure a {
-    text-decoration: none;
-}
-
-.restaurant-figure img {
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-    width: 100%;
-    height: 6rem;
-}
-
-figcaption {
-    color: black;
-    text-align: center;
-    font-weight: bold;
-    margin: 0.5em;
-}
-
-/* hover - thomas */
 .column-box {
     flex-direction: column;
     margin-top: -.5rem;
@@ -400,131 +372,36 @@ figcaption {
 
 }
 
-/* hover - thomas */
-.column-box {
-    flex-direction: column;
-    margin-top: -.5rem;
+/* following page */
+.restaurant-list {
+    margin-top: 2em;
+    gap: 2em;
 }
 
-.post {
-    flex-direction: column;
+.restaurant-figure {
+    width: 15rem;
+    margin: 0;
+    padding-bottom: .3em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
 }
 
-.post-interaction {
-    margin-bottom: 1em;
-    width: 14rem;
-    justify-content: flex-end;
-    opacity: 0;
-}
-
-.post-interaction div {
-    position: absolute;
-}
-
-.restaurant-name {
+.restaurant-figure a {
     text-decoration: none;
-    color: white;
-    font-size: 1em;
-    font-weight: bold;
+}
+
+.restaurant-figure img {
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height: 8rem;
+}
+
+figcaption {
+    color: black;
     text-align: center;
-    margin-top: -3rem;
-    justify-content: flex-start;
-    z-index: 2;
-    align-items: center;
-}
-
-.heart {
-    width: 5rem;
-}
-
-.restaurant-name p {
-    opacity: 0;
-    width: 14rem;
-    padding-right: 4rem
-}
-
-.post:hover > .post-interaction {
-    opacity: 1;
-    transition: opacity .2s;
-}
-
-.post:hover > .restaurant-name p {
-    opacity: 1;
-    transition: opacity .3s;
-}
-
-.post:hover > a img {
-    filter: brightness(50%);
-    opacity: .9;
-    transition: all .3s;
-}
-
-.bookmark, .bookmark::after {
-    display: block;
-    box-sizing: border-box;
-    border-top-right-radius: 3px;
-    opacity: 1;
-}
-
-.bookmark {
-    margin-top: 0.7rem;
-    color: white;
-    z-index: 0;
-    border: 2px solid;
-    border-bottom: 2em none;
-    border-bottom-style:hidden;
-    border-top-left-radius: 3px;
-    transform: scale(var(--ggs,1));
-    box-shadow: .3rem -.1rem .3rem -.2rem grey;
-    width: 1.6em;
-    height: 2em;
-    overflow: hidden;
-}
-
-.bookmark::after {
-    position: absolute;
-    z-index: 1;
-    content: "";
-    width: 1.6em;
-    height: 1.5em;
-    transform: rotate(-45deg);
-    border-top: white solid;
-    border-right: white solid;
-    top: 1.4em;
-    left: -2px;
-    box-shadow: 0rem 0rem 1rem 5rem white;
-    opacity: 1;
-}
-
-.bookmark:hover {
-    height: 3.5em;
-    transition: all 80ms;
-}
-
-.bookmark:hover::after {
-    top: 2.9em;
-    box-shadow: 0rem 0rem 1rem 5rem white;
-    transition: all 60ms;
-}
-
-.icon {
-    max-width: 30px;
-    max-height: 30px;
-}
-
-
-.post-btns {
-    position: relative;
-    z-index: 3;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.post-link {
-    position: relative;
-    z-index: -1;
-    text-decoration: none;
-
+    font-weight: bold;
+    margin: 0.5em;
 }
 
 /* opening post */
@@ -733,10 +610,11 @@ main > p {
 .form-container {
     background-color: #DCDFDD ;
     border-radius: 2em;
-    width: 35%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     margin-left: 20%;
+
 }
 
 .container2 {
@@ -759,7 +637,7 @@ main > p {
 }
 
 #dropArea input {
-    margin-left: 20%;
+    margin-left: 30%;
 }
 
 .description-container {
@@ -891,8 +769,7 @@ footer .material-icons {
     /* home options */
     .home-option a {
         font-size: smaller;
-        margin: .2em 0em;
-        margin-top: -3em;
+        margin: .2em 4em;
     }
 
     /* discovery page */
@@ -916,12 +793,34 @@ footer .material-icons {
     header {
         box-shadow: none;
     }
+
+    /* following page */
+
+    .restaurant-figure {
+        width: 12rem;
+    }
+
+    .restaurant-figure img {
+        height: 7rem;
+    }
 }
 
 @media (min-width: 640px) {
     /* home options */
     .home-option a {
-        margin: .2em 4.2em;
+        margin: .2em 1.5em;
+    }
+
+    .restaurant-list {
+        gap: 3em;
+    }
+
+    .restaurant-figure {
+        width: 15rem;
+    }
+
+    .restaurant-figure img {
+        height: 10rem;
     }
 
     /* opening post */
@@ -1016,10 +915,6 @@ footer .material-icons {
     }
 
     /* following page */
-    .restaurant-list {
-        gap: 3em;
-    }
-
     .restaurant-figure {
         width: 20rem;
     }
@@ -1077,4 +972,181 @@ footer .material-icons {
     footer {
         margin-top: 5%;
     }
+}
+
+/* create post */
+
+/* sm */
+@media (min-width: 375px) {
+    .upload-box{
+        flex-direction: column;
+        align-items: center;
+        margin-right: 12%;
+    }
+
+    .drop-area {
+        margin-bottom: 30%;
+        
+    }
+
+
+    .form-container {
+    background-color: #DCDFDD ;
+    border-radius: 2em;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-left: -20%;
+    margin-right: 20%;
+    font-size: x-large;
+    }
+
+    .container2 {
+        width: 50%;   
+        font-size: x-large; 
+    }
+
+    .form-container,
+    .container2 {
+        margin-bottom: 2em;
+        margin-right: 0; 
+        margin-bottom: 10%;
+        margin-left: 5%;
+
+    }
+
+}
+
+
+@media (min-width: 640px) {
+    .upload-box{
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    .drop-area {
+        margin-bottom: 30%;
+        
+    }
+
+    .form-container {
+    background-color: #DCDFDD ;
+    border-radius: 2em;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-left: -30%;
+    font-size: x-large;
+    }
+
+    .container2 {
+        width: 50%; 
+        font-size: x-large; 
+    }
+
+    .form-container,
+    .container2 {
+        margin-bottom: 2em;
+        margin-right: 0; 
+        margin-bottom: 10%; 
+        margin-left: 5%;
+    }
+
+}
+
+/*md */
+@media (min-width: 754px) {
+    .upload-box{
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    .drop-area {
+        margin-bottom: 30%;  
+    }
+
+
+    .form-container {
+    background-color: #DCDFDD ;
+    border-radius: 2em;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-left: -30%;
+    justify-items: center;
+    font-size: x-large;
+    }
+
+    .container2 {
+        width: 50%;  
+        font-size: x-large;  
+    }
+
+    .form-container,
+    .container2 {
+        margin-bottom: 2em;
+        margin-right: 0; 
+        margin-bottom: 10%; 
+        margin-left: 15%;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .upload-box {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .form-container {
+        margin-left: 20%;
+        font-size: medium;
+    }
+
+    .container2 {
+        font-size: medium;
+    }
+
+}
+
+@media (min-width: 1280px) {
+    .upload-box {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .form-container {
+        margin-left: 20%;
+        font-size: medium;
+    }
+
+    .container2 {
+        font-size: medium;
+    }
+
+}
+
+@media (min-width: 1536px) {
+    .upload-box {
+        flex-direction: row;
+        align-items: flex-start;
+        margin-top: 10%;
+    }
+
+    .form-container {
+        margin-left: 10%;
+        font-size: x-large;
+        width: 70%;
+    }
+
+    .container2 {
+        font-size: x-large;
+        padding-bottom: 17%;
+       
+    }
+
+    
+
 }
