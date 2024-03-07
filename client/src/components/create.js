@@ -26,26 +26,7 @@ function CreatePost(UploadImg, Descriptions) {
     }
 
     const handlePublish = () => {
-        const postData = {
-            title: title,
-            description: description,
-            links: links,
-            tags: tags.split(',').map(tag => tag.trim())
-        };
-
-        fetch('YOUR_API_ENDPOINT', { // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(postData)
-        })
-        .then(response => {
-            console.log('Post published successfully:', response);
-        })
-        .catch(error => {
-            console.error('Error publishing post:', error);
-        });
+        
     };
 
    

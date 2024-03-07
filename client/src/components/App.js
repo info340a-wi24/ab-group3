@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import '../App.css'
 
 import { createDiscoveryColumns } from './discovery'
+import CreatePost from './create';
 
 function App() {
   let windowWidth = window.innerWidth;
