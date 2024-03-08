@@ -6,7 +6,7 @@ function createColumn(props) {
         photo = <img src={photo.src} />;
     })
 
-    return (<div class="flex-container column-box">{photoGallery}</div>);
+    return (<div className="flex-container column-box">{photoGallery}</div>);
 }
 
 export function createDiscoveryColumns(props) {
@@ -43,7 +43,7 @@ export function createDiscoveryColumns(props) {
     }
 
     return (
-        <div class="flex-container post-list">
+        <div className="flex-container post-list">
             {columnArray}
         </div>
     );
