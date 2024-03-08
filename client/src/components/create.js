@@ -28,6 +28,7 @@ function CreatePost(UploadImg, Descriptions) {
     }
 
     const handlePublish = () => {
+        console.log('Publish button clicked');
 
         //check if title and description are not empty
         if (!title.trim() || !description.trim()) {
@@ -87,7 +88,7 @@ function CreatePost(UploadImg, Descriptions) {
             <div className="drop-area" id="dropArea" onDrop={handleDrop} onDrag={(event) => event.preventDefault()} onClick={handleFileInputClick}>
                 <h3>Drag & Drop Files Here</h3>
                 <p>or</p>
-                <label for="fileInput" className="button">Click to Select Files</label>
+                <label htmlFor="fileInput" className="button">Click to Select Files</label>
                 <br/>
                 <br/>
                 <input type="file" id="fileInput" multiple accept="image/*"  onChange={handleFileInputChange} style={{display: 'none'}} required/>
