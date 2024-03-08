@@ -261,7 +261,7 @@ header {
   margin-right: -4em;
 }
 
-.home-option * {
+.home-option a {
   width: 6.5em;
   text-align: center;
   text-decoration: none;
@@ -275,7 +275,7 @@ header {
   font-weight: bold;
 }
 
-.home-option *:hover {
+.home-option a:hover {
   border: none;
 }
 

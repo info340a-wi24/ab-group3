@@ -14,7 +14,7 @@ export function NavBar(props) {
                 </section>
 
                 <a href='index.html'>
-                    <img class="active logo" src='img/logo.jpg' alt='logo'></img>
+                    <img class="active logo" src={"../../img/logo.jpg"} alt='logo'></img>
                 </a>
                 <div class="flex-container home-explore">
                     <a href="explore.html">Explore</a>
