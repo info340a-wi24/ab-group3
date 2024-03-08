@@ -16,152 +16,428 @@
     <div class="flex-container general-layout">
         <header>
             <nav class="flex-container navbar">
-                <a href='index.html'>
-                    <img src='img/logo.jpg' alt='logo' width='80px'>
-                </a>
-                <div class="flex-container home-explore">
-                    <a class="NomNom-button active" href="index.html">Home</a>
-                    <a href="explore.html">Explore</a>
-                    <a href="create.html">Create</a>
-                </div>
-                <div id="searchbar" class="flex-container">
-                    <form method="get" action="">
-                        <div class="search-fields">
-                            <div class="search-term"><input type="text" placeholder="Search:" required></div>
-                            <div class="search-term"><input type="text" placeholder="Location:"></div>
-                            <div class="search-term" id="search-btn-cover">
-                                <button class="search-btn" type="submit">
-                                    <div id="search-btn-circle"></div>
-                                    <span></span>
-                                </button>
+                <section class="flex-container">
+                    <a href='index.html'>
+                        <img class="active logo" src='img/logo.jpg' alt='logo'>
+                    </a>
+                    <div class="flex-container home-explore">
+                        <a href="create.html">Create</a>
+                    </div>
+                </section>
+                <section class="flex-container">
+                    <div id="searchbar" class="flex-container">
+                        <form method="get" action="">
+                            <div class="search-fields">
+                                <div class="search-term"><input type="text" placeholder="Search:" required></div>
+                                <div class="search-term"><input type="text" placeholder="Location:"></div>
+                                <div class="search-term" id="search-btn-cover">
+                                    <button class="search-btn" type="submit">
+                                        <div id="search-btn-circle"></div>
+                                        <span></span>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="flex-container login-signup">
-                    <a href="login.html">Login</a>
-                    <a href="signup.html">Sign Up</a>
-                </div>
-                <a class="user-profile hidden" href="personalP.html">
-                    <img aria-label="user-profile" class="user-profile-img" src="img/nikocado.webp"
-                        alt="user-profile-img">
-                </a>
+                        </form>
+                    </div>
+                    <a class="user-profile" href="profile.html">
+                        <img aria-label="user-profile" class="user-profile-img" src="img/nikocado.webp" alt="user-profile-img">
+                    </a>
+                </section>
             </nav>
         </header>
-        <main>
-            <div class="flex-container profile-page">
-                <div class="flex-container profile-banner">
-                    <div class="profile-pic">
-                        <img src="img/apple.png" alt="Phuc's Jacked Apple">
+        <main class="grid">
+                <section class="flex-container profile-page">
+                    <div class="flex-container profile-banner">
+                        <div class="flex-container profile-container">
+                            <div class="profile-pic">
+                                <img src="img/apple.png" alt="Phuc's Jacked Apple">
+                            </div>
+                            <h1>Nikocado</h1>
+                        </div>
                     </div>
-                    <div class="username">
-                        <p>NikocadoEats</p>
-                        <p>999 followers</p>
+                    <div class="flex-container post-list">
+                        <div class="flex-container column-box">
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 4.jpg" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart-filled.png" class="icon heart">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 9.jpg" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 6.webp" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 3.jpeg" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-container column-box">
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 13.jpg" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart-filled.png" class="icon heart">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 2.jpg" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 14.jpg" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 13.jpg" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-container column-box">
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 7.webp" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 6.webp" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 2.jpg" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 8.jpg" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-container column-box">
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 12.jpg" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 5.avif" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 1.jpg" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 10.jpg" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 13.jpg" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-container column-box">
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 19.avif" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 6.webp" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 2.jpg" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-container post">
+                                <div class="flex-container post-interaction">
+                                    <div>
+                                        <div class="bookmark"></div>
+                                    </div>
+                                </div>
+                                <a href="openpost.html" class="flex-container">
+                                    <img src="img/food 8.jpg" alt="hot sexy nikke girls">
+                                </a>
+                                <div class="flex-container restaurant-name">
+                                    <p>Bob's burgers</p>
+                                    <div class="heart-container">
+                                        <img src="img/heart.png" class="icon heart">
+                                        <img src="img/heart-filled.png" class="icon heart-filled">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="follow-box">
-                        <button type="button" class="NomNom-button">Follow</button>
+                    
+                </section>
+                <div class="flex-container profile-details">
+                    <div class="profile-link">
+                        <section>Open: 11 AM - 11 PM</section>
+                    </div>
+                    <div class="flex-container profile-link">
+                        <a href="https://www.missmikebentonoodles.com/">Website:</a>
+                    </div>
+                    <div class="flex-container profile-link">
+                        <a href="tel:2065478899">206-547-8899</a>
+                    </div>
+                    <div class="flex-container profile-link">
+                        <a href="https://www.google.com/maps/place/4106 Brooklyn Ave NE #102B, Seattle, WA 98105">4106 Brooklyn Ave NE #102B, Seattle, WA 98105</a>
                     </div>
                 </div>
-                <div class="flex-container profile-context">
-                    <div class="flex-container post-collection">
-                        <a src="openPost.html">
-                            <img src="img/food 15.avif">
-                        </a>
-                        <a src="openPost.html">
-                            <img src="img/food 15.avif">
-                        </a>
-                        <a src="openPost.html">
-                            <img src="img/food 15.avif">
-                        </a>
-                        <a src="openPost.html">
-                            <img src="img/food 15.avif">
-                        </a>
-                    </div>
-                    <div class="flex-container profile-details">
-                        <div class="profile-openings">
-                            <section>11 AM - 11 PM</section>
-                        </div>
-                        <div class="flex-container profile-contact">
-                            <section><a href="https://www.missmikebentonoodles.com/">missmikebentonoodles</a></section>
-                            <section><a href="tel:2065478899">206-547-8899</a></section>
-                            <section><a href="https://www.google.com/maps/place/4106 Brooklyn Ave NE #102B, Seattle, WA 98105">4106 Brooklyn Ave NE #102B, Seattle, WA 98105</a></section>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="comment-section profile-reviews">
-                    <!-- individual reporter -->
-                    <div class="flex-container commenter">
-                        <div class="profile-pic">
-                            <img src="img/Nikke.jpg" alt="big mommy ThomasMommyMilkers">
-                        </div>
-                        <div class="username">
-                            <p>ThomasMommyMilkers</p>
-                            <p>Mommy likes that!</p>
-                        </div>
-                    </div>
-                    <!-- individual commenter -->
-                    <div class="flex-container commenter">
-                        <div class="profile-pic">
-                            <img src="img/nikocado.webp" alt="water-weight mf">
-                        </div>
-                        <div class="username">
-                            <p>PhucPhiPhi</p>
-                            <p>Da'me dane da'me yo da'me da'ne yo</p>
-                        </div>
-                    </div>
-                    <!-- individual commenter -->
-                    <div class="flex-container commenter">
-                        <div class="profile-pic">
-                            <img src="img/nikocado.webp" alt="water-weight mf">
-                        </div>
-                        <div class="username">
-                            <p>PhucPhiPhi</p>
-                            <p>Da'me dane da'me yo da'me da'ne yo</p>
-                        </div>
-                    </div>
-                    <!-- individual commenter -->
-                    <div class="flex-container commenter">
-                        <div class="profile-pic">
-                            <img src="img/nikocado.webp" alt="water-weight mf">
-                        </div>
-                        <div class="username">
-                            <p>PhucPhiPhi</p>
-                            <p>Da'me dane da'me yo da'me da'ne yo</p>
-                        </div>
-                    </div>
-                    <!-- individual commenter -->
-                    <div class="flex-container commenter">
-                        <div class="profile-pic">
-                            <img src="img/nikocado.webp" alt="water-weight mf">
-                        </div>
-                        <div class="username">
-                            <p>PhucPhiPhi</p>
-                            <p>Da'me dane da'me yo da'me da'ne yo</p>
-                        </div>
-                    </div>
-                    <!-- individual commenter -->
-                    <div class="flex-container commenter">
-                        <div class="profile-pic">
-                            <img src="img/nikocado.webp" alt="water-weight mf">
-                        </div>
-                        <div class="username">
-                            <p>PhucPhiPhi</p>
-                            <p>Da'me dane da'me yo da'me da'ne yo</p>
-                        </div>
-                    </div>
-                    <!-- individual commenter -->
-                    <div class="flex-container commenter">
-                        <div class="profile-pic">
-                            <img src="img/nikocado.webp" alt="water-weight mf">
-                        </div>
-                        <div class="username">
-                            <p>PhucPhiPhi</p>
-                            <p>Da'me dane da'me yo da'me da'ne yo</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </main>
         <footer>
             <div class="flex-container footer-container">

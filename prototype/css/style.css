@@ -50,67 +50,22 @@ header {
 
 .logo {
     width: 1.5em;
-    margin-top: .5em;
+    margin-top: .2em;
     align-self: center;
     justify-self: center;
 }
 
-.more {
-    width: 1em;
-    height: 1em;
-    padding: 0;
-    margin: .6em;
-    margin-left: -.6em;
-    align-self: center;
-    display: block;
-}
-
-.dropdown {
-    display: flex;
-    justify-items: flex-end;
-    flex-direction: column;
-}
-
-.dropdown-content {
-display: none;
-width: 130px;
-margin-top: 2em;
-position: absolute;
-box-shadow: .1rem .1rem .5em .08rem rgba(109, 100, 104, 0.4);
-border-radius: 10px;
-z-index: 1;
-flex-direction: column;
-flex-wrap: nowrap;
-}
-
-.dropdown-content a {
-    text-decoration: none;
-    font-size: 1em;
-    color: black;
-    width: 100%;
-}
-
-.dropdown-content a:hover {
-    background-color: #d4d4d4;
-}
-
-.dropdown:hover .dropdown-content {
-display: block;
-background-color: white;
-}
-
-
 .home-explore {
     align-items: center;
     justify-content: flex-end;
-    display: none;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 .home-explore a {
     font-size: .5em;
     text-decoration: none;
     color: black;
-    margin: 2em;
 }
 
 .search-fields {
@@ -330,8 +285,9 @@ header {
     opacity: 0;
 }
 .heart-container {
-    width: 2em;
-    height: 2em;
+    display: flex;
+    width: 1.8em;
+    height: 1.8em;
     cursor: pointer;
 }
 
@@ -408,13 +364,13 @@ header {
 
 .bookmark:hover {
     height: 3.5em;
-    transition: all .6s;
+    transition: all .2s;
 }
 
 .bookmark:hover::after {
     top: 2.9em;
     box-shadow: 0rem 0rem 1rem 5rem white;
-    transition: all .4s;
+    transition: all .2s;
 }
 
 .icon {
@@ -453,14 +409,14 @@ header {
     height: 10em;
 }
 
-.group figure img {
-    height: 10em;
+.restaurant-followers-stars {
+    align-items: center;
+    height: 5em;
+    width: 100%;
+    justify-content: center;
 }
 
 
-.stars-container {
-    width: 1em;
-}
 
 
 /* following page */
@@ -555,16 +511,25 @@ figcaption {
     font-size: .8rem;
 }
 
-.follow-box {
-    flex-grow: 1;
-    align-self: center;
+
+.profile-container img {
+    margin-top: 2em;
+    transform: scale(2);
 }
+
+.profile-container {
+    flex-direction: column;
+    align-items: center;
+    height: 10em;
+    margin-bottom:-2em;
+}
+
 
 .follow-box button {
     color: black;
     background-color: lightgray;
     padding: .75em 0;
-    width: 5em;
+    width: 6em;
 }
 
 .post-util {
@@ -766,29 +731,44 @@ main > p {
 }
 
 .profile-banner {
-    padding: 5em 0;
-    margin: 0 1em;
-    background-image: url(../img/Nikke.jpg);
-    background-size: cover;
+    flex-direction: column;
     border-radius: 10px;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2em;
 }
 
-.profile-banner .profile-pic {
-    margin: 0 2% 0 5%;
-    flex-grow: 0;
+.profile-banner h1, h2 {
+    margin: .2em;
 }
 
-.profile-banner .follow-box {
-    margin-right: 1em;
+.profile-banner h1 {
+    font-size: 1.5em;
 }
 
-.profile-context {
-    flex-direction: column-reverse;
+.profile-container h2 {
+    font-size: .8em;
+}
+
+.follow-box {
+    margin-top: -1em;
+    transform: scale(.8);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 6fr 2fr;
 }
 
 .profile-contact {
     flex-direction: column;
+}
+
+.profile-contact a {
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+    margin: 1em;
 }
 
 .post-collection {
@@ -808,20 +788,21 @@ main > p {
 
 .profile-details {
     flex-direction: column;
-    gap: 1em;
-    margin: 1em 1em 0;
+    margin-right: 2em;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    height: fit-content;
+
 }
 
-.profile-details .profile-openings {
-    text-align: center;
-    padding: 1em 0;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+.profile-details .profile-link {
+    padding: 1.5em;
+    box-shadow: 0px 1px 0px rgb(0 0 0 / 20%);
+   
 }
 
-.profile-details .profile-contact {
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+.profile-link a {
+    text-decoration: none;
+    color: black;
 }
 
 /* footer section */
@@ -886,11 +867,7 @@ footer .material-icons {
 
     .logo {
         width: 2em;
-        margin-top: .5em;
-    }
-
-    .more {
-        margin-top: .7em;
+        margin-top: .2em;
     }
 
 
@@ -1045,12 +1022,6 @@ footer .material-icons {
 
     .post-img {
         width: 92%;
-    }
-    .home-explore {
-        display: flex;
-    }
-    .more {
-        display: none;
     }
 }
 
