@@ -19,6 +19,16 @@ body {
     font-weight: bold;
 }
 
+.NomNom-button:hover {
+    border: black solid;
+    cursor: pointer;
+}
+
+.material-icons:hover {
+    color: #F39999;
+    cursor: pointer;
+}
+
 .general-layout {
     flex-direction: column;
     margin-top: 10em;
@@ -220,6 +230,10 @@ header {
     font-weight: bold;
 }
 
+.home-option a:hover {
+    border: none;
+}
+
 /* .home-option a:not(#chosen-option):hover {
     color: #F39999;
     font-weight: bold;
@@ -394,7 +408,6 @@ header {
 }
 
 /* explore page */
-
 .group-outer {
     flex-direction: column;
     width: 100%;
@@ -449,6 +462,15 @@ figcaption {
     text-align: center;
     font-weight: bold;
     margin: 0.5em;
+}
+
+/* saved and recent */
+.post-storage {
+    gap: 2em;
+}
+
+.post-storage a img {
+    height: 16rem;
 }
 
 /* opening post */
@@ -537,10 +559,8 @@ figcaption {
     justify-content: space-between;
 }
 
-.post-util button {
-    background-color: #F39999;
-    padding: .75em 0;
-    width: 5em;
+.post-util > button:first-child:hover {
+    color: #F39999;
 }
 
 .post-util .material-icons {
@@ -555,13 +575,28 @@ figcaption {
     text-decoration: none;
 }
 
+.post-util .material-icons:first-child {
+    background-color: white;
+    padding: 0;
+    width: 1em;
+    margin: 0;
+    position: static;
+}
+
+.post-util div button {
+    background-color: #F39999;
+    padding: .75em 0;
+    width: 5em;
+    margin-top: 0;
+}
+
 .comment-dropdown {
     display: none;
 }
 
 .comment-dropdown .material-icons {
     position: relative;
-    top: .45em;
+    top: .1em;
     color: black;
 }
 
@@ -583,7 +618,7 @@ main > p {
     z-index: 100;
 }
 
-.comment-box > a {
+.comment-box > div:first-child {
     align-self: center;
 }
 
@@ -607,10 +642,17 @@ main > p {
 }
 
 .comment-count .material-icons {
-    margin: .2em .5em 0 0;
+    margin-right: .5em;
     font-size: 1.4rem;
-    position: relative;
-    top: 0.3em;
+}
+
+.like-count {
+    display: inline;
+    font-size: 1rem;
+}
+
+.comment-count .material-icons:hover {
+    color: #F39999;
 }
 
 .comment-section {
