@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, Navigate, Link } from 'react-router-dom';
 
-import { createDiscoveryColumns } from './discovery'
-import CreatePost from './create';
+import { navBar } from './NavBar';
+import { CreatePost } from './Create';
+import { Discovery } from './Discovery';
+import { Following } from './Following';
+import { Saved } from './Saved';
+import { Recent } from './Recent'
 
 function App() {
   let windowWidth = window.innerWidth;
@@ -24,46 +29,24 @@ function App() {
   return (
     <div class="flex-container general-layout">
         <header>
-            <nav class="flex-container navbar">
-                <a href='index.html'>
-                    <img src={"../../img/logo.jpg"} alt='logo' width='80px' />
-                  </a>
-                <div class="flex-container home-explore">
-                <a class="NomNom-button active" href="index.html">Home</a>
-                <a href="explore.html">Explore</a>
-                <a href="create.html">Create</a>
-                </div>
-                <div id="searchbar" class="flex-container">
-                    <form method="get" action="">
-                        <div class="search-fields">
-                            <div class="search-term"><input type="text" placeholder="Search:" required /></div>
-                            <div class="search-term"><input type="text" placeholder="Location:" /></div>
-                            <div class="search-term" id="search-btn-cover">
-                                <button class="search-btn" type="submit">
-                                    <div id="search-btn-circle"></div>
-                                    <span></span>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="flex-container login-signup">
-                    <a href="login.html">Login</a>
-                    <a href="signup.html">Sign Up</a>
-                </div>
-                <a class="user-profile hidden" href="personalP.html">
-                    <img aria-label="user-profile" class="user-profile-img" src="./data/img/nikocado.webp" alt="user-profile-img" />
-                </a>
-            </nav>
+            <navBar />
         </header>
         <main>
             <div class="flex-container home-option">
-                <a id="chosen-option" class="NomNom-button" href="index.html">Discover</a>
-                <a href="following.html" class="NomNom-button">Following</a>
-                <a href="saved.html" class="NomNom-button">Saved</a>
-                <a href="recents.html" class="NomNom-button">Recents</a>
+                <Link id="chosen-option" class="NomNom-button" to="discovery">Discover</Link>
+                <Link to="following" class="NomNom-button">Following</Link>
+                <Link to="saved" class="NomNom-button">Saved</Link>
+                <Link to="recent" class="NomNom-button">Recent</Link>
             </div>
-            <createDiscoveryColumns photoGallery windowWidth={windowWidth}/>
+            <Routes>
+                <Route path="discovery" element={<Discovery />} >
+                    <Route index element={<Discovery />} />
+                </Route>
+                <Route path="following" element={<Following />} />
+                <Route path="saved" element={<Saved />} />
+                <Route path="recent" element={<Recent />} />
+                <Route path="*" element={<Navigate to="discovery" />} />
+            </Routes>
         </main>
         <footer>
             <div class="flex-container footer-container">

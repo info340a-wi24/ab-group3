@@ -22,7 +22,6 @@ function RestaurantInfo({restaurantName, restaurantPic, subscribers, ratings}) {
                 <a href="#yelp.review">Ratings {ratings}</a> 
             </div>
         </div>
-        
     );
 }
 

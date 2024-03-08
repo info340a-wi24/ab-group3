@@ -9,7 +9,7 @@ function createColumn(props) {
     return (<div class="flex-container column-box">{photoGallery}</div>);
 }
 
-export function createDiscoveryColumns(props) {
+export function Discovery(props) {
     let photoGallery = props.photoGallery;
     let columnArray = [];
 
