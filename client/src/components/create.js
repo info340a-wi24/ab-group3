@@ -64,20 +64,7 @@ function CreatePost(UploadImg, Descriptions) {
         console.log('Publishing post...');
     };
 
-    const handleDrop = (event) => {
-        event.preventDefault();
-        const droppedFiles = event.dataTransfer.files[0];
-        setFile(droppedFiles);
-    };
-
-    const handleFileInputChange = (event) => {
-        const selectedFile = event.target.files[0];
-        setFile(selectedFile);
-    }
-
-    const handleFileInputClick = () => {
-        document.getElementById('fileInput').value = '';
-    };
+    
 
    
 
@@ -85,13 +72,13 @@ function CreatePost(UploadImg, Descriptions) {
     return (
         <div className="flex-container upload-box">
         <div className="form-container">
-            <div className="drop-area" id="dropArea" onDrop={handleDrop} onDrag={(event) => event.preventDefault()} onClick={handleFileInputClick}>
+            <div className="drop-area" id="dropArea" >
                 <h3>Drag & Drop Files Here</h3>
                 <p>or</p>
                 <label htmlFor="fileInput" className="button">Click to Select Files</label>
                 <br/>
                 <br/>
-                <input type="file" id="fileInput" multiple accept="image/*"  onChange={handleFileInputChange} style={{display: 'none'}} required/>
+                <input type="file" id="fileInput" multiple accept="image/*"  required/>
             </div>
         </div>
         <form className="container2">
