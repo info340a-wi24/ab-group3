@@ -27,7 +27,7 @@ function App() {
     )
   }, [])
   return (
-    <div class="flex-container general-layout">
+    <div className="flex-container general-layout">
         <header>
             <navBar />
         </header>
@@ -49,10 +49,10 @@ function App() {
             </Routes>
         </main>
         <footer>
-            <div class="flex-container footer-container">
+            <div className="flex-container footer-container">
                 <p>
                     <a href="mailto:jah0311@uw.edu, ptle04@uw.edu, phucn24@uw.edu, tlu2004@uw.edu">
-                        <span class="material-icons">email</span>
+                        <span className="material-icons">email</span>
                         contact@nomnom.com
                     </a>
                 </p>
