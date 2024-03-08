@@ -8,7 +8,7 @@ function CreatePost(UploadImg, Descriptions) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [links, setLinks] = useState('');
-    const [tags, setTags] = useState('');
+    const [tags, setTags] = useState([]);
     const [tagInput, setTagInput] = useState('');
     const [file, setFile] = useState(null);
 
@@ -97,11 +97,11 @@ function CreatePost(UploadImg, Descriptions) {
             <div >
                     <div className="description-container">
                         <label htmlFor="title">Title</label>
-                        <textarea id="title" name="title" rows="2" value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Add a title" ></textarea>
+                        <textarea id="title" name="title" rows="2" value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Add a title" required></textarea>
                     </div>
                     <div className="description-container">
                         <label htmlFor="description">Description</label>
-                        <textarea id="description" name="description" value={description} onChange={(event) => setDescription(event.target.value)} rows="2" placeholder="Add a caption" ></textarea>
+                        <textarea id="description" name="description" value={description} onChange={(event) => setDescription(event.target.value)} rows="2" placeholder="Add a caption" required></textarea>
                     </div>
                     <div className="description-container">
                         <label htmlFor="links">Links</label>

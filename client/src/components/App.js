@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, Link } from 'react-router-dom';
 
 import { NavBar } from './NavBar';
-import { CreatePost } from './Create';
+import { CreatePost } from './create';
 
 // Home Components
 import { Discover } from './home/Discover';
