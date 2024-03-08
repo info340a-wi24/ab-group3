@@ -1,6 +1,6 @@
 'use strict';
 
-export function navBar(props) {
+export function NavBar(props) {
     return (
         <nav class="flex-container navbar">
             <section class="flex-container">
