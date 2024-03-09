@@ -7,7 +7,7 @@ export function NavBar(props) {
         <nav className="flex-container navbar">
                 <section className="flex-container">
                     <Link to="discover">
-                        <img className="active logo" src='img/logo.jpg' alt='logo' />
+                        <img className="active logo" src={"./../img/logo.jpg"} alt='logo' />
                     </Link>
                     <div className="flex-container home-explore">
                         <Link to="create" className="NomNom-button">Create</Link>
@@ -29,7 +29,7 @@ export function NavBar(props) {
                         </form>
                     </div>
                     <Link className="user-profile" href="profile.html">
-                        <img aria-label="user-profile" className="user-profile-img" src="img/nikocado.webp" alt="user-profile-img" />
+                        <img aria-label="user-profile" className="user-profile-img" src={"./../img/nikocado.webp"} alt="user-profile-img" />
                     </Link>
                 </section>
             </nav>

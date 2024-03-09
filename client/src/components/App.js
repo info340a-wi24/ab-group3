@@ -9,6 +9,7 @@ import { Discover } from './home/Discover';
 import { Following } from './home/Following';
 import { Saved } from './home/Saved';
 import { Recent } from './home/Recent';
+import { OpenPost } from './home/OpenPost'
 
 // Footer Component
 import { FooterDetail } from './Footer';
@@ -21,7 +22,9 @@ function App() {
         </header>
         <main>
             <Routes>
-              <Route path="discover" element={<Discover />} />
+              <Route path="discover" element={<Discover />} >
+                <Route path="/discover/:postId" element={<OpenPost />} />
+              </Route>
               <Route path="following" element={<Following />} />
               <Route path="saved" element={<Saved />} />
               <Route path="recent" element={<Recent />} />
