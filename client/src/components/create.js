@@ -1,7 +1,10 @@
 'use strict';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore'; 
+import {firebaseConfig} from './Config.js';
+
+
 
 function CreatePost(UploadImg, Descriptions) {
 
@@ -11,6 +14,16 @@ function CreatePost(UploadImg, Descriptions) {
     const [tags, setTags] = useState([]);
     const [tagInput, setTagInput] = useState('');
     const [file, setFile] = useState(null);
+    const [errorMessage, setErrorMessage] = useState('');
+
+
+    useEffect(() => {
+    
+
+          if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+          }
+    }, []);
 
     const handleTagInputChange = (event) => {
         setTagInput(event.target.value);
@@ -26,15 +39,16 @@ function CreatePost(UploadImg, Descriptions) {
             }
         }
     }
+    const handleFileInputChange = (event) => {
+        const files = event.target.files;
+        if (files.length > 0) {
+            setFile(files[0]);
+        }
+    };
 
     const handlePublish = () => {
         console.log('Publish button clicked');
 
-        //check if title and description are not empty
-        if (!title.trim() || !description.trim()) {
-            alert('Title and description are required');
-            return;
-        }
 
 
        const db = firebase.firestore();
@@ -54,6 +68,7 @@ function CreatePost(UploadImg, Descriptions) {
             setLinks('');
             setTags([]);
             setTagInput('');
+            setFile(null);
         })
 
         .catch((error) => {
@@ -78,7 +93,7 @@ function CreatePost(UploadImg, Descriptions) {
                 <label htmlFor="fileInput" className="button">Click to Select Files</label>
                 <br/>
                 <br/>
-                <input type="file" id="fileInput" multiple accept="image/*"  required/>
+                <input type="file" id="fileInput" onChange={handleFileInputChange} multiple accept="image/*"  required/>
             </div>
         </div>
         <form className="container2">
@@ -97,7 +112,7 @@ function CreatePost(UploadImg, Descriptions) {
                     </div>
                     <div className="description-container">
                         <label htmlFor="tags">Tags</label>
-                        <input type="text" id="tagInput" value={tagInput} onChange={handleTagInputChange} onKeyDown={handleTagInputKeyDown} placeholder="Add tags"/>
+                        <input type="text" id="tagInput" value={tagInput} onChange={handleTagInputChange} onKeyDown={handleTagInputKeyDown} placeholder="Add tags "/>
                         <div id="tagContainer">
                             {tags.map((tag, index) => (
                                 <span key={index} className='tag'>{tag}{index !== tags.length - 1 && ' '}</span>
@@ -107,6 +122,7 @@ function CreatePost(UploadImg, Descriptions) {
                         <div className="publish-button">
                             <button className="NomNom-button" id="publish" onClick={handlePublish} disabled={!file}>Publish</button>
                         </div>
+                        {errorMessage && <p className='error-message'>{errorMessage}</p>}
                     </div>   
             </div>
         </form>

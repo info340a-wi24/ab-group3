@@ -1118,6 +1118,7 @@ footer .material-icons {
         flex-direction: column;
         align-items: center;
         margin-right: 12%;
+        margin-left: 30%;
     }
 
     .drop-area {
@@ -1138,7 +1139,7 @@ footer .material-icons {
     }
 
     .container2 {
-        width: 50%;   
+        width: 60%;   
     
     }
 
@@ -1153,11 +1154,9 @@ footer .material-icons {
 
     #tagInput {
         width: 100%;
-    }
-
-    .tag {
         font-size: small;
     }
+
 
 }
 
