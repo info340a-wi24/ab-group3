@@ -19,18 +19,6 @@ function App() {
     windowWidth = window.innerWidth;
   })
 
-  const[data, setData] = useState([{}])
-
-  useEffect(() => {
-    fetch("/members").then(
-      res => res.json()
-    ).then(
-      data => {
-        setData(data)
-        console.log(data)
-      }
-    )
-  }, [])
   return (
     <div className="flex-container general-layout">
         <header>
