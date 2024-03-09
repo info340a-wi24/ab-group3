@@ -31,7 +31,7 @@ function App() {
               <Route path="saved" element={<Saved />} />
               <Route path="recent" element={<Recent />} />
               <Route path="create" element={<CreatePost />} />
-              <Route path="*" element={<Navigate to="discover"/>} />
+              <Route path="*" element={<Navigate to="discover" />} />
             </Routes>
         </main>
         <footer>
