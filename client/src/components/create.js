@@ -2,6 +2,8 @@
 import React, {useState, useEffect} from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore'; 
+import {firebaseConfig} from './Config.js';
+
 
 
 function CreatePost(UploadImg, Descriptions) {
@@ -16,15 +18,7 @@ function CreatePost(UploadImg, Descriptions) {
 
 
     useEffect(() => {
-        const firebaseConfig = {
-            apiKey: "AIzaSyDTGD8T1b4hMN5ZZNcmnvcqDrirbZGKRe0",
-            authDomain: "nomnom-26a7e.firebaseapp.com",
-            databaseURL: "https://nomnom-26a7e-default-rtdb.firebaseio.com",
-            projectId: "nomnom-26a7e",
-            storageBucket: "nomnom-26a7e.appspot.com",
-            messagingSenderId: "902432489382",
-            appId: "1:902432489382:web:a921baab33a20381999967"
-          };
+    
 
           if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
@@ -55,7 +49,7 @@ function CreatePost(UploadImg, Descriptions) {
     const handlePublish = () => {
         console.log('Publish button clicked');
 
-       
+
 
        const db = firebase.firestore();
 
