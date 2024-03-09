@@ -46,59 +46,59 @@ export function Discover(props) {
 
     return (
         <>
-            <div class="flex-container home-option">
-                <Link to="../discovery" id="chosen-option" class="NomNom-button">Discover</Link>
-                <Link to="../following" class="NomNom-button">Following</Link>
-                <Link to="../saved" class="NomNom-button">Saved</Link>
-                <Link to="../recent" class="NomNom-button">Recent</Link>
+            <div className="flex-container home-option">
+                <Link to="../discovery" id="chosen-option" className="NomNom-button">Discover</Link>
+                <Link to="../following" className="NomNom-button">Following</Link>
+                <Link to="../saved" className="NomNom-button">Saved</Link>
+                <Link to="../recent" className="NomNom-button">Recent</Link>
             </div>
             <div className="flex-container post-list">
-                <div class="flex-container column-box">
-                    <div class="flex-container post">
-                        <div class="flex-container post-interaction">
+                <div className="flex-container column-box">
+                    <div className="flex-container post">
+                        <div className="flex-container post-interaction">
                             <div>
-                                <div class="bookmark"></div>
+                                <div className="bookmark"></div>
                             </div>
                         </div>
-                        <a href="openpost.html" class="flex-container">
+                        <a href="openpost.html" className="flex-container">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/800px-Good_Food_Display_-_NCI_Visuals_Online.jpg" alt="hot sexy nikke girls" />
                         </a>
-                        <div class="flex-container restaurant-name">
+                        <div className="flex-container restaurant-name">
                             <p>Bob's burgers</p>
-                            <div class="heart-container">
-                                <img src="img/heart-filled.png" class="icon heart" />
+                            <div className="heart-container">
+                                <img src="img/heart-filled.png" className="icon heart" />
                             </div>
                         </div>
                     </div>
-                    <div class="flex-container post">
-                        <div class="flex-container post-interaction">
+                    <div className="flex-container post">
+                        <div className="flex-container post-interaction">
                             <div>
-                                <div class="bookmark"></div>
+                                <div className="bookmark"></div>
                             </div>
                         </div>
-                        <a href="openpost.html" class="flex-container">
+                        <a href="openpost.html" className="flex-container">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/800px-Good_Food_Display_-_NCI_Visuals_Online.jpg" alt="hot sexy nikke girls" />
                         </a>
-                        <div class="flex-container restaurant-name">
+                        <div className="flex-container restaurant-name">
                             <p>Bob's burgers</p>
-                            <div class="heart-container">
-                                <img src="img/heart-filled.png" class="icon heart" />
+                            <div className="heart-container">
+                                <img src="img/heart-filled.png" className="icon heart" />
                             </div>
                         </div>
                     </div>
-                    <div class="flex-container post">
-                        <div class="flex-container post-interaction">
+                    <div className="flex-container post">
+                        <div className="flex-container post-interaction">
                             <div>
-                                <div class="bookmark"></div>
+                                <div className="bookmark"></div>
                             </div>
                         </div>
-                        <a href="openpost.html" class="flex-container">
+                        <a href="openpost.html" className="flex-container">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/800px-Good_Food_Display_-_NCI_Visuals_Online.jpg" alt="hot sexy nikke girls" />
                         </a>
-                        <div class="flex-container restaurant-name">
+                        <div className="flex-container restaurant-name">
                             <p>Bob's burgers</p>
-                            <div class="heart-container">
-                                <img src="img/heart-filled.png" class="icon heart" />
+                            <div className="heart-container">
+                                <img src="img/heart-filled.png" className="icon heart" />
                             </div>
                         </div>
                     </div>
