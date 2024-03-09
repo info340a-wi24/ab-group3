@@ -1,9 +1,66 @@
 'use strict';
-import _ from 'lodash';
 
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getDatabase, ref, onValue } from 'firebase/database';
+
+function CreatePost(props) {
+    let post = props.post;
+
+    let src = post.src;
+    let alt = post.alt;
+    let restaurantName = post.restaurant_name;
+
+    return (
+        <div className="flex-container post">
+            <div className="flex-container post-interaction">
+                <div>
+                    <div className="bookmark"></div>
+                </div>
+            </div>
+            <a href="openpost.html" className="flex-container">
+                <img src={src} alt={alt} />
+            </a>
+            <div className="flex-container restaurant-name">
+                <p>{restaurantName}</p>
+                <div className="heart-container">
+                    <img src="img/heart.png" class="icon heart" />
+                    <img src="img/heart-filled.png" class="icon heart-filled" />
+                </div>
+            </div>
+        </div>
+    );
+}
 
 export function Saved(props) {
+    let [photos, setPhotos] = useState([]);
+
+    useEffect(() => {
+        let db = getDatabase();
+        let photosRef = ref(db, "photos");
+
+        let unregisterFuntion = onValue(photosRef, (snapshot) => {
+            let photosValue = snapshot.val();
+            let photosKeys = Object.keys(photosValue);
+
+            let photosArray = photosKeys.map((key) => {
+                let singlePhoto = { ...photosValue[key] };
+                return singlePhoto;
+            })
+            setPhotos(photosArray);
+        });
+
+        function cleanup() {
+            unregisterFuntion();
+        }
+        return cleanup;
+    }, [])
+
+    let savedArray = [];
+    for (let i = 0; i < photos.length; i++) {
+        savedArray.push(<CreatePost post={{...photos[i]}} />);
+    }
+
     return (
         <>
             <div className="flex-container home-option">
@@ -13,57 +70,7 @@ export function Saved(props) {
                 <Link to="../recent" className="NomNom-button">Recent</Link>
             </div>
             <div className="flex-container post-list post-storage">
-                <div className="flex-container post">
-                    <div className="flex-container post-interaction">
-                        <div>
-                            <div className="bookmark"></div>
-                        </div>
-                    </div>
-                    <a href="openpost.html" className="flex-container">
-                        <img src="https://www.cnet.com/a/img/resize/69256d2623afcbaa911f08edc45fb2d3f6a8e172/hub/2023/02/03/afedd3ee-671d-4189-bf39-4f312248fb27/gettyimages-1042132904.jpg?auto=webp&fit=crop&height=675&width=1200" alt="hot sexy nikke girls" />
-                    </a>
-                    <div className="flex-container restaurant-name">
-                        <p>Bob's burgers</p>
-                        <div className="heart-container">
-                            <img src="img/heart.png" className="icon heart" />
-                            <img src={"img/heart-filled.png"} className="icon heart-filled" />
-                        </div>
-                    </div>
-                </div>
-                <div className="flex-container post">
-                    <div className="flex-container post-interaction">
-                        <div>
-                            <div className="bookmark"></div>
-                        </div>
-                    </div>
-                    <a href="openpost.html" className="flex-container">
-                        <img src="https://www.cnet.com/a/img/resize/69256d2623afcbaa911f08edc45fb2d3f6a8e172/hub/2023/02/03/afedd3ee-671d-4189-bf39-4f312248fb27/gettyimages-1042132904.jpg?auto=webp&fit=crop&height=675&width=1200" alt="hot sexy nikke girls" />
-                    </a>
-                    <div className="flex-container restaurant-name">
-                        <p>Bob's burgers</p>
-                        <div className="heart-container">
-                            <img src="img/heart.png" className="icon heart" />
-                            <img src={"img/heart-filled.png"} className="icon heart-filled" />
-                        </div>
-                    </div>
-                </div>
-                <div className="flex-container post">
-                    <div className="flex-container post-interaction">
-                        <div>
-                            <div className="bookmark"></div>
-                        </div>
-                    </div>
-                    <a href="openpost.html" className="flex-container">
-                        <img src="https://www.cnet.com/a/img/resize/69256d2623afcbaa911f08edc45fb2d3f6a8e172/hub/2023/02/03/afedd3ee-671d-4189-bf39-4f312248fb27/gettyimages-1042132904.jpg?auto=webp&fit=crop&height=675&width=1200" alt="hot sexy nikke girls" />
-                    </a>
-                    <div className="flex-container restaurant-name">
-                        <p>Bob's burgers</p>
-                        <div className="heart-container">
-                            <img src="img/heart.png" className="icon heart" />
-                            <img src={"img/heart-filled.png"} className="icon heart-filled" />
-                        </div>
-                    </div>
-                </div>
+                {savedArray}
             </div>
         </>
     );

@@ -25,7 +25,6 @@ function CreatePost(props) {
     let src = post.src;
     let alt = post.alt;
     let restaurantName = post.restaurant_name;
-    console.log(post);
 
     return (
         <div className="flex-container post">

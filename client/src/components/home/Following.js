@@ -1,5 +1,4 @@
 'use strict';
-import _ from 'lodash';
 
 import { useState, useEffect, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -7,6 +6,7 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 
 function CreateRestaurant(props) {
     let restaurant = props.restaurant;
+    
     let src = restaurant.cover_pic;
     let restaurantName = restaurant.restaurant_name;
 
