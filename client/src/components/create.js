@@ -1,7 +1,8 @@
 'use strict';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore'; 
+
 
 function CreatePost(UploadImg, Descriptions) {
 
@@ -11,6 +12,24 @@ function CreatePost(UploadImg, Descriptions) {
     const [tags, setTags] = useState([]);
     const [tagInput, setTagInput] = useState('');
     const [file, setFile] = useState(null);
+    const [errorMessage, setErrorMessage] = useState('');
+
+
+    useEffect(() => {
+        const firebaseConfig = {
+            apiKey: "AIzaSyDTGD8T1b4hMN5ZZNcmnvcqDrirbZGKRe0",
+            authDomain: "nomnom-26a7e.firebaseapp.com",
+            databaseURL: "https://nomnom-26a7e-default-rtdb.firebaseio.com",
+            projectId: "nomnom-26a7e",
+            storageBucket: "nomnom-26a7e.appspot.com",
+            messagingSenderId: "902432489382",
+            appId: "1:902432489382:web:a921baab33a20381999967"
+          };
+
+          if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+          }
+    }, []);
 
     const handleTagInputChange = (event) => {
         setTagInput(event.target.value);
@@ -26,16 +45,17 @@ function CreatePost(UploadImg, Descriptions) {
             }
         }
     }
+    const handleFileInputChange = (event) => {
+        const files = event.target.files;
+        if (files.length > 0) {
+            setFile(files[0]);
+        }
+    };
 
     const handlePublish = () => {
         console.log('Publish button clicked');
 
-        //check if title and description are not empty
-        if (!title.trim() || !description.trim()) {
-            alert('Title and description are required');
-            return;
-        }
-
+       
 
        const db = firebase.firestore();
 
@@ -54,6 +74,7 @@ function CreatePost(UploadImg, Descriptions) {
             setLinks('');
             setTags([]);
             setTagInput('');
+            setFile(null);
         })
 
         .catch((error) => {
@@ -78,7 +99,7 @@ function CreatePost(UploadImg, Descriptions) {
                 <label htmlFor="fileInput" className="button">Click to Select Files</label>
                 <br/>
                 <br/>
-                <input type="file" id="fileInput" multiple accept="image/*"  required/>
+                <input type="file" id="fileInput" onChange={handleFileInputChange} multiple accept="image/*"  required/>
             </div>
         </div>
         <form className="container2">
@@ -107,6 +128,7 @@ function CreatePost(UploadImg, Descriptions) {
                         <div className="publish-button">
                             <button className="NomNom-button" id="publish" onClick={handlePublish} disabled={!file}>Publish</button>
                         </div>
+                        {errorMessage && <p className='error-message'>{errorMessage}</p>}
                     </div>   
             </div>
         </form>
