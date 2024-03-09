@@ -14,11 +14,6 @@ import { Recent } from './home/Recent';
 import { FooterDetail } from './Footer';
 
 function App() {
-  let windowWidth = window.innerWidth;
-  window.addEventListener("resize", () => {
-    windowWidth = window.innerWidth;
-  })
-
   return (
     <div className="flex-container general-layout">
         <header>
