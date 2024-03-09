@@ -97,7 +97,7 @@ function CreatePost(UploadImg, Descriptions) {
                     </div>
                     <div className="description-container">
                         <label htmlFor="tags">Tags</label>
-                        <input type="text" id="tagInput" value={tagInput} onChange={handleTagInputChange} onKeyDown={handleTagInputKeyDown} placeholder="Add tags"/>
+                        <input type="text" id="tagInput" value={tagInput} onChange={handleTagInputChange} onKeyDown={handleTagInputKeyDown} placeholder="Add tags "/>
                         <div id="tagContainer">
                             {tags.map((tag, index) => (
                                 <span key={index} className='tag'>{tag}{index !== tags.length - 1 && ' '}</span>
