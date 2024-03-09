@@ -760,6 +760,11 @@ main > p {
     cursor: pointer;
 }
 
+#tagContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 #publish {
     display: inline-block;
     background-color: #B5CB99;
@@ -1124,17 +1129,17 @@ footer .material-icons {
     .form-container {
     background-color: #DCDFDD ;
     border-radius: 2em;
-    width: 60%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     margin-left: -20%;
     margin-right: 20%;
-    font-size: x-large;
+   
     }
 
     .container2 {
         width: 50%;   
-        font-size: x-large; 
+    
     }
 
     .form-container,
@@ -1144,6 +1149,14 @@ footer .material-icons {
         margin-bottom: 10%;
         margin-left: 5%;
 
+    }
+
+    #tagInput {
+        width: 100%;
+    }
+
+    .tag {
+        font-size: small;
     }
 
 }
@@ -1183,6 +1196,17 @@ footer .material-icons {
         margin-bottom: 10%; 
         margin-left: 5%;
     }
+
+    .description-container {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #tagInput {
+        width: 100%;
+    }
+    
 
 }
 

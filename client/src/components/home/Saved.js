@@ -24,8 +24,8 @@ function CreatePost(props) {
             <div className="flex-container restaurant-name">
                 <p>{restaurantName}</p>
                 <div className="heart-container">
-                    <img src="img/heart.png" class="icon heart" />
-                    <img src="img/heart-filled.png" class="icon heart-filled" />
+                    <img src="img/heart.png" className="icon heart" />
+                    <img src="img/heart-filled.png" className="icon heart-filled" />
                 </div>
             </div>
         </div>
