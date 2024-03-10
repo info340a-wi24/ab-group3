@@ -327,6 +327,7 @@ header {
   height: 1.8em;
   margin-top: -.4em;
   cursor: pointer;
+  opacity: 0;
 }
 
 .heart-container:hover > .heart {
@@ -352,7 +353,12 @@ header {
 
 .post:hover > .restaurant-container p {
   opacity: 1;
-  transition: opacity .3s;
+  transition: opacity .2s;
+}
+
+.post:hover > div > .heart-container {
+  opacity: 1;
+  transition: opacity .2s;
 }
 
 .post:hover > .post-img-background img {
@@ -418,21 +424,6 @@ header {
 .icon {
   max-width: 30px;
   max-height: 30px;
-}
-
-
-.post-btns {
-  position: relative;
-  z-index: 3;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.post-link {
-  position: relative;
-  z-index: -1;
-  text-decoration: none;
-
 }
 
 /* explore page */
