@@ -325,6 +325,7 @@ header {
   display: flex;
   width: 1.8em;
   height: 1.8em;
+  margin-top: -.4em;
   cursor: pointer;
 }
 
@@ -340,8 +341,8 @@ header {
 .restaurant-container p {
   cursor: pointer;
   opacity: 0;
-  width: 14rem;
-  padding-right: 4rem
+  width: 13rem;
+  margin-right: 1rem
 }
 
 .post:hover > .post-interaction {
