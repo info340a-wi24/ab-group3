@@ -560,7 +560,6 @@ figcaption {
   font-size: .8rem;
 }
 
-
 .profile-container img {
   margin-top: 2em;
   transform: scale(2);
@@ -573,12 +572,11 @@ figcaption {
   margin-bottom:-2em;
 }
 
-
 .follow-box button {
   color: black;
   background-color: lightgray;
   padding: .75em 0;
-  width: 6em;
+  width: 5.3em;
 }
 
 .post-util {
@@ -817,11 +815,6 @@ main > p {
 
 .profile-container h2 {
   font-size: .8em;
-}
-
-.follow-box {
-  margin-top: 3em;
-  transform: scale(.8);
 }
 
 .grid {

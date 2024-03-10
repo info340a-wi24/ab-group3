@@ -1,7 +1,7 @@
 'use strict';
 
 import { useState, useEffect, useLayoutEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { getDatabase, ref, onValue } from 'firebase/database';
 
 import _ from 'lodash';
@@ -43,8 +43,8 @@ function CreatePost(props) {
                     <p>{restaurantName}</p>
                 </div>
                 <div className="heart-container">
-                    <img src="img/heart.png" className="icon heart" />
-                    <img src="img/heart-filled.png" className="icon heart-filled" />
+                    <img src={"./../img/heart.png"} className="icon heart" />
+                    <img src={"./../img/heart-filled.png"} className="icon heart-filled" />
                 </div>
             </div>
         </div>
@@ -118,6 +118,20 @@ export function Discover(props) {
                 dynamicColumns.push(<CreateColumn key={i} postsArray={[...arrayColumns[i]]} />);
             }
         }
+    }
+
+    let currentRoute = useLocation();
+    let currentPath = currentRoute.pathname;
+
+    if (currentPath != "/discover") {
+        return (
+            <>
+                <Outlet />
+                <div className="flex-container post-list">
+                    {dynamicColumns} 
+                </div>
+            </>
+        );
     }
 
     return (
