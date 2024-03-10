@@ -267,6 +267,7 @@ header {
 
 .post {
   flex-direction: column;
+
 }
 
 .post-interaction {
@@ -280,7 +281,12 @@ header {
   position: absolute;
 }
 
-.restaurant-name {
+.post-img-background {
+  z-index: -5;
+  border-radius: 1em;
+}
+
+.restaurant-container {
   text-decoration: none;
   color: white;
   font-size: 1em;
@@ -289,17 +295,32 @@ header {
   margin-top: -3rem;
   justify-content: flex-start;
   z-index: 2;
-  align-items: center;
+  vertical-align: bottom;
+
 }
+
+.restaurant-container p {
+  display: flex;
+  text-align: left;
+  padding-left: 1em;
+  margin-top: -.5em;
+  font-size: 1.2em;
+  margin-bottom: 2em;
+  overflow: hidden;
+}
+
 
 .heart, .heart-filled {
   width: 5rem;
   position: relative;
   z-index: 50;
+  margin-top: -.1em;
 }
+
 .heart-filled {
   opacity: 0;
 }
+
 .heart-container {
   display: flex;
   width: 1.8em;
@@ -316,8 +337,7 @@ header {
   transition: all .4s;
 }
 
-
-.restaurant-name p {
+.restaurant-container p {
   cursor: pointer;
   opacity: 0;
   width: 14rem;
@@ -329,15 +349,20 @@ header {
   transition: opacity .2s;
 }
 
-.post:hover > .restaurant-name p {
+.post:hover > .restaurant-container p {
   opacity: 1;
   transition: opacity .3s;
 }
 
-.post:hover > a img {
+.post:hover > .post-img-background img {
   filter: brightness(50%);
-  opacity: .9;
+  opacity: .5;
   transition: all .3s;
+}
+
+.post:hover > .post-img-background {
+  background-color: rgb(32, 32, 32);
+  transition: all .2s;
 }
 
 .bookmark, .bookmark::after {

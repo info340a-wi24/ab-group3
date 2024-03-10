@@ -33,11 +33,15 @@ function CreatePost(props) {
                     <div className="bookmark"></div>
                 </div>
             </div>
-            <a href="openpost.html" className="flex-container">
-                <img src={src} alt={alt} />
-            </a>
-            <div className="flex-container restaurant-name">
-                <p>{restaurantName}</p>
+            <div className='post-img-background'>
+                <a href="openpost.html" className="flex-container">
+                    <img src={src} alt={alt} />
+                </a>
+            </div>
+            <div className='flex-container restaurant-container'>
+                <div className='flex-container restaurant-name'>
+                    <p>{restaurantName}</p>
+                </div>
                 <div className="heart-container">
                     <img src="img/heart.png" className="icon heart" />
                     <img src="img/heart-filled.png" className="icon heart-filled" />
