@@ -6,6 +6,8 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 
 import _ from 'lodash';
 
+import { RenderPost } from '../RenderPost';
+
 function useWindowWidth() {
     let [width, setWidth] = useState(0);
     useLayoutEffect(() => {
@@ -19,45 +21,13 @@ function useWindowWidth() {
     return width;
 }
 
-function CreatePost(props) {
-    let post = props.post;
-
-    let src = post.src;
-    let alt = post.alt;
-    let restaurantName = post.restaurant_name;
-
-    return (
-        <div className="flex-container post">
-            <div className="flex-container post-interaction">
-                <div>
-                    <div className="bookmark"></div>
-                </div>
-            </div>
-            <div className='post-img-background'>
-                <a href="openpost.html" className="flex-container">
-                    <img src={src} alt={alt} />
-                </a>
-            </div>
-            <div className='flex-container restaurant-container'>
-                <div className='flex-container restaurant-name'>
-                    <p>{restaurantName}</p>
-                </div>
-                <div className="heart-container">
-                    <img src={"./../img/heart.png"} className="icon heart" />
-                    <img src={"./../img/heart-filled.png"} className="icon heart-filled" />
-                </div>
-            </div>
-        </div>
-    );
-}
-
 function CreateColumn(props) {
     let postsArray = props.postsArray;
 
     let index = 0;
     let postsColumn = [];
     postsArray.forEach((post) => {
-        postsColumn.push(<CreatePost key={index} post={{...postsArray[index]}} />);
+        postsColumn.push(<RenderPost key={index} post={{...postsArray[index]}} />);
         index++;
     })
     

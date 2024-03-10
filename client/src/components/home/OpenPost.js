@@ -18,7 +18,7 @@ export function OpenPost(props) {
 
     useEffect(() => {
         let db = getDatabase();
-        let postRef = ref(db, "photos/"+postId);
+        let postRef = ref(db, "photos/" + postId);
 
         let unregisterFuntion = onValue(postRef, (snapshot) => {
             let postValue = snapshot.val();
@@ -77,12 +77,17 @@ export function OpenPost(props) {
                 <div className="flex-container post-detail">
                     <div className="flex-container post-creator">
                         <div className="profile-pic">
-                            <img src={restaurantPfp} alt={restaurantName} />
+                            <Link to={"/" + restaurantName}>
+                                <img src={restaurantPfp} alt={restaurantName} />\
+                            </Link>
                         </div>
                         <div className="username">
-                            <p>{restaurantName}</p>
+                            <Link to={"/" + restaurantName}>
+                                <p>{restaurantName}</p>
+                            </Link>
                             <p>999 followers</p>
                         </div>
+
                         <div className="follow-box">
                             <button className="NomNom-button">Follow</button>
                         </div>
@@ -112,7 +117,7 @@ export function OpenPost(props) {
                             {!showComment && <div className="material-icons" aria-label="expand more">expand_more</div>}
                         </button>
                     </div>
-                    {showComment && <Comments toggleComments={toggleComments}/>}
+                    {showComment && <Comments toggleComments={toggleComments} />}
                 </div>
             </div>
             <p>Similar posts</p>

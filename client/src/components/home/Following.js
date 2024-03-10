@@ -12,10 +12,10 @@ function CreateRestaurant(props) {
 
     return (
         <figure className="restaurant-figure">
-            <a href="profile.html">
+            <Link to={"/" + restaurantName}>
                 <img src={src} alt={restaurantName} />
                 <figcaption>{restaurantName}</figcaption>
-            </a>
+            </Link>
         </figure>
     )
 }

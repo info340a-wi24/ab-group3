@@ -4,33 +4,7 @@ import { useState, useEffect, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getDatabase, ref, onValue } from 'firebase/database';
 
-function CreatePost(props) {
-    let post = props.post;
-
-    let src = post.src;
-    let alt = post.alt;
-    let restaurantName = post.restaurant_name;
-
-    return (
-        <div className="flex-container post">
-            <div className="flex-container post-interaction">
-                <div>
-                    <div className="bookmark"></div>
-                </div>
-            </div>
-            <a href="openpost.html" className="flex-container">
-                <img src={src} alt={alt} />
-            </a>
-            <div className="flex-container restaurant-name">
-                <p>{restaurantName}</p>
-                <div className="heart-container">
-                    <img src="img/heart.png" className="icon heart" />
-                    <img src="img/heart-filled.png" className="icon heart-filled" />
-                </div>
-            </div>
-        </div>
-    );
-}
+import { RenderPost } from '../RenderPost';
 
 export function Saved(props) {
     let [photos, setPhotos] = useState([]);
@@ -58,7 +32,7 @@ export function Saved(props) {
 
     let savedArray = [];
     for (let i = 0; i < photos.length; i++) {
-        savedArray.push(<CreatePost post={{...photos[i]}} />);
+        savedArray.push(<RenderPost post={{...photos[i]}} />);
     }
 
     return (
