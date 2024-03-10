@@ -4,38 +4,24 @@ import { useState, useEffect, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getDatabase, ref, onValue } from 'firebase/database';
 
-function CreateRestaurant(props) {
-    let restaurant = props.restaurant;
-    
-    let src = restaurant.cover_pic;
-    let restaurantName = restaurant.restaurant_name;
-
-    return (
-        <figure className="restaurant-figure">
-            <Link to={"/" + restaurantName}>
-                <img src={src} alt={restaurantName} />
-                <figcaption>{restaurantName}</figcaption>
-            </Link>
-        </figure>
-    )
-}
+import { RenderPost } from '../RenderPost';
 
 export function Following(props) {
-    let [restaurants, setRestaurants] = useState([]);
+    let [photos, setPhotos] = useState([]);
 
     useEffect(() => {
         let db = getDatabase();
-        let restaurantsRef = ref(db, "restaurants");
+        let photosRef = ref(db, "photos");
 
-        let unregisterFuntion = onValue(restaurantsRef, (snapshot) => {
-            let restaurantsValue = snapshot.val();
-            let restaurantsKeys = Object.keys(restaurantsValue);
+        let unregisterFuntion = onValue(photosRef, (snapshot) => {
+            let photosValue = snapshot.val();
+            let photosKeys = Object.keys(photosValue);
 
-            let restaurantsArray = restaurantsKeys.map((key) => {
-                let singleRestaurant = { ...restaurantsValue[key] };
-                return singleRestaurant;
+            let photosArray = photosKeys.map((key) => {
+                let singlePhoto = { ...photosValue[key] };
+                return singlePhoto;
             })
-            setRestaurants(restaurantsArray);
+            setPhotos(photosArray);
         });
 
         function cleanup() {
@@ -44,21 +30,21 @@ export function Following(props) {
         return cleanup;
     }, [])
 
-    let restaurantsArray = [];
-    for (let i = 0; i < restaurants.length; i++) {
-        restaurantsArray.push(<CreateRestaurant restaurant={{...restaurants[i]}} />);
+    let recentArray = [];
+    for (let i = 0; i < photos.length; i++) {
+        recentArray.push(<RenderPost post={{...photos[i]}} />);
     }
 
     return (
         <>
             <div className="flex-container home-option">
                 <Link to="../discover" className="NomNom-button">Discover</Link>
-                <Link to="../following" id="chosen-option" className="NomNom-button">Following</Link>
+                <Link to="../restaurants" className="NomNom-button">Eats</Link>
                 <Link to="../saved" className="NomNom-button">Saved</Link>
-                <Link to="../recent" className="NomNom-button">Recent</Link>
+                <Link to="../following" id="chosen-option" className="NomNom-button">Following</Link>
             </div>
-            <div className="flex-container post-list restaurant-list">
-                {restaurantsArray}
+            <div className="flex-container post-list post-storage">
+                {recentArray}
             </div>
         </>
     );

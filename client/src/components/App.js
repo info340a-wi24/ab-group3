@@ -8,9 +8,9 @@ import { FooterDetail } from './Footer';
 
 // Home Components
 import { Discover } from './home/Discover';
-import { Following } from './home/Following';
+import { Restaurants } from './home/Restaurant';
 import { Saved } from './home/Saved';
-import { Recent } from './home/Recent';
+import { Following } from './home/Following';
 import { OpenPost } from './home/OpenPost'
 
 function App() {
@@ -24,9 +24,9 @@ function App() {
               <Route path="discover" element={<Discover />} >
                 <Route path="/discover/:postId" element={<OpenPost />} />
               </Route>
-              <Route path="following" element={<Following />} />
+              <Route path="restaurants" element={<Restaurants />} />
               <Route path="saved" element={<Saved />} />
-              <Route path="recent" element={<Recent />} />
+              <Route path="following" element={<Following />} />
               <Route path="create" element={<CreatePost />} />
               <Route path="/:profileId" element={<Profile />} />
               <Route path="*" element={<Navigate to="discover" />} />

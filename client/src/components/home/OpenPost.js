@@ -78,7 +78,7 @@ export function OpenPost(props) {
                     <div className="flex-container post-creator">
                         <div className="profile-pic">
                             <Link to={"/" + restaurantName}>
-                                <img src={restaurantPfp} alt={restaurantName} />\
+                                <img src={restaurantPfp} alt={restaurantName} />
                             </Link>
                         </div>
                         <div className="username">

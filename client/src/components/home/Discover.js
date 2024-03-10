@@ -107,10 +107,10 @@ export function Discover(props) {
     return (
         <>
             <div className="flex-container home-option">
-                <Link to="../discovery" id="chosen-option" className="NomNom-button">Discover</Link>
-                <Link to="../following" className="NomNom-button">Following</Link>
+                <Link to="../discover" id="chosen-option" className="NomNom-button">Discover</Link>
+                <Link to="../restaurants" className="NomNom-button">Eats</Link>
                 <Link to="../saved" className="NomNom-button">Saved</Link>
-                <Link to="../recent" className="NomNom-button">Recent</Link>
+                <Link to="../following" className="NomNom-button">Following</Link>
             </div>
             <div className="flex-container post-list">
                 {dynamicColumns} 

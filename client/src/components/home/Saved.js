@@ -39,9 +39,9 @@ export function Saved(props) {
         <>
             <div className="flex-container home-option">
                 <Link to="../discover" className="NomNom-button">Discover</Link>
-                <Link to="../following" className="NomNom-button">Following</Link>
+                <Link to="../restaurants" className="NomNom-button">Eats</Link>
                 <Link to="../saved" id="chosen-option" className="NomNom-button">Saved</Link>
-                <Link to="../recent" className="NomNom-button">Recent</Link>
+                <Link to="../following" className="NomNom-button">Following</Link>
             </div>
             <div className="flex-container post-list post-storage">
                 {savedArray}
