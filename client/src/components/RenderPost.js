@@ -1,13 +1,21 @@
 'use strict';
 
 import { Link } from 'react-router-dom';
+import { getDatabase, ref, onValue } from 'firebase/database';
 
 export function RenderPost(props) {
     let post = props.post;
 
     let src = post.src;
     let alt = post.alt;
-    let restaurantName = post.restaurant_name;
+    let restaurantId = post.restaurant_id;
+
+    let db = getDatabase();
+    let restaurantRef = ref(db, "restaurants/" + restaurantId);
+    let restaurantName = "";
+    onValue(restaurantRef, (snapshot) => { 
+        restaurantName = snapshot.val().restaurant_name;
+    })
 
     // let savePostCall = props.savePost(post.photo_id);
 
