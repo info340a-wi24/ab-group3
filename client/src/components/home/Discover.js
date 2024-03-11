@@ -6,6 +6,8 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 
 import _ from 'lodash';
 
+import { RenderPost } from '../RenderPost';
+
 function useWindowWidth() {
     let [width, setWidth] = useState(0);
     useLayoutEffect(() => {
@@ -19,45 +21,13 @@ function useWindowWidth() {
     return width;
 }
 
-function CreatePost(props) {
-    let post = props.post;
-
-    let src = post.src;
-    let alt = post.alt;
-    let restaurantName = post.restaurant_name;
-
-    return (
-        <div className="flex-container post">
-            <div className="flex-container post-interaction">
-                <div>
-                    <div className="bookmark"></div>
-                </div>
-            </div>
-            <div className='post-img-background'>
-                <a href="openpost.html" className="flex-container">
-                    <img src={src} alt={alt} />
-                </a>
-            </div>
-            <div className='flex-container restaurant-container'>
-                <div className='flex-container restaurant-name'>
-                    <p>{restaurantName}</p>
-                </div>
-                <div className="heart-container">
-                    <img src={"./../img/heart.png"} className="icon heart" />
-                    <img src={"./../img/heart-filled.png"} className="icon heart-filled" />
-                </div>
-            </div>
-        </div>
-    );
-}
-
 function CreateColumn(props) {
     let postsArray = props.postsArray;
 
     let index = 0;
     let postsColumn = [];
     postsArray.forEach((post) => {
-        postsColumn.push(<CreatePost key={index} post={{...postsArray[index]}} />);
+        postsColumn.push(<RenderPost key={index} post={{...postsArray[index]}} />);
         index++;
     })
     
@@ -137,10 +107,10 @@ export function Discover(props) {
     return (
         <>
             <div className="flex-container home-option">
-                <Link to="../discovery" id="chosen-option" className="NomNom-button">Discover</Link>
-                <Link to="../following" className="NomNom-button">Following</Link>
+                <Link to="../discover" id="chosen-option" className="NomNom-button">Discover</Link>
+                <Link to="../restaurants" className="NomNom-button">Eats</Link>
                 <Link to="../saved" className="NomNom-button">Saved</Link>
-                <Link to="../recent" className="NomNom-button">Recent</Link>
+                <Link to="../following" className="NomNom-button">Following</Link>
             </div>
             <div className="flex-container post-list">
                 {dynamicColumns} 

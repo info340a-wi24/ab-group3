@@ -3,12 +3,14 @@ import { Routes, Route, Navigate, Link } from 'react-router-dom';
 
 import { NavBar } from './NavBar';
 import { CreatePost } from './create';
+import { Profile } from './Profile';
+import { FooterDetail } from './Footer';
 
 // Home Components
 import { Discover } from './home/Discover';
-import { Following } from './home/Following';
+import { Restaurants } from './home/Restaurant';
 import { Saved } from './home/Saved';
-import { Recent } from './home/Recent';
+import { Following } from './home/Following';
 import { OpenPost } from './home/OpenPost'
 
 // Footer Component

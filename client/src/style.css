@@ -267,7 +267,6 @@ header {
 
 .post {
   flex-direction: column;
-
 }
 
 .post-interaction {
@@ -448,9 +447,6 @@ header {
   justify-content: center;
 }
 
-
-
-
 /* following page */
 .restaurant-list {
   margin-top: 2em;
@@ -527,6 +523,10 @@ figcaption {
   flex-grow: 2;
 }
 
+.profile-pic a {
+  color: white;
+}
+
 .profile-pic img {
   object-fit: cover;
   width: 3rem;
@@ -542,13 +542,18 @@ figcaption {
   margin: 0;
 }
 
-.username p:first-child {
+.username a {
+  text-decoration: none;
+  color: black;
+}
+
+.username a p {
   font-weight: bold;
   font-size: 1rem;
   margin-top: .5em;
 }
 
-.username p:last-child {
+.username p {
   font-size: .8rem;
 }
 

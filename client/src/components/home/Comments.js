@@ -4,11 +4,11 @@ export function Comments(props) {
     let toggleComments = props.toggleComments;
     
     return (
-        <div class="flex-container comment-box">
+        <div className="flex-container comment-box">
             <div>
                 <button id="minimize-bar" onClick={toggleComments}></button>
             </div>
-            <div class="flex-container comment-count">
+            <div className="flex-container comment-count">
                 <p>7 comments</p>
                 <button className="material-icons">
                     <div className="like-count">69</div> 
