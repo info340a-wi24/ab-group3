@@ -3,8 +3,7 @@
 import { useState, useEffect, useLayoutEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { getDatabase, ref, onValue } from 'firebase/database';
-import { signOut } from "firebase/auth";
-import { auth } from "../../index";
+
 
 import _ from 'lodash';
 
@@ -49,7 +48,7 @@ function CreateColumn(props) {
     let index = 0;
     let postsColumn = [];
     postsArray.forEach((post) => {
-        postsColumn.push(<RenderPost key={index} post={{...postsArray[index]}} savePost={savePost} />);
+        postsColumn.push(<RenderPost key={index} post={{...postsArray[index]}}  /*savePost={savePost} */ />); 
         index++;
     })
     

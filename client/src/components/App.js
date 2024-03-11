@@ -86,6 +86,8 @@ function App() {
                   </ProtectedRoute>
                 }
               ></Route>
+              <Route path="/:profileId" element={<Profile />} />
+              <Route path="*" element={<Navigate to="discover" />} />
             </Routes>
           </main>
         <footer>
