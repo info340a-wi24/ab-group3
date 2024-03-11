@@ -2,7 +2,10 @@
 import React, {useState, useEffect} from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore'; 
+import 'firebase/compat/auth';
+import { getDatabase} from 'firebase/database';
 import {firebaseConfig} from './Config.js';
+
 
 
 
@@ -15,7 +18,7 @@ function CreatePost(UploadImg, Descriptions) {
     const [tagInput, setTagInput] = useState('');
     const [file, setFile] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
-
+    const [authInitialized, setAuthInitialized] = useState(false);
 
     useEffect(() => {
     
@@ -23,6 +26,11 @@ function CreatePost(UploadImg, Descriptions) {
           if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
           }
+
+          firebase.auth().onAuthStateChanged(user => {
+            setAuthInitialized(true);
+        });
+
     }, []);
 
     const handleTagInputChange = (event) => {
@@ -48,40 +56,48 @@ function CreatePost(UploadImg, Descriptions) {
 
     const handlePublish = () => {
         console.log('Publish button clicked');
+    
+              if (!authInitialized) {
+            // Authentication state is still initializing
+            console.log("Authentication state is still initializing...");
+            return;
+        }
 
         const user = firebase.auth().currentUser;
-
-        if(!user) {
+        if (!user) {
             setErrorMessage('Please login before publishing the post.');
             return;
         }
 
-
-       const db = firebase.firestore();
-
-        db.collection('users').doc(user.uid).collection('posts').add ({
+    
+        if (!user) {
+            setErrorMessage('Please login before publishing the post.');
+            return;
+        }
+    
+        const db = firebase.firestore();
+    
+        db.collection('users').doc(user.uid).collection('posts').add({
             title: title,
             description: description,
             links: links,
-            tags:  tags
+            tags: tags
         })
-
-        .then((docRef) => {
-            console.log('Document writen with ID: ', docRef.id);
-
-            setTitle('');
-            setDescription('');
-            setLinks('');
-            setTags([]);
-            setTagInput('');
-            setFile(null);
-        })
-
-        .catch((error) => {
-            console.error('Error adding document: ', error);
-            alert('An error occured while publishing the post. Please try again later.')
-        });
-
+            .then((docRef) => {
+                console.log('Document written with ID: ', docRef.id);
+    
+                setTitle('');
+                setDescription('');
+                setLinks('');
+                setTags([]);
+                setTagInput('');
+                setFile(null);
+            })
+            .catch((error) => {
+                console.error('Error adding document: ', error);
+                alert('An error occurred while publishing the post. Please try again later.')
+            });
+    
         console.log('Publishing post...');
     };
 
@@ -140,4 +156,4 @@ function CreatePost(UploadImg, Descriptions) {
 }
 
     
-export  {CreatePost};
+export {CreatePost};
