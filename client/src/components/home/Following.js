@@ -39,7 +39,7 @@ export function Following(props) {
         <>
             <div className="flex-container home-option">
                 <Link to="../discover" className="NomNom-button">Discover</Link>
-                <Link to="../restaurants" className="NomNom-button">Eats</Link>
+                <Link to="../restaurants" className="NomNom-button">Diners</Link>
                 <Link to="../saved" className="NomNom-button">Saved</Link>
                 <Link to="../following" id="chosen-option" className="NomNom-button">Following</Link>
             </div>

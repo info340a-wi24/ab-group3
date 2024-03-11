@@ -32,6 +32,11 @@ body {
 .general-layout {
   flex-direction: column;
   margin-top: 10em;
+  min-height: 82.4vh;
+}
+
+main {
+  flex-grow: 1;
 }
 
 /* navbar section*/

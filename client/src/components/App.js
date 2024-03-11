@@ -14,6 +14,7 @@ import { Following } from './home/Following';
 import { OpenPost } from './home/OpenPost'
 
 function App() {
+
   return (
     <div className="flex-container general-layout">
         <header>
