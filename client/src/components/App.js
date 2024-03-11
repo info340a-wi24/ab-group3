@@ -87,7 +87,7 @@ function App() {
                   </ProtectedRoute>
                 }
               ></Route>
-              <Route path="/:create" element={<CreatePost />} />
+              <Route path="/create" element={<CreatePost />} />
 
               <Route path="/:profileId" element={<Profile />} />
               <Route path="*" element={<Navigate to="discover" />} />
