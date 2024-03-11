@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, Link } from 'react-router-dom';
 
+// Navbar Components
 import { NavBar } from './NavBar';
 import { CreatePost } from './create';
 import { Profile } from './Profile';
-import { FooterDetail } from './Footer';
 
 // Home Components
 import { Discover } from './home/Discover';
-import { Restaurants } from './home/Restaurant';
+import { Eats } from './home/Eats';
 import { Saved } from './home/Saved';
 import { Following } from './home/Following';
 import { OpenPost } from './home/OpenPost'
@@ -44,11 +44,14 @@ function App() {
   }
   return (
     <div className="flex-container general-layout">
-        <header>
+        <header> 
           <NavBar />
         </header>
         <main>
             <Routes>
+              // Navbar Components
+              
+              // Hompage Components
               <Route index path = '/' element={<Login/>}></Route>
               <Route path = '/discover'
                 element={
@@ -64,10 +67,10 @@ function App() {
                 } 
               ></Route>
               </Route>
-              <Route path = '/following'
+              <Route path = '/eats'
                 element={
                   <ProtectedRoute user={user}>
-                    <Following></Following>
+                    <Eats></Eats>
                   </ProtectedRoute>
                 } 
               ></Route>
@@ -78,12 +81,12 @@ function App() {
                   </ProtectedRoute>
                 } 
               ></Route>
-              <Route path = '/Recent'
+              <Route path = '/following'
                 element={
                   <ProtectedRoute user={user}>
-                    <Recent></Recent>
+                    <Following></Following>
                   </ProtectedRoute>
-                } 
+                }
               ></Route>
             </Routes>
           </main>

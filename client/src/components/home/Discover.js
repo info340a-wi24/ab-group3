@@ -3,6 +3,8 @@
 import { useState, useEffect, useLayoutEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { getDatabase, ref, onValue } from 'firebase/database';
+import { signOut } from "firebase/auth";
+import { auth } from "../../index";
 
 import _ from 'lodash';
 
@@ -106,9 +108,10 @@ export function Discover(props) {
 
     return (
         <>
+                       
             <div className="flex-container home-option">
                 <Link to="../discover" id="chosen-option" className="NomNom-button">Discover</Link>
-                <Link to="../restaurants" className="NomNom-button">Eats</Link>
+                <Link to="../eats" className="NomNom-button">Eats</Link>
                 <Link to="../saved" className="NomNom-button">Saved</Link>
                 <Link to="../following" className="NomNom-button">Following</Link>
             </div>
