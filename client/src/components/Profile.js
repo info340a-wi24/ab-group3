@@ -60,7 +60,7 @@ export function Profile(props) {
     }
 
     return (
-        <div class="grid">
+        <div class="profile-display">
             <section class="flex-container profile-page">
                 <div class="flex-container profile-banner">
                     <div class="flex-container profile-container">
