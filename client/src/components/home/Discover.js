@@ -48,10 +48,10 @@ function CreateColumn(props) {
     let index = 0;
     let postsColumn = [];
     postsArray.forEach((post) => {
-        postsColumn.push(<RenderPost key={index} post={{...postsArray[index]}} render={props.render}/>);
+        postsColumn.push(<RenderPost key={index} post={{...postsArray[index]}} />);
         index++;
     })
-    
+
     return (
         <div className="flex-container column-box">
             {postsColumn}
@@ -61,7 +61,6 @@ function CreateColumn(props) {
 
 export function Discover(props) {    
     let [photos, setPhotos] = useState([]);
-    let [render, setRender] = useState(false);
 
     useEffect(() => {
         let db = getDatabase();
@@ -82,7 +81,7 @@ export function Discover(props) {
             unregisterFunction();
         }
         return cleanup;
-    }, [render]);
+    }, []);
 
     let screenWidth = useWindowWidth();
     let numCol = 1;
@@ -110,7 +109,7 @@ export function Discover(props) {
         let arrayColumns = _.chunk(photos, photos.length / numCol);
         for (let i = 0; i < numCol; i++) {
             if (arrayColumns[i] != undefined) {
-                dynamicColumns.push(<CreateColumn key={i} postsArray={[...arrayColumns[i]]} render={setRender}/>);
+                dynamicColumns.push(<CreateColumn key={i} postsArray={[...arrayColumns[i]]} />);
             }
         }
     }

@@ -572,7 +572,8 @@ figcaption {
   color: black;
   background-color: lightgray;
   padding: .75em 0;
-  margin-top: 3em;
+  margin-top: .2em;
+  margin-right: .1em;
   width: 5.3em;
 }
 
