@@ -70,9 +70,9 @@ function CreatePost(UploadImg, Descriptions) {
 
         const db = getDatabase();
 
-        const postsRef = ref(db, 'posts');
+        const photosRef = ref(db, 'photos');
 
-        const newPostRef = push(postsRef);
+        const newPostRef = push(photosRef);
     
         set(newPostRef, {
             userId: user.uid,
