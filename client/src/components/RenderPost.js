@@ -27,9 +27,7 @@ export function RenderPost(props) {
                 </div>
             </div>
             <Link to={"/discover/" + post.photo_id + alt} onClick={window.scrollTo(0, 0)} className="flex-container">
-                <div className='post-img-background'>
-                    <img src={src} alt={alt} />
-                </div>
+                <img src={src} alt={alt} />  
             </Link>
             <div className='flex-container restaurant-container'>
                 <div className='flex-container restaurant-name'>

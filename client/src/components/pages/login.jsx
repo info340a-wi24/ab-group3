@@ -47,7 +47,6 @@ export const Login = ({ user }) => {
     const handleEmailChange = (event) => setEmail(event.target.value);
     const handlePasswordChange = (event) => setPassword(event.target.value);
 
-  
     return (
         <section>
         <h2>Homepage</h2>
