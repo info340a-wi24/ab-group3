@@ -5,6 +5,7 @@ import { Routes, Route, Navigate, Link } from 'react-router-dom';
 import { NavBar } from './NavBar';
 import { CreatePost } from './create';
 import { Profile } from './Profile';
+import { FooterDetail } from './Footer';
 
 // Home Components
 import { Discover } from './home/Discover';

@@ -49,7 +49,7 @@ function CreateColumn(props) {
     let index = 0;
     let postsColumn = [];
     postsArray.forEach((post) => {
-        postsColumn.push(<RenderPost key={index} post={{...postsArray[index]}} savePost={savePost} />);
+        postsColumn.push(<RenderPost key={index} post={{...postsArray[index]}} />);
         index++;
     })
     

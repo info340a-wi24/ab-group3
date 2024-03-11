@@ -13,7 +13,6 @@ export function OpenPost(props) {
     let postId = postInfo.match(/^\d+/);
 
     let [post, setPost] = useState({});
-    let [restaurants, setRestaurants] = useState([]);
     let [showComment, setShowComment] = useState(false);
 
     useEffect(() => {
@@ -31,42 +30,27 @@ export function OpenPost(props) {
         return cleanup;
     }, [postInfo])
 
-    useEffect(() => {
-        let db = getDatabase();
-        let restaurantsRef = ref(db, "restaurants");
-
-        let unregisterFuntion = onValue(restaurantsRef, (snapshot) => {
-            let restaurantsValue = snapshot.val();
-            let restaurantsKeys = Object.keys(restaurantsValue);
-
-            let restaurantsArray = restaurantsKeys.map((key) => {
-                let singleRestaurant = { ...restaurantsValue[key] };
-                return singleRestaurant;
-            })
-            setRestaurants(restaurantsArray);
-        });
-
-        function cleanup() {
-            unregisterFuntion();
-        }
-        return cleanup;
-    }, [])
-
     function toggleComments() {
         showComment ? setShowComment(false) : setShowComment(true);
     }
 
     let src = post.src;
     let alt = post.alt;
-    let restaurantName = post.restaurant_name;
+    let restaurantId = post.restaurant_id;
+    
+    let db = getDatabase();
+    let restaurantNameRef = ref(db, "restaurants/" + restaurantId + "/restaurant_name");
+    let restaurantPfpRef = ref(db, "restaurants/" + restaurantId + "/cover_pic");
+    
+    let restaurantName = "";
+    let restaurantPfp = ""
+    onValue(restaurantNameRef, (snapshot) => { 
+        restaurantName = snapshot.val();
+    })
 
-    let restaurantPfp = "";
-    for (let i = 0; i < restaurants.length; i++) {
-        if (restaurants[i].restaurant_name == restaurantName) {
-            restaurantPfp = restaurants[i].cover_pic;
-            break;
-        }
-    }
+    onValue(restaurantPfpRef, (snapshot) => {
+        restaurantPfp = snapshot.val();
+    })
 
     return (
         <>
