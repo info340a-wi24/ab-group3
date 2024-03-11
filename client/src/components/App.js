@@ -13,9 +13,6 @@ import { Saved } from './home/Saved';
 import { Following } from './home/Following';
 import { OpenPost } from './home/OpenPost'
 
-// Footer Component
-import { FooterDetail } from './Footer';
-
 import { Login } from './pages/login'
 import { auth } from "../index";
 import { ProtectedRoute } from './routes/ProtectedRoute';
@@ -56,13 +53,13 @@ function App() {
               <Route path = '/discover'
                 element={
                   <ProtectedRoute user={user}>
-                    <Discover></Discover>
+                    <Discover />
                   </ProtectedRoute>
                 } 
               ><Route path='/discover/:postId'
                 element={
                   <ProtectedRoute user={user}>
-                    <OpenPost></OpenPost>
+                    <OpenPost />
                   </ProtectedRoute>
                 } 
               ></Route>

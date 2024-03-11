@@ -10,6 +10,26 @@ import _ from 'lodash';
 
 import { RenderPost } from '../RenderPost';
 
+// function savePost(postId) {
+//     let db = getDatabase();
+//     let savedRef = ref(db, "users/1/saved");
+
+//     let savedSize = 0;
+//     onValue(savedRef, (snapshot) => {
+//         let savedValue = snapshot.val();
+//         if (savedValue != null) {
+//             savedSize = Object.keys(savedValue).length + 1;
+//         }
+//     });
+
+//     let addToSaveRef = ref(db, 1);
+
+//     firebaseSet(addToSaveRef, postId)
+//         .then(() => console.log("The saved directory now has a size of " + savedSize))
+//         .catch(err => console.log(err));
+// }
+
+
 function useWindowWidth() {
     let [width, setWidth] = useState(0);
     useLayoutEffect(() => {
@@ -29,7 +49,7 @@ function CreateColumn(props) {
     let index = 0;
     let postsColumn = [];
     postsArray.forEach((post) => {
-        postsColumn.push(<RenderPost key={index} post={{...postsArray[index]}} />);
+        postsColumn.push(<RenderPost key={index} post={{...postsArray[index]}} savePost={savePost} />);
         index++;
     })
     
@@ -47,7 +67,7 @@ export function Discover(props) {
         let db = getDatabase();
         let photosRef = ref(db, "photos");
 
-        let unregisterFuntion = onValue(photosRef, (snapshot) => {
+        let unregisterFunction = onValue(photosRef, (snapshot) => {
             let photosValue = snapshot.val();
             let photosKeys = Object.keys(photosValue);
 
@@ -59,7 +79,7 @@ export function Discover(props) {
         });
 
         function cleanup() {
-            unregisterFuntion();
+            unregisterFunction();
         }
         return cleanup;
     }, [])
@@ -76,6 +96,9 @@ export function Discover(props) {
         numCol++;
     }
     if (screenWidth > 1455) {
+        numCol++;
+    }
+    if (screenWidth > 1743) {
         numCol++;
     }
 

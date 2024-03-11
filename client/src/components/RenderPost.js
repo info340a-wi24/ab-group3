@@ -9,11 +9,13 @@ export function RenderPost(props) {
     let alt = post.alt;
     let restaurantName = post.restaurant_name;
 
+    // let savePostCall = props.savePost(post.photo_id);
+
     return (
         <div className="flex-container post">
             <div className="flex-container post-interaction">
                 <div>
-                    <div className="bookmark"></div>
+                    <div className="bookmark" ></div>
                 </div>
             </div>
             <Link to={"/discover/" + post.photo_id + alt} onClick={window.scrollTo(0, 0)} className="flex-container">
