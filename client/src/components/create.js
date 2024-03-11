@@ -73,27 +73,29 @@ function CreatePost(UploadImg, Descriptions) {
         const photosRef = ref(db, 'photos');
 
         const newPostRef = push(photosRef);
+
+        const photoData = {
+            alt: title,
+            photo_id: newPostRef.key, 
+            restaurant_id: user.uid, 
+            src: 'URL_TO_YOUR_IMAGE', 
+        };
     
-        set(newPostRef, {
-            userId: user.uid,
-            title: title,
-            description: description,
-            links: links,
-            tags: tags
+    
+        set(newPostRef, photoData)
+        .then(() => {
+            console.log('Post successfully published');
+            setTitle('');
+            setDescription('');
+            setLinks('');
+            setTags([]);
+            setTagInput('');
+            setFile(null);
         })
-            .then(() => {
-                console.log('Post successfully published');
-                setTitle('');
-                setDescription('');
-                setLinks('');
-                setTags([]);
-                setTagInput('');
-                setFile(null);
-            })
-            .catch((error) => {
-                console.error('Error publishing post: ', error);
-                alert('An error occurred while publishing the post. Please try again later.')
-            });
+        .catch((error) => {
+            console.error('Error publishing post: ', error);
+            alert('An error occurred while publishing the post. Please try again later.');
+        });
     
         console.log('Publishing post...');
     };
