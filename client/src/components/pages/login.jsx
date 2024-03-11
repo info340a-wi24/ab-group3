@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, 
          signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../index"
+import '../css/login.css';
 
 export const Login = ({ user }) => {
     const navigate = useNavigate();
@@ -71,20 +72,22 @@ export const Login = ({ user }) => {
             </ul>
 
             {isSignUpActive && (
-                <button type="button" onClick={handleSignUp}>
+                <button type="button" id='sign' onClick={handleSignUp}>
                 Sign Up
                 </button>
             )}
             {!isSignUpActive && (
-                <button type="button" onClick={handleSignIn}>
+                <button type="button" id='sign' onClick={handleSignIn}>
                 Sign In
                 </button>
             )}
             </fieldset>
-            {isSignUpActive && <a onClick={handleMethodChange}>Login</a>}
-            {!isSignUpActive && (
-            <a onClick={handleMethodChange}>Create an account</a>
-            )}
+            <div className="links">
+                {isSignUpActive && <a onClick={handleMethodChange} id="login">Already have an account? Login</a>}
+                {!isSignUpActive && (
+                <a onClick={handleMethodChange} id='login'>New user? Create an account</a>
+                )}
+            </div>
         </form>
         </section>
     );
