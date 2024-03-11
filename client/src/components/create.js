@@ -1,9 +1,8 @@
 'use strict';
 import React, {useState, useEffect} from 'react';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/firestore'; 
+import firebase from 'firebase/compat/app'; 
 import 'firebase/compat/auth';
-import { getDatabase} from 'firebase/database';
+import { getDatabase, ref, push, set } from 'firebase/database';
 import {firebaseConfig} from './Config.js';
 
 
@@ -69,17 +68,21 @@ function CreatePost(UploadImg, Descriptions) {
             return;
         }
 
-        const db = firebase.firestore();
+        const db = getDatabase();
+
+        const postsRef = ref(db, 'posts');
+
+        const newPostRef = push(postsRef);
     
-        db.collection('users').doc(user.uid).collection('posts').add({
+        set(newPostRef, {
+            userId: user.uid,
             title: title,
             description: description,
             links: links,
             tags: tags
         })
-            .then((docRef) => {
-                console.log('Document written with ID: ', docRef.id);
-    
+            .then(() => {
+                console.log('Post successfully published');
                 setTitle('');
                 setDescription('');
                 setLinks('');
@@ -88,7 +91,7 @@ function CreatePost(UploadImg, Descriptions) {
                 setFile(null);
             })
             .catch((error) => {
-                console.error('Error adding document: ', error);
+                console.error('Error publishing post: ', error);
                 alert('An error occurred while publishing the post. Please try again later.')
             });
     
