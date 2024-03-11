@@ -1,83 +1,103 @@
-import React, { useState, useEffect } from 'react'
-import '../App.css'
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, Navigate, Link } from 'react-router-dom';
 
-import { createDiscoveryColumns } from './discovery'
+// Navbar Components
+import { NavBar } from './NavBar';
+import { CreatePost } from './create';
+import { Profile } from './Profile';
+import { FooterDetail } from './Footer';
+
+// Home Components
+import { Discover } from './home/Discover';
+import { Eats } from './home/Eats';
+import { Saved } from './home/Saved';
+import { Following } from './home/Following';
+import { OpenPost } from './home/OpenPost'
+
+import { Login } from './pages/login'
+import { auth } from "../index";
+import { ProtectedRoute } from './routes/ProtectedRoute';
+import { onAuthStateChanged } from "firebase/auth";
+
 
 function App() {
-  let windowWidth = window.innerWidth;
-  window.addEventListener("resize", () => {
-    windowWidth = window.innerWidth;
-  })
-
-  const[data, setData] = useState([{}])
-
+  const [user, setUser] = useState(null);
+  const [isFetching, setIsFetching] = useState(true);
   useEffect(() => {
-    fetch("/members").then(
-      res => res.json()
-    ).then(
-      data => {
-        setData(data)
-        console.log(data)
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        setIsFetching(false);
+        return;
       }
-    )
-  }, [])
+
+      setUser(null);
+      setIsFetching(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  if (isFetching) {
+    return <h2>Loading...</h2>
+  }
+
   return (
-    <div class="flex-container general-layout">
-        <header>
-            <nav class="flex-container navbar">
-                <a href='index.html'>
-                    <img src={require("../data/img/logo.jpg")} alt='logo' width='80px' />
-                  </a>
-                <div class="flex-container home-explore">
-                <a class="NomNom-button active" href="index.html">Home</a>
-                <a href="explore.html">Explore</a>
-                <a href="create.html">Create</a>
-                </div>
-                <div id="searchbar" class="flex-container">
-                    <form method="get" action="">
-                        <div class="search-fields">
-                            <div class="search-term"><input type="text" placeholder="Search:" required /></div>
-                            <div class="search-term"><input type="text" placeholder="Location:" /></div>
-                            <div class="search-term" id="search-btn-cover">
-                                <button class="search-btn" type="submit">
-                                    <div id="search-btn-circle"></div>
-                                    <span></span>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="flex-container login-signup">
-                    <a href="login.html">Login</a>
-                    <a href="signup.html">Sign Up</a>
-                </div>
-                <a class="user-profile hidden" href="personalP.html">
-                    <img aria-label="user-profile" class="user-profile-img" src="./data/img/nikocado.webp" alt="user-profile-img" />
-                </a>
-            </nav>
+    <div className="flex-container general-layout">
+        <header> 
+          <NavBar />
         </header>
         <main>
-            <div class="flex-container home-option">
-                <a id="chosen-option" class="NomNom-button" href="index.html">Discover</a>
-                <a href="following.html" class="NomNom-button">Following</a>
-                <a href="saved.html" class="NomNom-button">Saved</a>
-                <a href="recents.html" class="NomNom-button">Recents</a>
-            </div>
-            <createDiscoveryColumns photoGallery windowWidth={windowWidth}/>
-        </main>
+            <Routes>
+              // Navbar Components
+              
+              // Hompage Components
+              <Route index path = '/login' element={<Login/>}></Route>
+              <Route path = '/discover'
+                element={
+                  <ProtectedRoute user={user}>
+                    <Discover />
+                  </ProtectedRoute>
+                } 
+              ><Route path='/discover/:postId'
+                element={
+                  <ProtectedRoute user={user}>
+                    <OpenPost />
+                  </ProtectedRoute>
+                } 
+              ></Route>
+              </Route>
+              <Route path = '/eats'
+                element={
+                  <ProtectedRoute user={user}>
+                    <Eats />
+                  </ProtectedRoute>
+                } 
+              ></Route>
+              <Route path = '/saved'
+                element={
+                  <ProtectedRoute user={user}>
+                    <Saved />
+                  </ProtectedRoute>
+                } 
+              ></Route>
+              <Route path = '/following'
+                element={
+                  <ProtectedRoute user={user}>
+                    <Following />
+                  </ProtectedRoute>
+                }
+              ></Route>
+              <Route path="/create" element={<CreatePost />} />
+
+              <Route path="/:profileId" element={<Profile />} />
+              <Route path="*" element={<Navigate to="discover" />} />
+            </Routes>
+          </main>
         <footer>
-            <div class="flex-container footer-container">
-                <p>
-                    <a href="mailto:jah0311@uw.edu, ptle04@uw.edu, phucn24@uw.edu, tlu2004@uw.edu">
-                        <span class="material-icons">email</span>
-                        contact@nomnom.com
-                    </a>
-                </p>
-                <p>&copy; NomNom 2024</p>
-            </div>
+            <FooterDetail />
         </footer>
     </div>
   )
 }
 
-export default App
+export default App;

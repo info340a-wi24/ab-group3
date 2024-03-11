@@ -1,5 +1,7 @@
+'use strict';
 import React, {useState} from 'react';
 import { sub } from 'server/router';
+
 
 function RestaurantInfo({restaurantName, restaurantPic, subscribers, ratings}) {
 
@@ -20,7 +22,6 @@ function RestaurantInfo({restaurantName, restaurantPic, subscribers, ratings}) {
                 <a href="#yelp.review">Ratings {ratings}</a> 
             </div>
         </div>
-        
     );
 }
 

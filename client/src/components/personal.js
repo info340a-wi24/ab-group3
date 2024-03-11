@@ -1,4 +1,6 @@
+'use strict';
 import React, {useState} from 'react';
+
 
 function ProfileInfo({name, profilePic}) {
 
