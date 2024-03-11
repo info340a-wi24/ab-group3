@@ -1,8 +1,15 @@
 'use strict';
 
 import { Link } from 'react-router-dom';
+import { signOut } from "firebase/auth";
+import { auth } from "../index";
 
 export function NavBar(props) {
+    const handleSignOut = () => {
+        signOut(auth)
+          .then(() => console.log("Sign Out"))
+          .catch((error) => console.log(error));
+      };
     return (
         <nav className="flex-container navbar">
                 <section className="flex-container">
@@ -31,6 +38,8 @@ export function NavBar(props) {
                     <Link className="user-profile" href="profile.html">
                         <img aria-label="user-profile" className="user-profile-img" src={"./../img/nikocado.webp"} alt="user-profile-img" />
                     </Link>
+                    <button onClick={handleSignOut}>Sign Out</button>
+
                 </section>
             </nav>
     );

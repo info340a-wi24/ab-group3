@@ -40,6 +40,7 @@ function App() {
   if (isFetching) {
     return <h2>Loading...</h2>
   }
+
   return (
     <div className="flex-container general-layout">
         <header> 
@@ -50,14 +51,14 @@ function App() {
               // Navbar Components
               
               // Hompage Components
-              <Route index path = '/' element={<Login/>}></Route>
-              <Route path = '/discover'
+              <Route index path = '/login' element={<Login/>}></Route>
+              <Route path = '/'
                 element={
                   <ProtectedRoute user={user}>
                     <Discover />
                   </ProtectedRoute>
                 } 
-              ><Route path='/discover/:postId'
+              ><Route path='/:postId'
                 element={
                   <ProtectedRoute user={user}>
                     <OpenPost />
@@ -86,6 +87,8 @@ function App() {
                   </ProtectedRoute>
                 }
               ></Route>
+              <Route path="/:profileId" element={<Profile />} />
+              <Route path="*" element={<Navigate to="discover" />} />
             </Routes>
           </main>
         <footer>
@@ -95,4 +98,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

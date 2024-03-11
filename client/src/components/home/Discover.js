@@ -3,8 +3,7 @@
 import { useState, useEffect, useLayoutEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { getDatabase, ref, onValue } from 'firebase/database';
-import { signOut } from "firebase/auth";
-import { auth } from "../../index";
+
 
 import _ from 'lodash';
 
@@ -60,7 +59,7 @@ function CreateColumn(props) {
     );
 }
 
-export function Discover(props) {
+export function Discover(props) {    
     let [photos, setPhotos] = useState([]);
 
     useEffect(() => {
