@@ -69,12 +69,6 @@ function CreatePost(UploadImg, Descriptions) {
             return;
         }
 
-    
-        if (!user) {
-            setErrorMessage('Please login before publishing the post.');
-            return;
-        }
-    
         const db = firebase.firestore();
     
         db.collection('users').doc(user.uid).collection('posts').add({
