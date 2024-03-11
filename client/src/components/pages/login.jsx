@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, 
          signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../index"
 
 export const Login = ({ user }) => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isSignUpActive, setIsSignUpActive] = useState(true);
@@ -19,6 +20,7 @@ export const Login = ({ user }) => {
           .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
+            navigate('/'); // Redirect to the dashboard after login
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -33,6 +35,7 @@ export const Login = ({ user }) => {
           .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
+            navigate('/discover'); // Redirect to the dashboard after login
           })
           .catch((error) => {
             const errorCode = error.code;

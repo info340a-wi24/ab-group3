@@ -59,7 +59,7 @@ function CreateColumn(props) {
     );
 }
 
-export function Discover(props) {
+export function Discover(props) {    
     let [photos, setPhotos] = useState([]);
 
     useEffect(() => {
