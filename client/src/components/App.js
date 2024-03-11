@@ -52,13 +52,13 @@ function App() {
               
               // Hompage Components
               <Route index path = '/login' element={<Login/>}></Route>
-              <Route path = '/'
+              <Route path = '/discover'
                 element={
                   <ProtectedRoute user={user}>
                     <Discover />
                   </ProtectedRoute>
                 } 
-              ><Route path='/:postId'
+              ><Route path='/discover/:postId'
                 element={
                   <ProtectedRoute user={user}>
                     <OpenPost />
