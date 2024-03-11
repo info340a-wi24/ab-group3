@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import firebase from 'firebase/compat/app'; 
 import 'firebase/compat/auth';
-import { getDatabase, ref, push, set, onValue, orderByChild, equalTo } from 'firebase/database';
+import { getDatabase, ref, push, set, onValue } from 'firebase/database';
 import { firebaseConfig } from './Config.js';
 
 function CreatePost(UploadImg, Descriptions) {
@@ -30,18 +30,7 @@ function CreatePost(UploadImg, Descriptions) {
             if (restaurantsData && user) {
                 const restaurantsArray = Object.values(restaurantsData);
                 const currentUserRestaurantIndex = restaurantsArray.findIndex(restaurant => restaurant.uid === user.uid);
-                if (currentUserRestaurantIndex === -1) {
-                    // Create new restaurant data if it doesn't exist
-                    const newRestaurantRef = push(restaurantsRef);
-                    set(newRestaurantRef, {
-                        uid: user.uid,
-                        name: 'New Restaurant', // You can customize this
-                    }).then(() => {
-                        setRestaurantIndex(restaurantsArray.length);
-                    }).catch((error) => {
-                        console.error('Error creating new restaurant: ', error);
-                    });
-                } else {
+                if (currentUserRestaurantIndex !== -1) {
                     setRestaurantIndex(currentUserRestaurantIndex);
                 }
             }
@@ -76,7 +65,7 @@ function CreatePost(UploadImg, Descriptions) {
 
     const handlePublish = () => {
         console.log('Publish button clicked');
-        
+    
         if (!authInitialized) {
             console.log("Authentication state is still initializing...");
             return;
@@ -87,48 +76,65 @@ function CreatePost(UploadImg, Descriptions) {
             setErrorMessage('Please login before publishing the post.');
             return;
         }
-
+    
         if (restaurantIndex === -1) {
-            setErrorMessage('Failed to create a new restaurant. Please try again.');
+            console.error('No restaurant found for the current user.');
             return;
         }
     
         const db = getDatabase();
-        const photosRef = ref(db, 'photos');
+        const restaurantsRef = ref(db, 'restaurants');
+        const linksToMatch = links.split('\n').map(link => link.trim()); 
+    
         
-        // Fetch photos from the database
-        onValue(photosRef, (snapshot) => {
-            const photosData = snapshot.val();
-            if (photosData) {
-                const photosArray = Object.values(photosData);
-                const photoIndex = photosArray.length; // Index of the new photo
-                const photoData = {
-                    alt: description,
-                    photo_id: photoIndex + 1, // Add 1 to start indexing from 1
-                    restaurant_id: restaurantIndex + 1, // Add 1 to start indexing from 1
-                    src: links, 
-                };
-                
-                // Push the new photo data to the database
-                push(photosRef, photoData)
-                    .then(() => {
-                        console.log('Post successfully published');
-                        setTitle('');
-                        setDescription('');
-                        setLinks('');
-                        setTags([]);
-                        setTagInput('');
-                        setFile(null);
-                    })
-                    .catch((error) => {
-                        console.error('Error publishing post: ', error);
-                        alert('An error occurred while publishing the post. Please try again later.');
-                    });
+        onValue(restaurantsRef, (snapshot) => {
+            const restaurantsData = snapshot.val();
+            if (restaurantsData) {
+                const matchedRestaurant = Object.values(restaurantsData).find(restaurant => linksToMatch.includes(restaurant.link));
+                if (!matchedRestaurant) {
+                    console.error('No matching restaurant found for the provided links.');
+                    return;
+                }
+                const restaurantId = matchedRestaurant.id;
+                const db = getDatabase();
+                const photosRef = ref(db, 'photos');
+    
+               
+                onValue(photosRef, (snapshot) => {
+                    const photosData = snapshot.val();
+                    if (photosData) {
+                        const photosArray = Object.values(photosData);
+                        const photoIndex = photosArray.length; 
+                        const photoData = {
+                            alt: description,
+                            photo_id: 113 + photoIndex, 
+                            restaurant_id: restaurantId, 
+                            src: links,
+                        };
+    
+                        
+                        push(photosRef, photoData)
+                            .then(() => {
+                                console.log('Post successfully published');
+                                setTitle('');
+                                setDescription('');
+                                setLinks('');
+                                setTags([]);
+                                setTagInput('');
+                                setFile(null);
+                            })
+                            .catch((error) => {
+                                console.error('Error publishing post: ', error);
+                                alert('An error occurred while publishing the post. Please try again later.');
+                            });
+                    }
+                });
             }
         });
-    
+        
         console.log('Publishing post...');
     };
+    
 
     return (
         <div className="flex-container upload-box">
