@@ -20,7 +20,7 @@ export function Comments(props) {
                     <div className="profile-pic">
                         <img src={"./../img/Nikke.jpg"} alt="big mommy ThomasMommyMilkers" />
                     </div>
-                    <div class="username">
+                    <div className="username">
                         <p>ThomasMommyMilkers</p>
                         <p>Mommy likes that!</p>
                     </div>
@@ -75,7 +75,7 @@ export function Comments(props) {
                 <textarea type="text" id="add-a-comment" name="add-a-comment" placeholder=" Add a comment"
                     rows="1" aria-label="add-a-comment"></textarea>
                 <div>
-                    <button id="post-comment" class="NomNom-button">Post</button>
+                    <button id="post-comment" className="NomNom-button">Post</button>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 'use strict';
 
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getDatabase, ref, onValue } from 'firebase/database';
 
@@ -11,14 +11,21 @@ export function RenderPost(props) {
     let alt = post.alt;
     let restaurantId = post.restaurant_id;
     
-    let db = getDatabase();
-    let restaurantRef = ref(db, "restaurants/" + restaurantId);
-    let restaurantName = "";
-    onValue(restaurantRef, (snapshot) => { 
-        restaurantName = snapshot.val().restaurant_name;
-    })
+    let [restaurant, setRestaurant] = useState(" ");
+    useEffect(() => {
+        let db = getDatabase();
+        let restaurantRef = ref(db, "restaurants/" + restaurantId);
 
-    props.render(true);
+        onValue(restaurantRef, (snapshot) => { 
+            let restaurantValue = snapshot.val();
+            setRestaurant(restaurantValue);
+        })
+    }, [])
+
+    let restaurantName = "";
+    if (restaurant != null) {
+        restaurantName = restaurant.restaurant_name;
+    }
 
     return (
         <div className="flex-container post">

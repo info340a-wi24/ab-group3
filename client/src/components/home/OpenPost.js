@@ -2,7 +2,7 @@
 
 import { Comments } from './Comments';
 
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getDatabase, ref, onValue } from 'firebase/database';
 
@@ -13,6 +13,7 @@ export function OpenPost(props) {
     let postId = postInfo.match(/^\d+/);
 
     let [post, setPost] = useState({});
+    let [restaurant, setRestaurant] = useState({});
     let [showComment, setShowComment] = useState(false);
 
     useEffect(() => {
@@ -30,27 +31,36 @@ export function OpenPost(props) {
         return cleanup;
     }, [postInfo])
 
+    let restaurantId = post.restaurant_id;
+
+    useEffect(() => {
+        let db = getDatabase();
+        let restaurantRef = ref(db, "restaurants/" + restaurantId);
+        
+        let unregisterFunction = onValue(restaurantRef, (snapshot) => { 
+            let restaurantValue = snapshot.val();
+            setRestaurant(restaurantValue);
+        })
+        
+        function cleanup() {
+            unregisterFunction();
+        }
+
+        return cleanup;
+    }, [post])
+
     function toggleComments() {
         showComment ? setShowComment(false) : setShowComment(true);
     }
 
     let src = post.src;
     let alt = post.alt;
-    let restaurantId = post.restaurant_id;
-    
-    let db = getDatabase();
-    let restaurantNameRef = ref(db, "restaurants/" + restaurantId + "/restaurant_name");
-    let restaurantPfpRef = ref(db, "restaurants/" + restaurantId + "/cover_pic");
-    
     let restaurantName = "";
-    let restaurantPfp = ""
-    onValue(restaurantNameRef, (snapshot) => { 
-        restaurantName = snapshot.val();
-    })
-
-    onValue(restaurantPfpRef, (snapshot) => {
-        restaurantPfp = snapshot.val();
-    })
+    let restaurantPfp = "";
+    if (restaurant != null) {
+        restaurantName = restaurant.restaurant_name;
+        restaurantPfp = restaurant.cover_pic;
+    }
 
     return (
         <>
