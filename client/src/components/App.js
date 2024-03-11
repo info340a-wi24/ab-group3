@@ -69,21 +69,21 @@ function App() {
               <Route path = '/eats'
                 element={
                   <ProtectedRoute user={user}>
-                    <Eats></Eats>
+                    <Eats />
                   </ProtectedRoute>
                 } 
               ></Route>
               <Route path = '/saved'
                 element={
                   <ProtectedRoute user={user}>
-                    <Saved></Saved>
+                    <Saved />
                   </ProtectedRoute>
                 } 
               ></Route>
               <Route path = '/following'
                 element={
                   <ProtectedRoute user={user}>
-                    <Following></Following>
+                    <Following />
                   </ProtectedRoute>
                 }
               ></Route>
