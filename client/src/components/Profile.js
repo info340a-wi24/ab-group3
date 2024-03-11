@@ -7,15 +7,16 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 import { RenderPost } from './RenderPost';
 
 export function Profile(props) {
-    let restaurantName = useParams().profileId;
-    let [restaurants, setRestaurants] = useState([]);
+    let profileInfo = useParams().profileId;
+    let restaurantId = profileInfo.match(/^\d+/);
+
     let [photos, setPhotos] = useState([]);
 
     useEffect(() => {
         let db = getDatabase();
         let photosRef = ref(db, "photos");
 
-        let unregisterFuntion = onValue(photosRef, (snapshot) => {
+        let unregisterFunction = onValue(photosRef, (snapshot) => {
             let photosValue = snapshot.val();
             let photosKeys = Object.keys(photosValue);
 
@@ -27,39 +28,18 @@ export function Profile(props) {
         });
 
         function cleanup() {
-            unregisterFuntion();
+            unregisterFunction();
         }
         return cleanup;
     }, [])
 
-    useEffect(() => {
-        let db = getDatabase();
-        let restaurantsRef = ref(db, "restaurants");
+    let db = getDatabase();
 
-        let unregisterFuntion = onValue(restaurantsRef, (snapshot) => {
-            let restaurantsValue = snapshot.val();
-            let restaurantsKeys = Object.keys(restaurantsValue);
-
-            let restaurantsArray = restaurantsKeys.map((key) => {
-                let singleRestaurant = { ...restaurantsValue[key] };
-                return singleRestaurant;
-            })
-            setRestaurants(restaurantsArray);
-        });
-
-        function cleanup() {
-            unregisterFuntion();
-        }
-        return cleanup;
-    }, [])
-
+    let restaurantRef = ref(db, "restaurants/" + restaurantId);
     let restaurant = {};
-    for (let i = 0; i < restaurants.length; i++) {
-        if (restaurants[i].restaurant_name == restaurantName) {
-            restaurant = restaurants[i];
-            break;
-        }
-    }
+    onValue(restaurantRef, (snapshot) => {
+        restaurant = snapshot.val();
+    })
 
     let pfp = restaurant.cover_pic;
     let hours = restaurant.hours;
@@ -70,10 +50,11 @@ export function Profile(props) {
         displayPhone = phone.slice(0, 3) + "-" + phone.slice(3, 6) + "-" + phone.slice(6);
     }
     let location = restaurant.location;
+    let restaurantName = restaurant.restaurant_name;
 
     let profileArray = [];
     for (let i = 0; i < photos.length; i++) {
-        if (photos[i].restaurant_name == restaurantName) {
+        if (photos[i].restaurant_id == restaurantId) {
             profileArray.push(<RenderPost post={{...photos[i]}} />);
         }
     }
