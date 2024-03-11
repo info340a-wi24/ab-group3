@@ -814,9 +814,9 @@ main > p {
   font-size: 1em;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 6fr 2fr;
+.profile-display {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .profile-contact {
@@ -847,10 +847,12 @@ main > p {
 
 .profile-details {
   flex-direction: column;
-  margin-right: 2em;
+  width: 50em;
+  margin: 0;
+  align-self: center;
   box-shadow: 0 0 10px rgb(0 0 0 / 20%);
   height: fit-content;
-
+  margin-bottom: 4em;
 }
 
 .profile-details .profile-link {
@@ -1258,6 +1260,18 @@ footer .material-icons {
 
   .container2 {
       font-size: medium;
+  }
+
+  .profile-display {
+    display: grid;
+    grid-template-columns: 6fr 2fr;
+    justify-self: center;
+  }
+
+  .profile-details {
+    margin-right: 2em;
+    margin-left: 0;
+    width: 20em;
   }
 
 }
