@@ -49,11 +49,17 @@ function CreatePost(UploadImg, Descriptions) {
     const handlePublish = () => {
         console.log('Publish button clicked');
 
+        const user = firebase.auth().currentUser;
+
+        if(!user) {
+            setErrorMessage('Please login before publishing the post.');
+            return;
+        }
 
 
        const db = firebase.firestore();
 
-        db.collection('post').add ({
+        db.collection('users').doc(user.uid).collection('posts').add ({
             title: title,
             description: description,
             links: links,
