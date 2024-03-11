@@ -558,7 +558,6 @@ figcaption {
 }
 
 .profile-container img {
-  margin-top: 2em;
   transform: scale(2);
 }
 
@@ -573,6 +572,7 @@ figcaption {
   color: black;
   background-color: lightgray;
   padding: .75em 0;
+  margin-top: 3em;
   width: 5.3em;
 }
 
@@ -811,7 +811,7 @@ main > p {
 }
 
 .profile-container h2 {
-  font-size: .8em;
+  font-size: 1em;
 }
 
 .grid {
