@@ -1,5 +1,6 @@
 'use strict';
 
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getDatabase, ref, onValue } from 'firebase/database';
 
@@ -9,7 +10,7 @@ export function RenderPost(props) {
     let src = post.src;
     let alt = post.alt;
     let restaurantId = post.restaurant_id;
-
+    
     let db = getDatabase();
     let restaurantRef = ref(db, "restaurants/" + restaurantId);
     let restaurantName = "";
@@ -17,7 +18,7 @@ export function RenderPost(props) {
         restaurantName = snapshot.val().restaurant_name;
     })
 
-    // let savePostCall = props.savePost(post.photo_id);
+    props.render(true);
 
     return (
         <div className="flex-container post">
