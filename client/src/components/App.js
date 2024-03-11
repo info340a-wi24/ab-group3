@@ -13,8 +13,35 @@ import { Saved } from './home/Saved';
 import { Following } from './home/Following';
 import { OpenPost } from './home/OpenPost'
 
-function App() {
+// Footer Component
+import { FooterDetail } from './Footer';
 
+import { Login } from './pages/login'
+import { auth } from "../index";
+import { ProtectedRoute } from './routes/ProtectedRoute';
+import { onAuthStateChanged } from "firebase/auth";
+
+
+function App() {
+  const [user, setUser] = useState(null);
+  const [isFetching, setIsFetching] = useState(true);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        setIsFetching(false);
+        return;
+      }
+
+      setUser(null);
+      setIsFetching(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  if (isFetching) {
+    return <h2>Loading...</h2>
+  }
   return (
     <div className="flex-container general-layout">
         <header>
@@ -22,17 +49,44 @@ function App() {
         </header>
         <main>
             <Routes>
-              <Route path="discover" element={<Discover />} >
-                <Route path="/discover/:postId" element={<OpenPost />} />
+              <Route index path = '/' element={<Login/>}></Route>
+              <Route path = '/discover'
+                element={
+                  <ProtectedRoute user={user}>
+                    <Discover></Discover>
+                  </ProtectedRoute>
+                } 
+              ><Route path='/discover/:postId'
+                element={
+                  <ProtectedRoute user={user}>
+                    <OpenPost></OpenPost>
+                  </ProtectedRoute>
+                } 
+              ></Route>
               </Route>
-              <Route path="restaurants" element={<Restaurants />} />
-              <Route path="saved" element={<Saved />} />
-              <Route path="following" element={<Following />} />
-              <Route path="create" element={<CreatePost />} />
-              <Route path="/:profileId" element={<Profile />} />
-              <Route path="*" element={<Navigate to="discover" />} />
+              <Route path = '/following'
+                element={
+                  <ProtectedRoute user={user}>
+                    <Following></Following>
+                  </ProtectedRoute>
+                } 
+              ></Route>
+              <Route path = '/saved'
+                element={
+                  <ProtectedRoute user={user}>
+                    <Saved></Saved>
+                  </ProtectedRoute>
+                } 
+              ></Route>
+              <Route path = '/Recent'
+                element={
+                  <ProtectedRoute user={user}>
+                    <Recent></Recent>
+                  </ProtectedRoute>
+                } 
+              ></Route>
             </Routes>
-        </main>
+          </main>
         <footer>
             <FooterDetail />
         </footer>
