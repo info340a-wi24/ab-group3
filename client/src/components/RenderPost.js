@@ -33,10 +33,17 @@ export function RenderPost(props) {
     }
 
     const [isSaved, setSaved] = useState(false);
+    const [isLiked, setLiked] = useState(false);
+
     const toggleSave = () => {
       setSaved(!isSaved); 
       savePost();
     };
+    const toggleLike = () => {
+        setLiked(!isLiked); 
+        // setLiked();
+    };
+  
 
     return (
         <div className="flex-container post">
@@ -52,9 +59,9 @@ export function RenderPost(props) {
                 <div className='flex-container restaurant-name'>
                     <p>{restaurantName}</p>
                 </div>
-                <div className="heart-container">
-                    <img src={"./../img/heart.png"} className="icon heart" />
-                    <img src={"./../img/heart-filled.png"} className="icon heart-filled" />
+                <div className="heart-container" onClick={toggleLike}>
+                    <img src={"./../img/heart.png"} className={`icon heart ${isLiked ? "liked" : "unliked"}`}/>
+                    <img src={"./../img/heart-filled.png"} className={`icon heart-filled ${isLiked ? "liked" : "unliked"}`} />
                 </div>
             </div>
         </div>
