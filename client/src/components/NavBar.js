@@ -52,7 +52,7 @@ export function NavBar(props) {
                     </div>
                     <div className='dropdown'>
                         <Link className="user-profile" href="profile.html">
-                            <img aria-label="user-profile" className="user-profile-img" src={"./../img/nikocado.webp"} alt="user-profile-img" />
+                            <img aria-label="user-profile" className="user-profile-img" src={pfp} alt="user-profile-img" />
                         </Link>
                         <div className='dropdown-content'>
                             <Link className="user-profile" href="profile.html">Settings</Link>
