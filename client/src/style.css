@@ -642,13 +642,19 @@ figcaption {
   margin-bottom:-2em;
 }
 
-.follow-box button {
+.post-creator > button {
   color: black;
   background-color: lightgray;
   padding: .75em 0;
   margin-top: .2em;
   margin-right: .1em;
   width: 5.3em;
+  height: 2.7em;
+}
+
+.post-creator > button:hover {
+  color: white;
+  background-color: #F39999;
 }
 
 .post-util {
@@ -680,11 +686,17 @@ figcaption {
   position: static;
 }
 
-.post-util div button {
-  background-color: #F39999;
+.post-util button:nth-child(2) {
+  color: black;
+  background-color: lightgray;
   padding: .75em 0;
   width: 5em;
   margin-top: 0;
+}
+
+.post-util button:nth-child(2):hover {
+  color: white;
+  background-color: #B5CB99;
 }
 
 .comment-dropdown {

@@ -1,10 +1,13 @@
+'use strict';
 import { useState, useEffect } from 'react';
 import firebase from 'firebase/compat/app'; 
 import 'firebase/compat/auth';
 import { getDatabase, ref, push, set, onValue } from 'firebase/database';
 import { firebaseConfig } from './Config.js';
 
+
 function CreatePost(UploadImg, Descriptions) {
+
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [links, setLinks] = useState('');
@@ -12,33 +15,38 @@ function CreatePost(UploadImg, Descriptions) {
     const [tagInput, setTagInput] = useState('');
     const [file, setFile] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
-    const [authInitialized, setAuthInitialized] = useState(false);
-    const [restaurantIndex, setRestaurantIndex] = useState(-1);
+    const [authInitialized, setAuthInitialized] = useState(false); // Define authInitialized state
 
     useEffect(() => {
         if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
         }
-
-        const db = getDatabase();
-        const restaurantsRef = ref(db, 'restaurants');
-        const user = firebase.auth().currentUser;
-
-        // Fetch restaurants from the database
-        onValue(restaurantsRef, (snapshot) => {
-            const restaurantsData = snapshot.val();
-            if (restaurantsData && user) {
-                const restaurantsArray = Object.values(restaurantsData);
-                const currentUserRestaurantIndex = restaurantsArray.findIndex(restaurant => restaurant.uid === user.uid);
-                if (currentUserRestaurantIndex !== -1) {
-                    setRestaurantIndex(currentUserRestaurantIndex);
-                }
-            }
-        });
-
+        
         firebase.auth().onAuthStateChanged(user => {
             setAuthInitialized(true);
         });
+
+        const db = getDatabase();
+        const postsRef = ref(db, 'photos');
+        let lastestPhotoId = 112;
+        onValue(postsRef, (snapshot) => {
+            const posts = snapshot.val();
+            
+            
+            if (posts) {
+                Object.values(posts).forEach((post) => {
+                    if (post.photo_id && parseInt(post.photo_id) > lastestPhotoId) {
+                        lastestPhotoId = parseInt(post.photo_id);
+                    }
+                })
+            }
+        })
+        
+        const newPhotoId = lastestPhotoId + 1;
+
+        
+
+       
     }, []);
 
     const handleTagInputChange = (event) => {
@@ -49,12 +57,12 @@ function CreatePost(UploadImg, Descriptions) {
         if (event.key === 'Enter') {
             event.preventDefault();
             const newTag = tagInput.trim();
-            if(newTag !== '' && !tags.includes(newTag)) {
+            if (newTag !== '' && !tags.includes(newTag)) {
                 setTags([...tags, newTag]);
                 setTagInput('');
             }
         }
-    };
+    }
 
     const handleFileInputChange = (event) => {
         const files = event.target.files;
@@ -65,76 +73,80 @@ function CreatePost(UploadImg, Descriptions) {
 
     const handlePublish = () => {
         console.log('Publish button clicked');
-    
+
         if (!authInitialized) {
-            console.log("Authentication state is still initializing...");
+            // Handle case where authentication is not initialized
+            setErrorMessage('Authentication is not initialized.');
             return;
         }
-    
+
         const user = firebase.auth().currentUser;
         if (!user) {
             setErrorMessage('Please login before publishing the post.');
             return;
         }
-    
-        if (restaurantIndex === -1) {
-            console.error('No restaurant found for the current user.');
-            return;
-        }
-    
-        const db = getDatabase();
-        const restaurantsRef = ref(db, 'restaurants');
-        const linksToMatch = links.split('\n').map(link => link.trim()); 
-    
         
-        onValue(restaurantsRef, (snapshot) => {
-            const restaurantsData = snapshot.val();
-            if (restaurantsData) {
-                const matchedRestaurant = Object.values(restaurantsData).find(restaurant => linksToMatch.includes(restaurant.link));
-                if (!matchedRestaurant) {
-                    console.error('No matching restaurant found for the provided links.');
-                    return;
-                }
-                const restaurantId = matchedRestaurant.id;
-                const db = getDatabase();
-                const photosRef = ref(db, 'photos');
-    
-               
-                onValue(photosRef, (snapshot) => {
-                    const photosData = snapshot.val();
-                    if (photosData) {
-                        const photosArray = Object.values(photosData);
-                        const photoIndex = photosArray.length; 
-                        const photoData = {
-                            alt: description,
-                            photo_id: 113 + photoIndex, 
-                            restaurant_id: restaurantId, 
-                            src: links,
-                        };
-    
-                        
-                        push(photosRef, photoData)
-                            .then(() => {
-                                console.log('Post successfully published');
-                                setTitle('');
-                                setDescription('');
-                                setLinks('');
-                                setTags([]);
-                                setTagInput('');
-                                setFile(null);
-                            })
-                            .catch((error) => {
-                                console.error('Error publishing post: ', error);
-                                alert('An error occurred while publishing the post. Please try again later.');
-                            });
+        const db = getDatabase(); 
+
+        const postsRef = ref(db, 'photos'); 
+        const restaurantRef = ref(db, 'restaurants')
+        let lastestPhotoId = 112;
+        onValue(postsRef, (snapshot) => {
+            const posts = snapshot.val();
+            
+            if (posts) {
+                Object.values(posts).forEach((post) => {
+                    if (post.photo_id && parseInt(post.photo_id) > lastestPhotoId) {
+                        lastestPhotoId = parseInt(post.photo_id);
                     }
-                });
+                })
             }
-        });
+        })
         
+        const newPhotoId = lastestPhotoId + 1;
+
+            onValue(restaurantRef, (snapshot) => {
+                const restaurants = snapshot.val();
+                
+                if (restaurants) {
+                    Object.values(restaurants).forEach((restaurant) => {
+                       
+                        if (restaurant.website && links.includes(restaurant.website)) {
+                        
+                            const newPostRef = push(postsRef); 
+                            const postData = {
+                                alt: description,
+                                photo_id: newPhotoId,
+                                restaurant_id: restaurant.restaurant.id, 
+                                src: links
+                            };
+    
+                            set(newPostRef, postData) 
+                                .then(() => {
+                                    console.log('Post published successfully');
+                                    setTitle('');
+                                    setDescription('');
+                                    setLinks('');
+                                    setTags([]);
+                                    setTagInput('');
+                                    setFile(null);
+                                })
+                                .catch((error) => {
+                                    console.error('Error adding document: ', error);
+                                    alert('An error occurred while publishing the post. Please try again later.')
+                                });
+    
+                            return; // Exit the loop since we found a matching restaurant
+                        }
+                    });
+                }
+            });
+        
+    
         console.log('Publishing post...');
     };
-    
+
+
 
     return (
         <div className="flex-container upload-box">
@@ -143,9 +155,9 @@ function CreatePost(UploadImg, Descriptions) {
                     <h3>Drag & Drop Files Here</h3>
                     <p>or</p>
                     <label htmlFor="fileInput" className="button">Click to Select Files</label>
-                    <br/>
-                    <br/>
-                    <input type="file" id="fileInput" onChange={handleFileInputChange} multiple accept="image/*" required/>
+                    <br />
+                    <br />
+                    <input type="file" id="fileInput" onChange={handleFileInputChange} multiple accept="image/*" required />
                 </div>
             </div>
             <form className="container2">
@@ -164,13 +176,13 @@ function CreatePost(UploadImg, Descriptions) {
                     </div>
                     <div className="description-container">
                         <label htmlFor="tags">Tags</label>
-                        <input type="text" id="tagInput" value={tagInput} onChange={handleTagInputChange} onKeyDown={handleTagInputKeyDown} placeholder="Add tags "/>
+                        <input type="text" id="tagInput" value={tagInput} onChange={handleTagInputChange} onKeyDown={handleTagInputKeyDown} placeholder="Add tags " />
                         <div id="tagContainer">
                             {tags.map((tag, index) => (
                                 <span key={index} className='tag'>{tag}{index !== tags.length - 1 && ' '}</span>
                             ))}
                         </div>
-                        <br/>
+                        <br />
                         <div className="publish-button">
                             <button className="NomNom-button" id="publish" onClick={handlePublish} disabled={!file}>Publish</button>
                         </div>
@@ -180,6 +192,7 @@ function CreatePost(UploadImg, Descriptions) {
             </form>
         </div>
     );
+
 }
 
 export { CreatePost };

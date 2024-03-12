@@ -53,6 +53,10 @@ export function OpenPost(props) {
         showComment ? setShowComment(false) : setShowComment(true);
     }
 
+    let savePost = () => {
+        props.savePost(postId[0]);
+    }
+
     let src = post.src;
     let alt = post.alt;
     let restaurantName = "";
@@ -81,10 +85,7 @@ export function OpenPost(props) {
                             </Link>
                             <p>999 followers</p>
                         </div>
-
-                        <div className="follow-box">
-                            <button className="NomNom-button">Follow</button>
-                        </div>
+                        <button className="NomNom-button" >Follow</button>
                     </div>
                     <section>
                         <h1>{alt}</h1>
@@ -97,9 +98,7 @@ export function OpenPost(props) {
                             favorite
                             <div className="like-count">69</div>
                         </button>
-                        <div>
-                            <button className="NomNom-button">Save</button>
-                        </div>
+                        <button className="NomNom-button" onClick={savePost} >Save</button>
                         <button className="material-icons" onClick={toggleComments}>
                             maps_ugc
                         </button>

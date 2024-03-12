@@ -18,11 +18,12 @@ import { Login } from './pages/login'
 import { auth } from "../index";
 import { ProtectedRoute } from './routes/ProtectedRoute';
 import { onAuthStateChanged } from "firebase/auth";
-
+import { getDatabase, ref, remove, get, update, onValue } from 'firebase/database';
 
 function App() {
   const [user, setUser] = useState(null);
   const [isFetching, setIsFetching] = useState(true);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -41,61 +42,95 @@ function App() {
     return <h2>Loading...</h2>
   }
 
+  let uid = null;
+  if (user) {
+    uid = user.uid;
+  }
+
+  function savePost(postId) {
+    let db = getDatabase();
+    let savedRef = ref(db, "users/" + user.uid + "/saved");
+
+    get(savedRef)
+      .then((snapshot) => {
+        let currentData = snapshot.val() || {};
+        let dataArray = Object.keys(currentData);
+        if (!dataArray.includes(postId + "")) {
+          let newData = {
+            ...currentData,
+            [postId]: postId
+          };
+          update(savedRef, newData)
+          .then(() => console.log("Post added to Saved successfully"))
+          .catch(error => console.error("Error adding post to Saved: ", error));
+        } else {
+          let newData = {
+            ...currentData
+          }
+          newData[postId] = null;
+          update(savedRef, newData)
+          .then(() => console.log("Post removed from Saved successfully"))
+          .catch(error => console.error("Error removing post to Saved: ", error));
+        }
+      })
+      .catch(error => console.error("Error getting saved post: ", error));
+  }
+
   return (
     <div className="flex-container general-layout">
-        <header> 
-          <NavBar />
-        </header>
-        <main>
-            <Routes>
+      <header>
+        <NavBar uid={uid}/>
+      </header>
+      <main>
+        <Routes>
               // Navbar Components
-              
-              // Hompage Components
-              <Route index path = '/login' element={<Login/>}></Route>
-              <Route path = '/discover'
-                element={
-                  <ProtectedRoute user={user}>
-                    <Discover />
-                  </ProtectedRoute>
-                } 
-              ><Route path='/discover/:postId'
-                element={
-                  <ProtectedRoute user={user}>
-                    <OpenPost />
-                  </ProtectedRoute>
-                } 
-              ></Route>
-              </Route>
-              <Route path = '/eats'
-                element={
-                  <ProtectedRoute user={user}>
-                    <Eats />
-                  </ProtectedRoute>
-                } 
-              ></Route>
-              <Route path = '/saved'
-                element={
-                  <ProtectedRoute user={user}>
-                    <Saved />
-                  </ProtectedRoute>
-                } 
-              ></Route>
-              <Route path = '/following'
-                element={
-                  <ProtectedRoute user={user}>
-                    <Following />
-                  </ProtectedRoute>
-                }
-              ></Route>
-              <Route path="/create" element={<CreatePost />} />
 
-              <Route path="/:profileId" element={<Profile />} />
-              <Route path="*" element={<Navigate to="discover" />} />
-            </Routes>
-          </main>
-        <footer>
-            <FooterDetail />
-        </footer>
+          // Hompage Components
+          <Route index path='/login' element={<Login />}></Route>
+          <Route path='/discover'
+            element={
+              <ProtectedRoute user={user}>
+                <Discover savePost={savePost} />
+              </ProtectedRoute>
+            }
+          ><Route path='/discover/:postId'
+            element={
+              <ProtectedRoute user={user}>
+                <OpenPost savePost={savePost} />
+              </ProtectedRoute>
+            }
+          ></Route>
+          </Route>
+          <Route path='/eats'
+            element={
+              <ProtectedRoute user={user}>
+                <Eats />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route path='/saved'
+            element={
+              <ProtectedRoute user={user}>
+                <Saved uid={uid} savePost={savePost}/>
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route path='/following'
+            element={
+              <ProtectedRoute user={user}>
+                <Following />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route path="/create" element={<CreatePost />} />
+
+          <Route path="/:profileId" element={<Profile savePost={savePost}/>} />
+          <Route path="*" element={<Navigate to="discover" />} />
+        </Routes>
+      </main>
+      <footer>
+        <FooterDetail />
+      </footer>
     </div>
   )
 }

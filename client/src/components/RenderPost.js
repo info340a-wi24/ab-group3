@@ -27,14 +27,18 @@ export function RenderPost(props) {
         restaurantName = restaurant.restaurant_name;
     }
 
+    let savePost = () => {
+        props.savePost(post.photo_id);
+    }
+
     return (
         <div className="flex-container post">
             <div className="flex-container post-interaction">
                 <div>
-                    <div className="bookmark" ></div>
+                    <div className="bookmark" onClick={savePost}></div>
                 </div>
             </div>
-            <Link to={"/discover/" + post.photo_id + alt} onClick={window.scrollTo(0, 0)} className="flex-container">
+            <Link to={"/discover/" + post.photo_id + restaurantName} onClick={window.scrollTo(0, 0)} className="flex-container">
                 <img src={src} alt={alt} />  
             </Link>
             <div className='flex-container restaurant-container'>
