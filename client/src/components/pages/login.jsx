@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword, 
-         signInWithEmailAndPassword } from "firebase/auth";
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword
+} from "firebase/auth";
 import { auth } from "../../index"
+import { getDatabase, ref, set } from "firebase/database";
 import '../../style.css';
 
 export const Login = ({ user }) => {
@@ -18,42 +21,56 @@ export const Login = ({ user }) => {
     const handleSignUp = () => {
         if (!email || !password) return;
         createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            const user = userCredential.user;
-            console.log(user);
-            navigate('/'); // Redirect to the dashboard after login
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
-          });
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                navigate('/'); // Redirect to the dashboard after login
+                let db = getDatabase();
+                let userRef = ref(db, "users/" + user.uid);
+                let newData = {
+                    saved: {},
+                    pfp: "",
+                    following: {}
+                }
+                set(userRef, newData)
+                    .then(() => {
+                        console.log("User " + user.uid + " registered successfully!");
+                    })
+                    .catch((error) => {
+                        console.log("User " + user.uid + " failed to be registered: " + error);
+                    })
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+            });
     };
 
     const handleSignIn = () => {
         if (!email || !password) return;
         signInWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            const user = userCredential.user;
-            console.log(user);
-            navigate('/discover'); // Redirect to the dashboard after login
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
-          });
-      };
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                navigate('/discover'); // Redirect to the dashboard after login
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+            });
+    };
 
     const handleEmailChange = (event) => setEmail(event.target.value);
     const handlePasswordChange = (event) => setPassword(event.target.value);
 
     return (
-        <section> 
+        <section>
             <form className="login flex-container">
                 <div>
                     {isSignUpActive && <legend>Sign Up</legend>}
-                    {!isSignUpActive && <legend>Sign In</legend>}   
+                    {!isSignUpActive && <legend>Sign In</legend>}
                 </div>
                 <ul>
                     <li>
@@ -65,25 +82,25 @@ export const Login = ({ user }) => {
                         <input
                             type="password"
                             id="password"
-                            onChange= {handlePasswordChange}
+                            onChange={handlePasswordChange}
                         />
                     </li>
                 </ul>
 
                 {isSignUpActive && (
                     <button type="button" id='sign' onClick={handleSignUp}>
-                    Sign Up
+                        Sign Up
                     </button>
                 )}
                 {!isSignUpActive && (
                     <button type="button" id='sign' onClick={handleSignIn}>
-                    Sign In
+                        Sign In
                     </button>
                 )}
                 <div className="links">
                     {isSignUpActive && <a onClick={handleMethodChange} id="login">Already have an account? Login</a>}
                     {!isSignUpActive && (
-                    <a onClick={handleMethodChange} id='login'>New user? Create an account</a>
+                        <a onClick={handleMethodChange} id='login'>New user? Create an account</a>
                     )}
                 </div>
             </form>

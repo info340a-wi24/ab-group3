@@ -50,6 +50,7 @@ function App() {
   function savePost(postId) {
     let db = getDatabase();
     let savedRef = ref(db, "users/" + user.uid + "/saved");
+    
     get(savedRef)
       .then((snapshot) => {
         let currentData = snapshot.val() || {};
@@ -118,7 +119,7 @@ function App() {
           <Route path='/discover'
             element={
               <ProtectedRoute user={user}>
-                <Discover savePost={savePost} />
+                <Discover savePost={savePost} uid={uid} />
               </ProtectedRoute>
             }
           ><Route path='/discover/:postId'

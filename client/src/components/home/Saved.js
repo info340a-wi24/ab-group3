@@ -65,7 +65,7 @@ export function Saved(props) {
 
     let savedArray = [];
     for (let i = 0; i < photos.length; i++) {
-        savedArray.push(<RenderPost key={i} post={{...photos[i]}} savePost={props.savePost} />);
+        savedArray.push(<RenderPost key={i} post={{...photos[i]}} savePost={props.savePost} uid={uid} />);
     }
 
     return (
