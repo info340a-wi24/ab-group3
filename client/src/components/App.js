@@ -75,6 +75,35 @@ function App() {
       .catch(error => console.error("Error getting saved post: ", error));
   }
 
+  function followRestaurant(restaurantId) {
+    let db = getDatabase();
+    let followingRef = ref(db, "users/" + user.uid + "/following");
+
+    get(followingRef)
+      .then((snapshot) => {
+        let currentData = snapshot.val() || {};
+        let dataArray = Object.keys(currentData);
+        if (!dataArray.includes(restaurantId + "")) {
+          let newData = {
+            ...currentData,
+            [restaurantId]: restaurantId
+          };
+          update(followingRef, newData)
+          .then(() => console.log("Restaurant followed successfully"))
+          .catch(error => console.error("Error following restaurant: ", error));
+        } else {
+          let newData = {
+            ...currentData
+          }
+          newData[restaurantId] = null;
+          update(followingRef, newData)
+          .then(() => console.log("Restaurant unfollowed successfully"))
+          .catch(error => console.error("Error unfollowing restaurant: ", error));
+        }
+      })
+      .catch(error => console.error("Error getting following page", error));
+  }
+
   return (
     <div className="flex-container general-layout">
       <header>
@@ -117,13 +146,13 @@ function App() {
           <Route path='/following'
             element={
               <ProtectedRoute user={user}>
-                <Following />
+                <Following uid={uid}/>
               </ProtectedRoute>
             }
           ></Route>
           <Route path="/create" element={<CreatePost />} />
 
-          <Route path="/:profileId" element={<Profile savePost={savePost}/>} />
+          <Route path="/:profileId" element={<Profile savePost={savePost} followRestaurant={followRestaurant}/> } />
           <Route path="*" element={<Navigate to="discover" />} />
         </Routes>
       </main>

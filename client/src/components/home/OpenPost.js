@@ -57,6 +57,10 @@ export function OpenPost(props) {
         props.savePost(postId[0]);
     }
 
+    let followRestaurant = () => {
+        props.followRestaurant(restaurantId);
+    }
+
     let src = post.src;
     let alt = post.alt;
     let restaurantName = "";
@@ -85,7 +89,7 @@ export function OpenPost(props) {
                             </Link>
                             <p>999 followers</p>
                         </div>
-                        <button className="NomNom-button" >Follow</button>
+                        <button className="NomNom-button" onClick={followRestaurant}>Follow</button>
                     </div>
                     <section>
                         <h1>{alt}</h1>

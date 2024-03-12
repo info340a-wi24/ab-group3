@@ -669,7 +669,15 @@ figcaption {
   width: 5.3em;
 }
 
-.post-creator > button {
+.follow-box button {
+  color: black;
+  background-color: lightgray;
+  padding: .75em 0;
+  margin-top: 3em;
+  width: 5.3em;
+}
+
+.post-creator > button, .profile-banner > button {
   color: black;
   background-color: lightgray;
   padding: .75em 0;
@@ -810,8 +818,9 @@ main > p {
 }
 
 .commenter .username p:first-child {
+  font-weight: bold;
   font-size: .85rem;
-  margin-bottom: .2em;
+  margin: .5em 0 .2em 0;
 }
 
 .comment-entry {
