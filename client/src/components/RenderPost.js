@@ -12,6 +12,7 @@ export function RenderPost(props) {
     let restaurantId = post.restaurant_id;
     
     let [restaurant, setRestaurant] = useState(" ");
+
     useEffect(() => {
         let db = getDatabase();
         let restaurantRef = ref(db, "restaurants/" + restaurantId);
@@ -31,11 +32,17 @@ export function RenderPost(props) {
         props.savePost(post.photo_id);
     }
 
+    const [isSaved, setSaved] = useState(false);
+    const toggleSave = () => {
+      setSaved(!isSaved); 
+      savePost();
+    };
+
     return (
         <div className="flex-container post">
             <div className="flex-container post-interaction">
                 <div>
-                    <div className="bookmark" onClick={savePost}></div>
+                    <div className={isSaved ? "bookmark-toggled" : "bookmark"} onClick={toggleSave}></div>
                 </div>
             </div>
             <Link to={"/discover/" + post.photo_id + restaurantName} onClick={window.scrollTo(0, 0)} className="flex-container">

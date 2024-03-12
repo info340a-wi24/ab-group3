@@ -50,7 +50,6 @@ function App() {
   function savePost(postId) {
     let db = getDatabase();
     let savedRef = ref(db, "users/" + user.uid + "/saved");
-
     get(savedRef)
       .then((snapshot) => {
         let currentData = snapshot.val() || {};

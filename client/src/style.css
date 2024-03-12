@@ -445,7 +445,7 @@ header {
 }
 
 
-.bookmark, .bookmark::after {
+.bookmark, .bookmark::after, .bookmark-toggled, .bookmark-toggled::after {
   cursor: pointer;
   display: block;
   box-sizing: border-box;
@@ -453,7 +453,7 @@ header {
   opacity: 1;
 }
 
-.bookmark {
+.bookmark, .bookmark-toggled {
   margin-top: 0.7rem;
   color: white;
   z-index: 0;
@@ -468,7 +468,7 @@ header {
   overflow: hidden;
 }
 
-.bookmark::after {
+.bookmark::after, .bookmark-toggled::after  {
   position: absolute;
   z-index: 1;
   content: "";
@@ -481,6 +481,13 @@ header {
   left: -2px;
   box-shadow: 0rem 0rem 1rem 5rem white;
   opacity: 1;
+}
+
+.bookmark-toggled {
+  height: 3.5em;
+}
+.bookmark-toggled::after {
+  top: 2.9em;
 }
 
 .bookmark:hover {
