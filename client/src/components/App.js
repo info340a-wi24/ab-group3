@@ -42,6 +42,11 @@ function App() {
     return <h2>Loading...</h2>
   }
 
+  let uid = null;
+  if (user) {
+    uid = user.uid;
+  }
+
   function savePost(postId) {
     let db = getDatabase();
     let savedRef = ref(db, "users/" + user.uid + "/saved");
@@ -74,7 +79,7 @@ function App() {
   return (
     <div className="flex-container general-layout">
       <header>
-        <NavBar uid={user.uid}/>
+        <NavBar uid={uid}/>
       </header>
       <main>
         <Routes>
@@ -106,7 +111,7 @@ function App() {
           <Route path='/saved'
             element={
               <ProtectedRoute user={user}>
-                <Saved uid={user.uid} savePost={savePost}/>
+                <Saved uid={uid} savePost={savePost}/>
               </ProtectedRoute>
             }
           ></Route>
