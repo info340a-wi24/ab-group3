@@ -1,11 +1,9 @@
 'use strict';
-import React, {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import firebase from 'firebase/compat/app'; 
 import 'firebase/compat/auth';
-import { getDatabase, ref, push, set } from 'firebase/database';
-import {firebaseConfig} from './Config.js';
-
-
+import { getDatabase, ref, push, set, onValue } from 'firebase/database';
+import { firebaseConfig } from './Config.js';
 
 
 function CreatePost(UploadImg, Descriptions) {
@@ -17,19 +15,38 @@ function CreatePost(UploadImg, Descriptions) {
     const [tagInput, setTagInput] = useState('');
     const [file, setFile] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
-    const [authInitialized, setAuthInitialized] = useState(false);
+    const [authInitialized, setAuthInitialized] = useState(false); // Define authInitialized state
 
     useEffect(() => {
-    
-
-          if (!firebase.apps.length) {
+        if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
-          }
-
-          firebase.auth().onAuthStateChanged(user => {
+        }
+        
+        firebase.auth().onAuthStateChanged(user => {
             setAuthInitialized(true);
         });
 
+        const db = getDatabase();
+        const postsRef = ref(db, 'photos');
+        let lastestPhotoId = 112;
+        onValue(postsRef, (snapshot) => {
+            const posts = snapshot.val();
+            
+            
+            if (posts) {
+                Object.values(posts).forEach((post) => {
+                    if (post.photo_id && parseInt(post.photo_id) > lastestPhotoId) {
+                        lastestPhotoId = parseInt(post.photo_id);
+                    }
+                })
+            }
+        })
+        
+        const newPhotoId = lastestPhotoId + 1;
+
+        
+
+       
     }, []);
 
     const handleTagInputChange = (event) => {
@@ -40,12 +57,13 @@ function CreatePost(UploadImg, Descriptions) {
         if (event.key === 'Enter') {
             event.preventDefault();
             const newTag = tagInput.trim();
-            if(newTag !== '' && !tags.includes(newTag)) {
+            if (newTag !== '' && !tags.includes(newTag)) {
                 setTags([...tags, newTag]);
                 setTagInput('');
             }
         }
     }
+
     const handleFileInputChange = (event) => {
         const files = event.target.files;
         if (files.length > 0) {
@@ -55,10 +73,10 @@ function CreatePost(UploadImg, Descriptions) {
 
     const handlePublish = () => {
         console.log('Publish button clicked');
-    
-              if (!authInitialized) {
-            // Authentication state is still initializing
-            console.log("Authentication state is still initializing...");
+
+        if (!authInitialized) {
+            // Handle case where authentication is not initialized
+            setErrorMessage('Authentication is not initialized.');
             return;
         }
 
@@ -67,22 +85,39 @@ function CreatePost(UploadImg, Descriptions) {
             setErrorMessage('Please login before publishing the post.');
             return;
         }
+        
+        const db = getDatabase(); 
 
-        const db = getDatabase();
-
-        const photosRef = ref(db, 'photos');
-
-        const newPostRef = push(photosRef);
-    
-        set(newPostRef, {
-            userId: user.uid,
-            title: title,
-            description: description,
-            links: links,
-            tags: tags
+        const postsRef = ref(db, 'photos'); 
+        let lastestPhotoId = 112;
+        onValue(postsRef, (snapshot) => {
+            const posts = snapshot.val();
+            
+            if (posts) {
+                Object.values(posts).forEach((post) => {
+                    if (post.photo_id && parseInt(post.photo_id) > lastestPhotoId) {
+                        lastestPhotoId = parseInt(post.photo_id);
+                    }
+                })
+            }
         })
+        
+        const newPhotoId = lastestPhotoId + 1;
+
+       
+
+        const newPostRef = push(postsRef); 
+
+        const postData = {
+            alt:description,
+            photo_id: newPhotoId,
+            restaurant_id: 5,
+            src: links
+        };
+
+        set(newPostRef, postData) 
             .then(() => {
-                console.log('Post successfully published');
+                console.log('Post published successfully');
                 setTitle('');
                 setDescription('');
                 setLinks('');
@@ -91,32 +126,29 @@ function CreatePost(UploadImg, Descriptions) {
                 setFile(null);
             })
             .catch((error) => {
-                console.error('Error publishing post: ', error);
+                console.error('Error adding document: ', error);
                 alert('An error occurred while publishing the post. Please try again later.')
             });
-    
+
         console.log('Publishing post...');
     };
 
-    
-
-   
 
 
     return (
         <div className="flex-container upload-box">
-        <div className="form-container">
-            <div className="drop-area" id="dropArea" >
-                <h3>Drag & Drop Files Here</h3>
-                <p>or</p>
-                <label htmlFor="fileInput" className="button">Click to Select Files</label>
-                <br/>
-                <br/>
-                <input type="file" id="fileInput" onChange={handleFileInputChange} multiple accept="image/*"  required/>
+            <div className="form-container">
+                <div className="drop-area" id="dropArea">
+                    <h3>Drag & Drop Files Here</h3>
+                    <p>or</p>
+                    <label htmlFor="fileInput" className="button">Click to Select Files</label>
+                    <br />
+                    <br />
+                    <input type="file" id="fileInput" onChange={handleFileInputChange} multiple accept="image/*" required />
+                </div>
             </div>
-        </div>
-        <form className="container2">
-            <div >
+            <form className="container2">
+                <div>
                     <div className="description-container">
                         <label htmlFor="title">Title</label>
                         <textarea id="title" name="title" rows="2" value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Add a title" required></textarea>
@@ -127,30 +159,27 @@ function CreatePost(UploadImg, Descriptions) {
                     </div>
                     <div className="description-container">
                         <label htmlFor="links">Links</label>
-                        <textarea id="links" name="links" value={links} rows="2" onChange={(event) => setLinks(event.target.value)} placeholder="Enter Restaurant Links"  type="url" pattern="https?://.+"></textarea>
+                        <textarea id="links" name="links" value={links} rows="2" onChange={(event) => setLinks(event.target.value)} placeholder="Enter Restaurant Links" type="url" pattern="https?://.+"></textarea>
                     </div>
                     <div className="description-container">
                         <label htmlFor="tags">Tags</label>
-                        <input type="text" id="tagInput" value={tagInput} onChange={handleTagInputChange} onKeyDown={handleTagInputKeyDown} placeholder="Add tags "/>
+                        <input type="text" id="tagInput" value={tagInput} onChange={handleTagInputChange} onKeyDown={handleTagInputKeyDown} placeholder="Add tags " />
                         <div id="tagContainer">
                             {tags.map((tag, index) => (
                                 <span key={index} className='tag'>{tag}{index !== tags.length - 1 && ' '}</span>
                             ))}
                         </div>
-                        <br/>
+                        <br />
                         <div className="publish-button">
                             <button className="NomNom-button" id="publish" onClick={handlePublish} disabled={!file}>Publish</button>
                         </div>
                         {errorMessage && <p className='error-message'>{errorMessage}</p>}
-                    </div>   
-            </div>
-        </form>
-    </div> 
+                    </div>
+                </div>
+            </form>
+        </div>
     );
-    
-
 
 }
 
-    
-export {CreatePost};
+export { CreatePost };
