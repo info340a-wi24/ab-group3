@@ -89,6 +89,7 @@ function CreatePost(UploadImg, Descriptions) {
         const db = getDatabase(); 
 
         const postsRef = ref(db, 'photos'); 
+        const restaurantRef = ref(db, 'restaurants')
         let lastestPhotoId = 112;
         onValue(postsRef, (snapshot) => {
             const posts = snapshot.val();
@@ -104,32 +105,44 @@ function CreatePost(UploadImg, Descriptions) {
         
         const newPhotoId = lastestPhotoId + 1;
 
-       
-
-        const newPostRef = push(postsRef); 
-
-        const postData = {
-            alt:description,
-            photo_id: newPhotoId,
-            restaurant_id: 5,
-            src: links
-        };
-
-        set(newPostRef, postData) 
-            .then(() => {
-                console.log('Post published successfully');
-                setTitle('');
-                setDescription('');
-                setLinks('');
-                setTags([]);
-                setTagInput('');
-                setFile(null);
-            })
-            .catch((error) => {
-                console.error('Error adding document: ', error);
-                alert('An error occurred while publishing the post. Please try again later.')
+            onValue(restaurantRef, (snapshot) => {
+                const restaurants = snapshot.val();
+                
+                if (restaurants) {
+                    Object.values(restaurants).forEach((restaurant) => {
+                       
+                        if (restaurant.website && links.includes(restaurant.website)) {
+                        
+                            const newPostRef = push(postsRef); 
+                            const postData = {
+                                alt: description,
+                                photo_id: newPhotoId,
+                                restaurant_id: restaurant.restaurant.id, 
+                                src: links
+                            };
+    
+                            set(newPostRef, postData) 
+                                .then(() => {
+                                    console.log('Post published successfully');
+                                    setTitle('');
+                                    setDescription('');
+                                    setLinks('');
+                                    setTags([]);
+                                    setTagInput('');
+                                    setFile(null);
+                                })
+                                .catch((error) => {
+                                    console.error('Error adding document: ', error);
+                                    alert('An error occurred while publishing the post. Please try again later.')
+                                });
+    
+                            return; // Exit the loop since we found a matching restaurant
+                        }
+                    });
+                }
             });
-
+        
+    
         console.log('Publishing post...');
     };
 
