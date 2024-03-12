@@ -15,7 +15,10 @@ function CreatePost(UploadImg, Descriptions) {
     const [tagInput, setTagInput] = useState('');
     const [file, setFile] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
-    const [authInitialized, setAuthInitialized] = useState(false); // Define authInitialized state
+    const [authInitialized, setAuthInitialized] = useState(false);
+    const [imageAddress, setImageAddress] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
+
 
     useEffect(() => {
         if (!firebase.apps.length) {
@@ -68,11 +71,16 @@ function CreatePost(UploadImg, Descriptions) {
         const files = event.target.files;
         if (files.length > 0) {
             setFile(files[0]);
+            const fileUrl = URL.createObjectURL(files[0]); 
+            setImageAddress(fileUrl); 
+            setImageUrl(fileUrl); 
         }
+
     };
 
     const handlePublish = () => {
         console.log('Publish button clicked');
+        
 
         if (!authInitialized) {
             // Handle case where authentication is not initialized
@@ -85,11 +93,16 @@ function CreatePost(UploadImg, Descriptions) {
             setErrorMessage('Please login before publishing the post.');
             return;
         }
+
+        if (!file) {
+            setErrorMessage('Please select an image to upload.');
+            return;
+        }
+
         
         const db = getDatabase(); 
 
         const postsRef = ref(db, 'photos'); 
-        const restaurantRef = ref(db, 'restaurants')
         let lastestPhotoId = 112;
         onValue(postsRef, (snapshot) => {
             const posts = snapshot.val();
@@ -105,46 +118,54 @@ function CreatePost(UploadImg, Descriptions) {
         
         const newPhotoId = lastestPhotoId + 1;
 
-            onValue(restaurantRef, (snapshot) => {
-                const restaurants = snapshot.val();
-                
-                if (restaurants) {
-                    Object.values(restaurants).forEach((restaurant) => {
-                       
-                        if (restaurant.website && links.includes(restaurant.website)) {
-                        
-                            const newPostRef = push(postsRef); 
-                            const postData = {
-                                alt: description,
-                                photo_id: newPhotoId,
-                                restaurant_id: restaurant.restaurant.id, 
-                                src: links
-                            };
-    
-                            set(newPostRef, postData) 
-                                .then(() => {
-                                    console.log('Post published successfully');
-                                    setTitle('');
-                                    setDescription('');
-                                    setLinks('');
-                                    setTags([]);
-                                    setTagInput('');
-                                    setFile(null);
-                                })
-                                .catch((error) => {
-                                    console.error('Error adding document: ', error);
-                                    alert('An error occurred while publishing the post. Please try again later.')
-                                });
-    
-                            return; // Exit the loop since we found a matching restaurant
-                        }
-                    });
+        
+
+        const restaurantRef = ref(db, 'restaurants');
+        let restaurantId = null;
+        
+        onValue(restaurantRef, (snapshot) => {
+            const restaurants = snapshot.val();
+
+            if (restaurants) {
+                Object.values(restaurants).forEach((restaurant)  => {
+                if (restaurant.website && links.includes(restaurant.website)) {
+                    restaurantId = restaurant.restaurant_id;
                 }
             });
-        
+        }
+        })
     
+
+        const newPostRef = push(postsRef); 
+
+        const postData = {
+            alt:description,
+            photo_id: newPhotoId,
+            restaurant_id: restaurantId,
+            src: imageUrl
+        };
+
+        set(newPostRef, postData) 
+            .then(() => {
+                console.log('Post published successfully');
+                setTitle('');
+                setDescription('');
+                setImageAddress('');
+                setImageUrl('');
+                setLinks('');
+                setTags([]);
+                setTagInput('');
+                setFile(null);
+            })
+            .catch((error) => {
+                console.error('Error adding document: ', error);
+                alert('An error occurred while publishing the post. Please try again later.')
+            });
+
         console.log('Publishing post...');
     };
+
+
 
 
 
