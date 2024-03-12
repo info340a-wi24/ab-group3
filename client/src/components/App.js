@@ -124,7 +124,7 @@ function App() {
           ><Route path='/discover/:postId'
             element={
               <ProtectedRoute user={user}>
-                <OpenPost savePost={savePost} />
+                <OpenPost savePost={savePost} followRestaurant={followRestaurant}/>
               </ProtectedRoute>
             }
           ></Route>
