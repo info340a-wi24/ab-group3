@@ -55,40 +55,40 @@ export function Profile(props) {
     let profileArray = [];
     for (let i = 0; i < photos.length; i++) {
         if (photos[i].restaurant_id == restaurantId) {
-            profileArray.push(<RenderPost post={{...photos[i]}} />);
+            profileArray.push(<RenderPost key={i} post={{...photos[i]}} savePost={props.savePost}/>);
         }
     }
 
     return (
-        <div class="profile-display">
-            <section class="flex-container profile-page">
-                <div class="flex-container profile-banner">
-                    <div class="flex-container profile-container">
-                        <div class="profile-pic">
+        <div className="profile-display">
+            <section className="flex-container profile-page">
+                <div className="flex-container profile-banner">
+                    <div className="flex-container profile-container">
+                        <div className="profile-pic">
                             <img src={pfp} alt={restaurantName + " profile picture"} />
                         </div>
                         <h1>{restaurantName}</h1>
                         <h2>Followers: 8</h2>
                     </div>
-                    <div class="follow-box">
-                        <button type="button" class="NomNom-button">Follow</button>
+                    <div className="follow-box">
+                        <button type="button" className="NomNom-button">Follow</button>
                     </div>
                 </div>
                 <div className="flex-container post-list post-storage">
                     {profileArray}
                 </div>
             </section>
-            <div class="flex-container profile-details">
-                <div class="profile-link">
+            <div className="flex-container profile-details">
+                <div className="profile-link">
                     <section>{"Open: "+ hours}</section>
                 </div>
-                <div class="flex-container profile-link">
+                <div className="flex-container profile-link">
                     <a href={"https://" + website} target="_blank">{website}</a>
                 </div>
-                <div class="flex-container profile-link">
+                <div className="flex-container profile-link">
                     <a href={"tel:" + phone}>{displayPhone}</a>
                 </div>
-                <div class="flex-container profile-link">
+                <div className="flex-container profile-link">
                     <a href={"https://www.google.com/maps/place/" + location} target="_blank">
                         {location}
                     </a>

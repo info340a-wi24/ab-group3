@@ -3,6 +3,8 @@
 import { Link } from 'react-router-dom';
 import { signOut } from "firebase/auth";
 import { auth } from "../index";
+import { useState, useEffect } from 'react';
+import { get, ref, getDatabase } from 'firebase/database';
 
 export function NavBar(props) {
     const handleSignOut = () => {
@@ -10,6 +12,20 @@ export function NavBar(props) {
           .then(() => console.log("Sign Out"))
           .catch((error) => console.log(error));
       };
+
+    let [pfp, setPfp] = useState("./../img/logo.jpg")
+    useEffect(() => {
+        let db = getDatabase();
+        let pfpRef = ref(db, "users/" + props.uid + "/pfp");
+        get(pfpRef)
+        .then((snapshot) => {
+            let pfpValue = snapshot.val();
+            setPfp(pfpValue);
+        })
+        .catch(
+            error => console.error("Failed to fetch profile picture: ", error)
+        );
+    })
     return (
         <nav className="flex-container navbar">
                 <section className="flex-container">
@@ -36,7 +52,7 @@ export function NavBar(props) {
                         </form>
                     </div>
                     <Link className="user-profile" href="profile.html">
-                        <img aria-label="user-profile" className="user-profile-img" src={"./../img/nikocado.webp"} alt="user-profile-img" />
+                        <img aria-label="user-profile" className="user-profile-img" src={pfp} alt="user-profile-img" />
                     </Link>
                     <button onClick={handleSignOut}>Sign Out</button>
 

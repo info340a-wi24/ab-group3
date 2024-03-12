@@ -47,7 +47,7 @@ export function Eats(props) {
 
     let restaurantsArray = [];
     for (let i = 0; i < restaurants.length; i++) {
-        restaurantsArray.push(<CreateRestaurant restaurant={{...restaurants[i]}} />);
+        restaurantsArray.push(<CreateRestaurant key={i} restaurant={{...restaurants[i]}} />);
     }
 
     return (

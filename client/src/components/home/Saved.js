@@ -7,24 +7,26 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 import { RenderPost } from '../RenderPost';
 
 export function Saved(props) {
-    let currentUserId = props.userId;
+    let uid = props.uid;
 
     let [saved, setSaved] = useState([]);
     let [photos, setPhotos] = useState([]);
 
     useEffect(() => {
         let db = getDatabase();
-        let savedRef = ref(db, "users/1/saved");
+        let savedRef = ref(db, "users/" + uid + "/saved");
 
         let unregisterFuntion = onValue(savedRef, (snapshot) => {
             let savedValue = snapshot.val();
-            let savedKeys = Object.keys(savedValue);
+            if (savedValue != null) {
+                let savedKeys = Object.keys(savedValue);
 
-            let savedArray = savedKeys.map((key) => {
-                let singleSaved = savedValue[key];
-                return singleSaved;
-            })
-            setSaved(savedArray);
+                let savedArray = savedKeys.map((key) => {
+                    let singleSaved = savedValue[key];
+                    return singleSaved;
+                })
+                setSaved(savedArray);
+            }
         });
 
         function cleanup() {
@@ -63,7 +65,7 @@ export function Saved(props) {
 
     let savedArray = [];
     for (let i = 0; i < photos.length; i++) {
-        savedArray.push(<RenderPost post={{...photos[i]}} />);
+        savedArray.push(<RenderPost key={i} post={{...photos[i]}} savePost={props.savePost} />);
     }
 
     return (

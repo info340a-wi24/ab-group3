@@ -2,31 +2,12 @@
 
 import { useState, useEffect, useLayoutEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { getDatabase, ref, set as firebaseSet, onValue } from 'firebase/database';
 
 
 import _ from 'lodash';
 
 import { RenderPost } from '../RenderPost';
-
-// function savePost(postId) {
-//     let db = getDatabase();
-//     let savedRef = ref(db, "users/1/saved");
-
-//     let savedSize = 0;
-//     onValue(savedRef, (snapshot) => {
-//         let savedValue = snapshot.val();
-//         if (savedValue != null) {
-//             savedSize = Object.keys(savedValue).length + 1;
-//         }
-//     });
-
-//     let addToSaveRef = ref(db, 1);
-
-//     firebaseSet(addToSaveRef, postId)
-//         .then(() => console.log("The saved directory now has a size of " + savedSize))
-//         .catch(err => console.log(err));
-// }
 
 
 function useWindowWidth() {
@@ -48,7 +29,7 @@ function CreateColumn(props) {
     let index = 0;
     let postsColumn = [];
     postsArray.forEach((post) => {
-        postsColumn.push(<RenderPost key={index} post={{...postsArray[index]}} />);
+        postsColumn.push(<RenderPost key={index} post={{...postsArray[index]}} savePost={props.savePost}/>);
         index++;
     })
 
@@ -59,7 +40,7 @@ function CreateColumn(props) {
     );
 }
 
-export function Discover(props) {    
+export function Discover(props) {  
     let [photos, setPhotos] = useState([]);
 
     useEffect(() => {
@@ -109,7 +90,7 @@ export function Discover(props) {
         let arrayColumns = _.chunk(photos, photos.length / numCol);
         for (let i = 0; i < numCol; i++) {
             if (arrayColumns[i] != undefined) {
-                dynamicColumns.push(<CreateColumn key={i} postsArray={[...arrayColumns[i]]} />);
+                dynamicColumns.push(<CreateColumn key={i} postsArray={[...arrayColumns[i]]} savePost={props.savePost}/>);
             }
         }
     }
