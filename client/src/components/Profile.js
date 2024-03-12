@@ -59,6 +59,10 @@ export function Profile(props) {
         }
     }
 
+    let followRestaurant = () => {
+        props.followRestaurant(restaurantId[0]);
+    }
+
     return (
         <div className="profile-display">
             <section className="flex-container profile-page">
@@ -70,9 +74,7 @@ export function Profile(props) {
                         <h1>{restaurantName}</h1>
                         <h2>Followers: 8</h2>
                     </div>
-                    <div className="follow-box">
-                        <button type="button" className="NomNom-button">Follow</button>
-                    </div>
+                    <button type="button" className="NomNom-button" onClick={followRestaurant}>Follow</button>
                 </div>
                 <div className="flex-container post-list post-storage">
                     {profileArray}

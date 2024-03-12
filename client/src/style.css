@@ -568,7 +568,7 @@ figcaption {
   margin-bottom:-2em;
 }
 
-.post-creator > button {
+.post-creator > button, .profile-banner > button {
   color: black;
   background-color: lightgray;
   padding: .75em 0;
@@ -709,8 +709,9 @@ main > p {
 }
 
 .commenter .username p:first-child {
+  font-weight: bold;
   font-size: .85rem;
-  margin-bottom: .2em;
+  margin: .5em 0 .2em 0;
 }
 
 .comment-entry {
