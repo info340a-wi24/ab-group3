@@ -118,31 +118,13 @@ function CreatePost(UploadImg, Descriptions) {
         
         const newPhotoId = lastestPhotoId + 1;
 
-        
-
-        const restaurantRef = ref(db, 'restaurants');
-        let restaurantId = null;
-        
-        onValue(restaurantRef, (snapshot) => {
-            const restaurants = snapshot.val();
-
-            if (restaurants) {
-                Object.values(restaurants).forEach((restaurant)  => {
-                if (restaurant.website && links.includes(restaurant.website)) {
-                    restaurantId = restaurant.restaurant_id;
-                }
-            });
-        }
-        })
-    
-
         const newPostRef = push(postsRef); 
 
         const postData = {
             alt:description,
             photo_id: newPhotoId,
-            restaurant_id: restaurantId,
-            src: imageUrl
+            src: imageUrl,
+            user_id: user.uid
         };
 
         set(newPostRef, postData) 
