@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, 
          signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../index"
-import '../css/login.css';
+import '../../style.css';
 
 export const Login = ({ user }) => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [isSignUpActive, setIsSignUpActive] = useState(true);
+    const [isSignUpActive, setIsSignUpActive] = useState(false);
     const handleMethodChange = () => {
         setIsSignUpActive(!isSignUpActive);
     };
@@ -49,46 +49,44 @@ export const Login = ({ user }) => {
     const handlePasswordChange = (event) => setPassword(event.target.value);
 
     return (
-        <section>
-        <h2>Homepage</h2>
-        <form>
-            {isSignUpActive && <legend>Sign Up</legend>}
-            {!isSignUpActive && <legend>Sign In</legend>}
+        <section> 
+            <form className="login flex-container">
+                <div>
+                    {isSignUpActive && <legend>Sign Up</legend>}
+                    {!isSignUpActive && <legend>Sign In</legend>}   
+                </div>
+                <ul>
+                    <li>
+                        <label htmlFor="email">Email</label>
+                        <input type="text" id="email" onChange={handleEmailChange} />
+                    </li>
+                    <li>
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            onChange= {handlePasswordChange}
+                        />
+                    </li>
+                </ul>
 
-            <fieldset>
-            <ul>
-                <li>
-                    <label htmlFor="email">Email</label>
-                    <input type="text" id="email" onChange={handleEmailChange} />
-                </li>
-                <li>
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        onChange= {handlePasswordChange}
-                    />
-                </li>
-            </ul>
-
-            {isSignUpActive && (
-                <button type="button" id='sign' onClick={handleSignUp}>
-                Sign Up
-                </button>
-            )}
-            {!isSignUpActive && (
-                <button type="button" id='sign' onClick={handleSignIn}>
-                Sign In
-                </button>
-            )}
-            </fieldset>
-            <div className="links">
-                {isSignUpActive && <a onClick={handleMethodChange} id="login">Already have an account? Login</a>}
-                {!isSignUpActive && (
-                <a onClick={handleMethodChange} id='login'>New user? Create an account</a>
+                {isSignUpActive && (
+                    <button type="button" id='sign' onClick={handleSignUp}>
+                    Sign Up
+                    </button>
                 )}
-            </div>
-        </form>
+                {!isSignUpActive && (
+                    <button type="button" id='sign' onClick={handleSignIn}>
+                    Sign In
+                    </button>
+                )}
+                <div className="links">
+                    {isSignUpActive && <a onClick={handleMethodChange} id="login">Already have an account? Login</a>}
+                    {!isSignUpActive && (
+                    <a onClick={handleMethodChange} id='login'>New user? Create an account</a>
+                    )}
+                </div>
+            </form>
         </section>
     );
 };
