@@ -16,6 +16,7 @@ export function OpenPost(props) {
     let [restaurant, setRestaurant] = useState({});
     let [isFollowing, setFollowing] = useState(false);
     let [isLiked, setLiked] = useState(false);
+    let [isSaved, setSaved] = useState(false);
     let [showComment, setShowComment] = useState(false);
 
     useEffect(() => {
@@ -97,11 +98,35 @@ export function OpenPost(props) {
         return cleanup;
     }, [post]);
 
+    useEffect(() => {
+        let db = getDatabase();
+        let savedRef = ref(db, "users/" + props.uid + "/saved");
+
+        let unregisterFunction = onValue(savedRef, (snapshot) => {
+            let savedValue = snapshot.val();
+            if (savedValue != undefined) {
+                let savedArray = Object.keys(savedValue);
+                savedArray.forEach((index) => {
+                    if (index == postId) {
+                        setSaved(true);
+                    }
+                })
+            }
+        })
+
+        function cleanup() {
+            unregisterFunction();
+        }
+
+        return cleanup;
+    }, [post]);
+
     function toggleComments() {
         showComment ? setShowComment(false) : setShowComment(true);
     }
 
     let savePost = () => {
+        setSaved(!isSaved);
         props.savePost(postId[0]);
     }
 
@@ -111,6 +136,7 @@ export function OpenPost(props) {
     }
 
     let likePost = () => {
+        setLiked(!isLiked);
         props.likePost(postId[0]);
     }
 
@@ -162,13 +188,9 @@ export function OpenPost(props) {
                             </div>
                             <div className="like-count">{likes}</div>
                         </div>
-          
-
-
-                        <div className='follow-box'>
-                            <button className="NomNom-button unclicked" onClick={savePost} >Save</button>
-                        </div>
-                        <button className="material-icons clicked" onClick={toggleComments}>
+                        {!isSaved && <button className="NomNom-button" onClick={savePost} >Save</button>}
+                        {isSaved && <button className="NomNom-button unsaved" onClick={savePost} >Saved</button>}
+                        <button className="material-icons" onClick={toggleComments}>
                             maps_ugc
                         </button>
                     </div>

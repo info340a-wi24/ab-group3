@@ -736,7 +736,7 @@ figcaption {
   margin-top: 0;
 }
 
-.post-util button:nth-child(2):hover {
+.post-util button:nth-child(2):hover, .post-util button:nth-child(2).unsaved {
   color: white;
   background-color: #B5CB99;
 }
