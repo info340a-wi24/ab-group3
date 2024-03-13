@@ -404,7 +404,7 @@ header {
 .like-box {
   flex-direction: column;
   cursor: pointer;
-  margin: 1em;
+  margin: .5em;
 }
 
 .like-box .like-count {
