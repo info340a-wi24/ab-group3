@@ -10,7 +10,7 @@ export function Comments(props) {
                 <button id="minimize-bar" onClick={toggleComments}></button>
             </div>
             <div className="flex-container comment-count">
-                <p>7 comments</p>
+                <p>6 comments</p>
                 <button className="material-icons">
                     <div className="like-count">{likes}</div> 
                     favorite
