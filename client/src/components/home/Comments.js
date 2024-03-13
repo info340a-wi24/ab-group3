@@ -19,11 +19,47 @@ export function Comments(props) {
             <div className="comment-section">
                 <div className="flex-container commenter">
                     <div className="profile-pic">
-                        <img src={"./../img/Nikke.jpg"} alt="big mommy ThomasMommyMilkers" />
+                        <img src={"https://www.gravatar.com/avatar/073e45f574ac3e4f134aba74dedb556c?s=128"} alt="big mommy ThomasMommyMilkers" />
                     </div>
                     <div className="username">
-                        <p>ThomasMommyMilkers</p>
-                        <p>Mommy likes that!</p>
+                        <p>Jacob'sTrauma</p>
+                        <p>That's bussin!</p>
+                    </div>
+                </div>
+                <div className="flex-container commenter">
+                    <div className="profile-pic">
+                        <img src={"https://canvas.uw.edu/courses/1697021/files/114494570/preview"} alt="water-weight mf" />
+                    </div>
+                    <div className="username">
+                        <p>SenseiNathanChen</p>
+                        <p>Keep cooking the good food :)</p>
+                    </div>
+                </div>
+                <div className="flex-container commenter">
+                    <div className="profile-pic">
+                        <img src={"https://i.etsystatic.com/40540154/r/il/6f3e95/5056467595/il_570xN.5056467595_smcm.jpg"} alt="water-weight mf" />
+                    </div>
+                    <div className="username">
+                        <p>BananaBanjo</p>
+                        <p>大好きです</p>
+                    </div>
+                </div>
+                <div className="flex-container commenter">
+                    <div className="profile-pic">
+                        <img src={"https://i.kym-cdn.com/entries/icons/original/000/046/701/Screenshot_(308).png"} alt="water-weight mf" />
+                    </div>
+                    <div className="username">
+                        <p>PhucTheAnimeMan34</p>
+                        <p>This dish should be in food wars</p>
+                    </div>
+                </div>
+                <div className="flex-container commenter">
+                    <div className="profile-pic">
+                        <img src={"https://pbs.twimg.com/profile_images/1727576023892729856/eIUAw7kV_400x400.jpg"} alt="water-weight mf" />
+                    </div>
+                    <div className="username">
+                        <p>ThiThiThiThi</p>
+                        <p>uwu</p>
                     </div>
                 </div>
                 <div className="flex-container commenter">
@@ -31,44 +67,8 @@ export function Comments(props) {
                         <img src={"./../img/nikocado.webp"} alt="water-weight mf" />
                     </div>
                     <div className="username">
-                        <p>PhucPhiPhi</p>
-                        <p>Da'me dane da'me yo da'me da'ne yo</p>
-                    </div>
-                </div>
-                <div className="flex-container commenter">
-                    <div className="profile-pic">
-                        <img src={"./../img/nikocado.webp"} alt="water-weight mf" />
-                    </div>
-                    <div className="username">
-                        <p>PhucPhiPhi</p>
-                        <p>Da'me dane da'me yo da'me da'ne yo</p>
-                    </div>
-                </div>
-                <div className="flex-container commenter">
-                    <div className="profile-pic">
-                        <img src={"./../img/nikocado.webp"} alt="water-weight mf" />
-                    </div>
-                    <div className="username">
-                        <p>PhucPhiPhi</p>
-                        <p>Da'me dane da'me yo da'me da'ne yo</p>
-                    </div>
-                </div>
-                <div className="flex-container commenter">
-                    <div className="profile-pic">
-                        <img src={"./../img/nikocado.webp"} alt="water-weight mf" />
-                    </div>
-                    <div className="username">
-                        <p>PhucPhiPhi</p>
-                        <p>Da'me dane da'me yo da'me da'ne yo</p>
-                    </div>
-                </div>
-                <div className="flex-container commenter">
-                    <div className="profile-pic">
-                        <img src={"./../img/nikocado.webp"} alt="water-weight mf" />
-                    </div>
-                    <div className="username">
-                        <p>PhucPhiPhi</p>
-                        <p>Da'me dane da'me yo da'me da'ne yo</p>
+                        <p>JahsBussinMeat</p>
+                        <p>I see meat, I like pic.</p>
                     </div>
                 </div>
             </div>
