@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, Link } from 'react-router-dom';
 
 // Navbar Components
-import { NavBar } from './pages/general/NavBar';
+import { NavBar } from './miscellaneous/general/NavBar';
 import { Profile } from './pages/Profile';
-import { FooterDetail } from './pages/general/Footer';
+import { FooterDetail } from './miscellaneous/general/Footer';
 
 // Home Components
-import { Discover } from './home/Discover';
-import { Eats } from './home/Eats';
-import { Saved } from './home/Saved';
-import { Following } from './home/Following';
+import { Discover } from './pages/home/Discover';
+import { Eats } from './pages/home/Eats';
+import { Saved } from './pages/home/Saved';
+import { Following } from './pages/home/Following';
 import { OpenPost } from './miscellaneous/add-ons/OpenPost'
 
 import { Login } from './pages/login'

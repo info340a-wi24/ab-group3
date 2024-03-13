@@ -7,7 +7,7 @@ import { getDatabase, ref, set as firebaseSet, onValue } from 'firebase/database
 
 import _ from 'lodash';
 
-import { RenderPost } from '../objects/RenderPost';
+import { RenderPost } from '../../miscellaneous/objects/RenderPost';
 
 
 function useWindowWidth() {

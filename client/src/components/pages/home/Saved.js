@@ -4,7 +4,7 @@ import { useState, useEffect, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getDatabase, ref, onValue } from 'firebase/database';
 
-import { RenderPost } from '../objects/RenderPost';
+import { RenderPost } from '../../miscellaneous/objects/RenderPost';
 
 export function Saved(props) {
     let uid = props.uid;

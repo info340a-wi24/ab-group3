@@ -4,7 +4,7 @@ import { useState, useEffect, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getDatabase, ref, onValue } from 'firebase/database';
 
-import { RenderRestaurant } from '../objects/RenderRestaurant';
+import { RenderRestaurant } from '../../miscellaneous/objects/RenderRestaurant';
 
 export function Eats(props) {
     let [restaurants, setRestaurants] = useState([]);
