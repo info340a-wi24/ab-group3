@@ -3,7 +3,6 @@ import { Routes, Route, Navigate, Link } from 'react-router-dom';
 
 // Navbar Components
 import { NavBar } from './NavBar';
-import { CreatePost } from './create';
 import { Profile } from './Profile';
 import { FooterDetail } from './Footer';
 
@@ -213,8 +212,6 @@ function App() {
               </ProtectedRoute>
             }
           ></Route>
-          <Route path="/create" element={<CreatePost />} />
-
           <Route path="/:profileId" element={<Profile uid={uid} savePost={savePost} followRestaurant={followRestaurant} likePost={likePost}/> } />
           <Route path="*" element={<Navigate to="discover" />} />
         </Routes>

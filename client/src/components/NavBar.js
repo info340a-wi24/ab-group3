@@ -41,9 +41,6 @@ export function NavBar(props) {
                 <Link to="discover">
                     <img className="logo" src={"./../img/logo.jpg"} alt='logo' />
                 </Link>
-                <div className="flex-container home-explore">
-                    <Link to="create">Create</Link>
-                </div>
             </section>
             <section className="flex-container">
                 <div id="searchbar" className="flex-container">
@@ -64,7 +61,6 @@ export function NavBar(props) {
                         <img aria-label="user-profile" className="user-profile-img" src={pfp} alt="user-profile-img" />
                     </Link>
                     <div className='dropdown-content'>
-                        <Link className="user-profile" href="profile.html">Settings</Link>
                         <button onClick={handleSignOut}>Sign Out</button>
                     </div>
                 </div>
