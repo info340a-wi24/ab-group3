@@ -680,7 +680,7 @@ figcaption {
   background-color: rgb(182, 181, 181);
 }
 
-.follow-box:hover > button {
+.follow-box button:hover {
   background-color: rgb(182, 181, 181);
 }
 
