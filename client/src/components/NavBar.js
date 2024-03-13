@@ -20,7 +20,7 @@ export function NavBar(props) {
         get(pfpRef)
             .then((snapshot) => {
                 let pfpValue = snapshot.val();
-                if (pfpValue != null || pfpValue != "") {
+                if (pfpValue != "") {
                     setPfp(pfpValue);
                 }
             })

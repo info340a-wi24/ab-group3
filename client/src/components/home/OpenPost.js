@@ -61,8 +61,13 @@ export function OpenPost(props) {
         props.followRestaurant(restaurantId);
     }
 
+    let likePost = () => {
+        props.likePost(postId[0]);
+    }
+
     let src = post.src;
     let alt = post.alt;
+    let likes = post.likes;
     let restaurantName = "";
     let restaurantPfp = "";
     if (restaurant != null) {
@@ -94,13 +99,13 @@ export function OpenPost(props) {
                     <section>
                         <h1>{alt}</h1>
                         <p>
-                            "Description of the post goes right here which would normally be stored in firebase!"
+                            Some description that should be stored on firebase for each unique post!
                         </p>
                     </section>
                     <div className="flex-container post-util">
-                        <button className="material-icons">
+                        <button className="material-icons" onClick={likePost}>
                             favorite
-                            <div className="like-count">69</div>
+                            <div className="like-count">{likes}</div>
                         </button>
                         <button className="NomNom-button" onClick={savePost} >Save</button>
                         <button className="material-icons" onClick={toggleComments}>
@@ -114,7 +119,7 @@ export function OpenPost(props) {
                             {!showComment && <div className="material-icons" aria-label="expand more">expand_more</div>}
                         </button>
                     </div>
-                    {showComment && <Comments toggleComments={toggleComments} />}
+                    {showComment && <Comments toggleComments={toggleComments} likes={likes}/>}
                 </div>
             </div>
             <p>Similar posts</p>

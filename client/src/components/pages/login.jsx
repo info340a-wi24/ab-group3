@@ -30,7 +30,8 @@ export const Login = ({ user }) => {
                 let newData = {
                     saved: {},
                     pfp: "",
-                    following: {}
+                    following: {},
+                    liked: {}
                 }
                 set(userRef, newData)
                     .then(() => {

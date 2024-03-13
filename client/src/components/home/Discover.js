@@ -29,7 +29,7 @@ function CreateColumn(props) {
     let index = 0;
     let postsColumn = [];
     postsArray.forEach((post) => {
-        postsColumn.push(<RenderPost key={index} post={{...postsArray[index]}} savePost={props.savePost} uid={props.uid} />);
+        postsColumn.push(<RenderPost key={index} post={{...postsArray[index]}} savePost={props.savePost} likePost={props.likePost} uid={props.uid} />);
         index++;
     })
 
@@ -90,7 +90,7 @@ export function Discover(props) {
         let arrayColumns = _.chunk(photos, photos.length / numCol);
         for (let i = 0; i < numCol; i++) {
             if (arrayColumns[i] != undefined) {
-                dynamicColumns.push(<CreateColumn key={i} postsArray={[...arrayColumns[i]]} savePost={props.savePost} uid={props.uid} />);
+                dynamicColumns.push(<CreateColumn key={i} postsArray={[...arrayColumns[i]]} savePost={props.savePost} likePost={props.likePost} uid={props.uid} />);
             }
         }
     }

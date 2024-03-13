@@ -56,6 +56,29 @@ export function RenderPost(props) {
         return cleanup;
     }, [post]);
 
+    useEffect(() => {
+        let db = getDatabase();
+        let likedRef = ref(db, "users/" + uid + "/liked");
+
+        let unregisterFunction = onValue(likedRef, (snapshot) => {
+            let likedValue = snapshot.val();
+            if (likedValue != undefined) {
+                let likedArray = Object.keys(likedValue);
+                likedArray.forEach((index) => {
+                    if (index == postId) {
+                        setLiked(true);
+                    }
+                })
+            }
+        })
+
+        function cleanup() {
+            unregisterFunction();
+        }
+
+        return cleanup;
+    }, [post]);
+
     let restaurantName = "";
     if (restaurant != null) {
         restaurantName = restaurant.restaurant_name;
@@ -66,14 +89,14 @@ export function RenderPost(props) {
         props.savePost(postId);
     }
 
+    let likePost = () => {
+        setLiked(!isLiked);
+        props.likePost(postId);
+    }
+
     let scrollTop = () => {
         window.scrollTo(0, 0);
     }
-
-    // const toggleLike = () => {
-    //     setLiked(!isLiked); 
-    //     // setLiked();
-    // };
 
     return (
         <div className="flex-container post" >
@@ -89,7 +112,7 @@ export function RenderPost(props) {
                 <div className='flex-container restaurant-name'>
                     <p>{restaurantName}</p>
                 </div>
-                <div className="heart-container">
+                <div className="heart-container" onClick={likePost}>
                     <img src={"./../img/heart.png"} className={`icon heart ${isLiked ? "liked" : "unliked"}`}/>
                     <img src={"./../img/heart-filled.png"} className={`icon heart-filled ${isLiked ? "liked" : "unliked"}`} />
                 </div>

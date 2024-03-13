@@ -2,6 +2,7 @@
 
 export function Comments(props) {
     let toggleComments = props.toggleComments;
+    let likes = props.likes;
     
     return (
         <div className="flex-container comment-box">
@@ -11,7 +12,7 @@ export function Comments(props) {
             <div className="flex-container comment-count">
                 <p>7 comments</p>
                 <button className="material-icons">
-                    <div className="like-count">69</div> 
+                    <div className="like-count">{likes}</div> 
                     favorite
                 </button>
             </div>

@@ -18,7 +18,7 @@ import { Login } from './pages/login'
 import { auth } from "../index";
 import { ProtectedRoute } from './routes/ProtectedRoute';
 import { onAuthStateChanged } from "firebase/auth";
-import { getDatabase, ref, remove, get, update, onValue } from 'firebase/database';
+import { getDatabase, ref, remove, get, update, set, onValue } from 'firebase/database';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -73,7 +73,7 @@ function App() {
           .catch(error => console.error("Error removing post to Saved: ", error));
         }
       })
-      .catch(error => console.error("Error getting saved post: ", error));
+      .catch(error => console.error("Error getting saved: ", error));
   }
 
   function followRestaurant(restaurantId) {
@@ -102,9 +102,56 @@ function App() {
           .catch(error => console.error("Error unfollowing restaurant: ", error));
         }
       })
-      .catch(error => console.error("Error getting following page", error));
+      .catch(error => console.error("Error getting following", error));
   }
 
+  function likePost(postId) {
+    let db = getDatabase();
+    let likedRef = ref(db, "users/" + user.uid + "/liked");
+    let photoLikesRef = ref(db, "photos/" + postId + "/likes");
+    let likeState = false;
+
+    get(likedRef)
+      .then((snapshot) => {
+        let currentData = snapshot.val() || {};
+        let dataArray = Object.keys(currentData);
+        if (!dataArray.includes(postId + "")) {
+          let newData = {
+            ...currentData,
+            [postId]: postId
+          };
+          update(likedRef, newData)
+          .then(() => console.log("Post liked successfully"))
+          .catch(error => console.error("Error liking post", error));
+          likeState = true;
+        } else {
+          let newData = {
+            ...currentData
+          }
+          newData[postId] = null;
+          update(likedRef, newData)
+          .then(() => console.log("Post unliked successfully"))
+          .catch(error => console.error("Error liking post", error));
+        }
+      })
+      .catch(error => console.error("Error getting liked", error));
+
+    get(photoLikesRef)
+      .then((snapshot) => {
+        let currentData = snapshot.val();
+        if (likeState) {
+          currentData += 1
+          set(photoLikesRef, currentData)
+            .then(() => console.log("liked!"))
+            .catch(error => console.error(error));
+        } else {
+          currentData -= 1;
+          set(photoLikesRef, currentData)
+            .then(() => console.log("unliked!"))
+            .catch(error => console.error(error));
+        }
+      })
+  }
   return (
     <div className="flex-container general-layout">
       <header>
@@ -112,20 +159,17 @@ function App() {
       </header>
       <main>
         <Routes>
-              // Navbar Components
-
-          // Hompage Components
           <Route index path='/login' element={<Login />}></Route>
           <Route path='/discover'
             element={
               <ProtectedRoute user={user}>
-                <Discover savePost={savePost} uid={uid} />
+                <Discover savePost={savePost} likePost={likePost} uid={uid} />
               </ProtectedRoute>
             }
           ><Route path='/discover/:postId'
             element={
               <ProtectedRoute user={user}>
-                <OpenPost savePost={savePost} followRestaurant={followRestaurant}/>
+                <OpenPost savePost={savePost} followRestaurant={followRestaurant} likePost={likePost} />
               </ProtectedRoute>
             }
           ></Route>
@@ -140,7 +184,7 @@ function App() {
           <Route path='/saved'
             element={
               <ProtectedRoute user={user}>
-                <Saved uid={uid} savePost={savePost}/>
+                <Saved uid={uid} savePost={savePost} likePost={likePost}/>
               </ProtectedRoute>
             }
           ></Route>
@@ -153,7 +197,7 @@ function App() {
           ></Route>
           <Route path="/create" element={<CreatePost />} />
 
-          <Route path="/:profileId" element={<Profile savePost={savePost} followRestaurant={followRestaurant}/> } />
+          <Route path="/:profileId" element={<Profile savePost={savePost} followRestaurant={followRestaurant} likePost={likePost}/> } />
           <Route path="*" element={<Navigate to="discover" />} />
         </Routes>
       </main>

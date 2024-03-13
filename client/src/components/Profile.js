@@ -55,7 +55,7 @@ export function Profile(props) {
     let profileArray = [];
     for (let i = 0; i < photos.length; i++) {
         if (photos[i].restaurant_id == restaurantId) {
-            profileArray.push(<RenderPost key={i} post={{...photos[i]}} savePost={props.savePost}/>);
+            profileArray.push(<RenderPost key={i} post={{...photos[i]}} savePost={props.savePost} likePost={props.likePost} />);
         }
     }
 
