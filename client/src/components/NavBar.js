@@ -7,14 +7,14 @@ import { useState, useEffect } from 'react';
 import { get, ref, getDatabase } from 'firebase/database';
 
 export function NavBar(props) {
-    let [pfp, setPfp] = useState("./../img/logo.jpg");
+    let [pfp, setPfp] = useState("./../img/user-default.webp");
 
     const handleSignOut = () => {
         signOut(auth)
             .then(() => console.log("Sign Out"))
             .catch((error) => console.log(error));
         
-        setPfp("./../img/logo.jpg");
+        setPfp("./../img/user-default.webp");
     };
 
     useEffect(() => {
@@ -61,7 +61,7 @@ export function NavBar(props) {
                 </div>
                 <div className='dropdown'>
                     <Link className="user-profile" href="profile.html">
-                        <img aria-label="user-profile" className="user-profile-img" src={"./../img/user-default.webp"} alt="user-profile-img" />
+                        <img aria-label="user-profile" className="user-profile-img" src={pfp} alt="user-profile-img" />
                     </Link>
                     <div className='dropdown-content'>
                         <Link className="user-profile" href="profile.html">Settings</Link>
