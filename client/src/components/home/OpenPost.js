@@ -145,9 +145,11 @@ export function OpenPost(props) {
     let likes = post.likes;
     let restaurantName = "";
     let restaurantPfp = "";
+    let followers = 0;
     if (restaurant != null) {
         restaurantName = restaurant.restaurant_name;
         restaurantPfp = restaurant.cover_pic;
+        followers = restaurant.followers;
     }
 
     return (
@@ -167,7 +169,7 @@ export function OpenPost(props) {
                             <Link to={"/" + restaurantId + " " + restaurantName}>
                                 <p>{restaurantName}</p>
                             </Link>
-                            <p>999 followers</p>
+                            <p>{followers} followers</p>
                         </div>
                         <div className='follow-box'>
                             {!isFollowing && <button type="button" className="NomNom-button" onClick={followRestaurant}>Follow</button>}
@@ -197,7 +199,7 @@ export function OpenPost(props) {
                         </button>
                     </div>
                     <div className="flex-container comment-dropdown">
-                        <p>7 Comments</p>
+                        <p>6 Comments</p>
                         <button onClick={toggleComments}>
                             {showComment && <div className="material-icons" aria-label="expand less">expand_less</div>}
                             {!showComment && <div className="material-icons" aria-label="expand more">expand_more</div>}
