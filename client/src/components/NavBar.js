@@ -7,13 +7,16 @@ import { useState, useEffect } from 'react';
 import { get, ref, getDatabase } from 'firebase/database';
 
 export function NavBar(props) {
+    let [pfp, setPfp] = useState("./../img/logo.jpg");
+
     const handleSignOut = () => {
         signOut(auth)
             .then(() => console.log("Sign Out"))
             .catch((error) => console.log(error));
+        
+        setPfp("./../img/logo.jpg");
     };
 
-    let [pfp, setPfp] = useState("./../img/logo.jpg")
     useEffect(() => {
         let db = getDatabase();
         let pfpRef = ref(db, "users/" + props.uid + "/pfp");
@@ -27,7 +30,7 @@ export function NavBar(props) {
             .catch(
                 error => console.error("Failed to fetch profile picture: ", error)
             );
-    })
+    }, [props.uid])
     return (
         <nav className="flex-container navbar">
             <section className="flex-container">

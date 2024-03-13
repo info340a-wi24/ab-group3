@@ -14,6 +14,7 @@ export function OpenPost(props) {
 
     let [post, setPost] = useState({});
     let [restaurant, setRestaurant] = useState({});
+    let [isFollowing, setFollowing] = useState(false);
     let [showComment, setShowComment] = useState(false);
 
     useEffect(() => {
@@ -49,6 +50,29 @@ export function OpenPost(props) {
         return cleanup;
     }, [post])
 
+    useEffect(() => {
+        let db = getDatabase();
+        let followRef = ref(db, "users/" + props.uid + "/following");
+
+        let unregisterFunction = onValue(followRef, (snapshot) => {
+            let followValue = snapshot.val();
+            if (followValue != undefined) {
+                let followArray = Object.keys(followValue);
+                followArray.forEach((index) => {
+                    if (index == restaurantId) {
+                        setFollowing(true);
+                    }
+                })
+            }
+        })
+
+        function cleanup() {
+            unregisterFunction();
+        }
+
+        return cleanup;
+    }, [restaurant]);
+
     function toggleComments() {
         showComment ? setShowComment(false) : setShowComment(true);
     }
@@ -58,6 +82,7 @@ export function OpenPost(props) {
     }
 
     let followRestaurant = () => {
+        setFollowing(!isFollowing);
         props.followRestaurant(restaurantId);
     }
 
@@ -94,7 +119,8 @@ export function OpenPost(props) {
                             </Link>
                             <p>999 followers</p>
                         </div>
-                        <button className="NomNom-button" onClick={followRestaurant}>Follow</button>
+                        {!isFollowing && <button type="button" className="NomNom-button" onClick={followRestaurant}>Follow</button>}
+                        {isFollowing && <button type="button" className="NomNom-button unfollow" onClick={followRestaurant}>Following</button>}
                     </div>
                     <section>
                         <h1>{alt}</h1>

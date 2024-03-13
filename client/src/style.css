@@ -315,13 +315,6 @@ header {
   border: none;
 }
 
-/* .home-option a:not(#chosen-option):hover {
-  color: #F39999;
-  font-weight: bold;
-  text-shadow: lightgray 4px 2px;
-  transition: all .5s ease-in-out;
-} */
-
 /* discovery page */
 .post-list {
   flex-direction: row;
@@ -687,7 +680,7 @@ figcaption {
   height: 2.7em;
 }
 
-.post-creator > button:hover {
+.post-creator > button:hover, .post-creator > button.unfollow {
   color: white;
   background-color: #F39999;
 }
@@ -995,7 +988,7 @@ button {
   margin-top: 3em;
 }
 
-.profile-banner > button:hover {
+.profile-banner > button:hover, .profile-banner > button.unfollow {
   color: white;
   background-color: #F39999;
 }
