@@ -79,6 +79,8 @@ function App() {
   function followRestaurant(restaurantId) {
     let db = getDatabase();
     let followingRef = ref(db, "users/" + user.uid + "/following");
+    let followersRef = ref(db, "restaurants/" + restaurantId + "/followers")
+    let followerState = false;
 
     get(followingRef)
       .then((snapshot) => {
@@ -92,6 +94,7 @@ function App() {
           update(followingRef, newData)
           .then(() => console.log("Restaurant followed successfully"))
           .catch(error => console.error("Error following restaurant: ", error));
+          followerState = true;
         } else {
           let newData = {
             ...currentData
@@ -100,6 +103,21 @@ function App() {
           update(followingRef, newData)
           .then(() => console.log("Restaurant unfollowed successfully"))
           .catch(error => console.error("Error unfollowing restaurant: ", error));
+        }
+        return get(followersRef);
+      })
+      .then((snapshot) => {
+        let currentData = snapshot.val();
+        if (followerState) {
+          currentData += 1;
+          set(followersRef, currentData)
+            .then(() => console.log("followed!"))
+            .catch(error => console.error(error));
+        } else {
+          currentData -= 1;
+          set(followersRef, currentData)
+            .then(() => console.log("unfollowed!"))
+            .catch(error => console.error(error));
         }
       })
       .catch(error => console.error("Error getting following", error));
@@ -140,7 +158,7 @@ function App() {
       .then((snapshot) => {
         let currentData = snapshot.val();
         if (likeState) {
-          currentData += 1
+          currentData += 1;
           set(photoLikesRef, currentData)
             .then(() => console.log("liked!"))
             .catch(error => console.error(error));
@@ -166,7 +184,7 @@ function App() {
           ><Route path='/discover/:postId'
             element={
               <ProtectedRoute user={user}>
-                <OpenPost savePost={savePost} followRestaurant={followRestaurant} likePost={likePost} />
+                <OpenPost uid={uid} savePost={savePost} followRestaurant={followRestaurant} likePost={likePost} />
               </ProtectedRoute>
             }
           ></Route>
@@ -194,7 +212,7 @@ function App() {
           ></Route>
           <Route path="/create" element={<CreatePost />} />
 
-          <Route path="/:profileId" element={<Profile savePost={savePost} followRestaurant={followRestaurant} likePost={likePost}/> } />
+          <Route path="/:profileId" element={<Profile uid={uid} savePost={savePost} followRestaurant={followRestaurant} likePost={likePost}/> } />
           <Route path="*" element={<Navigate to="discover" />} />
         </Routes>
       </main>

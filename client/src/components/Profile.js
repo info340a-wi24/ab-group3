@@ -11,6 +11,7 @@ export function Profile(props) {
     let restaurantId = profileInfo.match(/^\d+/);
 
     let [photos, setPhotos] = useState([]);
+    let [isFollowing, setFollowing] = useState(false);
 
     useEffect(() => {
         let db = getDatabase();
@@ -31,7 +32,30 @@ export function Profile(props) {
             unregisterFunction();
         }
         return cleanup;
-    }, [])
+    }, [restaurantId])
+
+    useEffect(() => {
+        let db = getDatabase();
+        let followRef = ref(db, "users/" + props.uid + "/following");
+
+        let unregisterFunction = onValue(followRef, (snapshot) => {
+            let followValue = snapshot.val();
+            if (followValue != undefined) {
+                let followArray = Object.keys(followValue);
+                followArray.forEach((index) => {
+                    if (index == restaurantId[0]) {
+                        setFollowing(true);
+                    }
+                })
+            }
+        })
+
+        function cleanup() {
+            unregisterFunction();
+        }
+
+        return cleanup;
+    }, [restaurantId[0]]);
 
     let db = getDatabase();
 
@@ -51,6 +75,7 @@ export function Profile(props) {
     }
     let location = restaurant.location;
     let restaurantName = restaurant.restaurant_name;
+    let followers = restaurant.followers;
 
     let profileArray = [];
     for (let i = 0; i < photos.length; i++) {
@@ -60,6 +85,7 @@ export function Profile(props) {
     }
 
     let followRestaurant = () => {
+        setFollowing(!isFollowing);
         props.followRestaurant(restaurantId[0]);
     }
 
@@ -72,9 +98,10 @@ export function Profile(props) {
                             <img src={pfp} alt={restaurantName + " profile picture"} />
                         </div>
                         <h1>{restaurantName}</h1>
-                        <h2>Followers: 8</h2>
+                        <h2>Followers: {followers}</h2>
                     </div>
-                    <button type="button" className="NomNom-button" onClick={followRestaurant}>Follow</button>
+                    {!isFollowing && <button type="button" className="NomNom-button" onClick={followRestaurant}>Follow</button>}
+                    {isFollowing && <button type="button" className="NomNom-button unfollow" onClick={followRestaurant}>Following</button>}
                 </div>
                 <div className="flex-container post-list post-storage">
                     {profileArray}
