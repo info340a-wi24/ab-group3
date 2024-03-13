@@ -28,11 +28,15 @@ export function NavBar(props) {
                 error => console.error("Failed to fetch profile picture: ", error)
             );
     })
+    let isAuth = false;
+    if (auth.currentUser) {
+        isAuth = true;
+    }
     return (
-        <nav className="flex-container navbar">
+        <nav className={`flex-container navbar ${isAuth ? null : "hidden"}`}>
             <section className="flex-container">
                 <Link to="discover">
-                    <img className="active logo" src={"./../img/logo.jpg"} alt='logo' />
+                    <img className="logo" src={"./../img/logo.jpg"} alt='logo' />
                 </Link>
                 <div className="flex-container home-explore">
                     <Link to="create">Create</Link>
@@ -54,7 +58,7 @@ export function NavBar(props) {
                 </div>
                 <div className='dropdown'>
                     <Link className="user-profile" href="profile.html">
-                        <img aria-label="user-profile" className="user-profile-img" src={pfp} alt="user-profile-img" />
+                        <img aria-label="user-profile" className="user-profile-img" src={"./../img/user-default.webp"} alt="user-profile-img" />
                     </Link>
                     <div className='dropdown-content'>
                         <Link className="user-profile" href="profile.html">Settings</Link>

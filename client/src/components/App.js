@@ -154,9 +154,6 @@ function App() {
   }
   return (
     <div className="flex-container general-layout">
-      <header>
-        <NavBar uid={uid}/>
-      </header>
       <main>
         <Routes>
           <Route index path='/login' element={<Login />}></Route>

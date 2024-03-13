@@ -113,7 +113,7 @@ export function RenderPost(props) {
                     <p>{restaurantName}</p>
                 </div>
                 <div className="heart-container" onClick={likePost}>
-                    <img src={"./../img/heart.png"} className={`icon heart ${isLiked ? "liked" : "unliked"}`}/>
+                    <img src={"./../img/heart.png"} className={`icon heart ${isLiked ? "liked" : null}`}/>
                     <img src={"./../img/heart-filled.png"} className={`icon heart-filled ${isLiked ? "liked" : "unliked"}`} />
                 </div>
             </div>

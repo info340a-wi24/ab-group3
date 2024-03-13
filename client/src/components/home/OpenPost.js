@@ -65,6 +65,8 @@ export function OpenPost(props) {
         props.likePost(postId[0]);
     }
 
+    let [isLiked, setLiked] = useState(false);
+
     let src = post.src;
     let alt = post.alt;
     let likes = post.likes;
@@ -103,10 +105,17 @@ export function OpenPost(props) {
                         </p>
                     </section>
                     <div className="flex-container post-util">
-                        <button className="material-icons" onClick={likePost}>
-                            favorite
+                        <div className='flex-container like-box'>
+                            <div className="heart-container-open-post" onClick={likePost}>
+                                <img src="../../img/heart-black.png" className={`icon heart ${isLiked ? "liked" : null}`}/>
+                                <img src={"../../img/heart-black-filled.png"} className={`icon heart-filled ${isLiked ? "liked" : "unliked"}`} />
+                            </div>
                             <div className="like-count">{likes}</div>
-                        </button>
+                        </div>
+          
+
+
+
                         <button className="NomNom-button" onClick={savePost} >Save</button>
                         <button className="material-icons" onClick={toggleComments}>
                             maps_ugc
