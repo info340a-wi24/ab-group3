@@ -197,7 +197,7 @@ export function OpenPost(props) {
                         </button>
                     </div>
                     <div className="flex-container comment-dropdown">
-                        <p>7 Comments</p>
+                        <p>6 Comments</p>
                         <button onClick={toggleComments}>
                             {showComment && <div className="material-icons" aria-label="expand less">expand_less</div>}
                             {!showComment && <div className="material-icons" aria-label="expand more">expand_more</div>}
