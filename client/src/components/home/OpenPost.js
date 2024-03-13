@@ -188,8 +188,10 @@ export function OpenPost(props) {
                             </div>
                             <div className="like-count">{likes}</div>
                         </div>
-                        {!isSaved && <button className="NomNom-button" onClick={savePost} >Save</button>}
-                        {isSaved && <button className="NomNom-button unsaved" onClick={savePost} >Saved</button>}
+                        <div className='follow-box'>
+                            {!isSaved && <button className="NomNom-button unclicked" onClick={savePost} >Save</button>}
+                            {isSaved && <button className="NomNom-button unsaved clicked" onClick={savePost} >Saved</button>}
+                        </div>
                         <button className="material-icons" onClick={toggleComments}>
                             maps_ugc
                         </button>
