@@ -15,6 +15,7 @@ export function OpenPost(props) {
     let [post, setPost] = useState({});
     let [restaurant, setRestaurant] = useState({});
     let [isFollowing, setFollowing] = useState(false);
+    let [isLiked, setLiked] = useState(false);
     let [showComment, setShowComment] = useState(false);
 
     useEffect(() => {
@@ -71,7 +72,30 @@ export function OpenPost(props) {
         }
 
         return cleanup;
-    }, [restaurant]);
+    }, [post]);
+
+    useEffect(() => {
+        let db = getDatabase();
+        let likedRef = ref(db, "users/" + props.uid + "/liked");
+
+        let unregisterFunction = onValue(likedRef, (snapshot) => {
+            let likedValue = snapshot.val();
+            if (likedValue != undefined) {
+                let likedArray = Object.keys(likedValue);
+                likedArray.forEach((index) => {
+                    if (index == postId) {
+                        setLiked(true);
+                    }
+                })
+            }
+        })
+
+        function cleanup() {
+            unregisterFunction();
+        }
+
+        return cleanup;
+    }, [post]);
 
     function toggleComments() {
         showComment ? setShowComment(false) : setShowComment(true);
@@ -89,8 +113,6 @@ export function OpenPost(props) {
     let likePost = () => {
         props.likePost(postId[0]);
     }
-
-    let [isLiked, setLiked] = useState(false);
 
     let src = post.src;
     let alt = post.alt;
