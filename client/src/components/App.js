@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, Link } from 'react-router-dom';
 
 // Navbar Components
-import { NavBar } from './NavBar';
-import { Profile } from './Profile';
-import { FooterDetail } from './Footer';
+import { NavBar } from './pages/general/NavBar';
+import { Profile } from './pages/Profile';
+import { FooterDetail } from './pages/general/Footer';
 
 // Home Components
 import { Discover } from './home/Discover';
 import { Eats } from './home/Eats';
 import { Saved } from './home/Saved';
 import { Following } from './home/Following';
-import { OpenPost } from './home/OpenPost'
+import { OpenPost } from './miscellaneous/add-ons/OpenPost'
 
 import { Login } from './pages/login'
 import { auth } from "../index";
