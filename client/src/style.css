@@ -673,7 +673,15 @@ figcaption {
   background-color: lightgray;
   padding: .75em 0;
   margin-top: 3em;
-  width: 5.3em;
+  width: 6em;
+}
+
+.follow-box .clicked {
+  background-color: rgb(182, 181, 181);
+}
+
+.follow-box:hover > button {
+  background-color: rgb(182, 181, 181);
 }
 
 .post-creator > button, .profile-banner > button {

@@ -143,8 +143,10 @@ export function OpenPost(props) {
                             </Link>
                             <p>999 followers</p>
                         </div>
-                        {!isFollowing && <button type="button" className="NomNom-button" onClick={followRestaurant}>Follow</button>}
-                        {isFollowing && <button type="button" className="NomNom-button unfollow" onClick={followRestaurant}>Following</button>}
+                        <div className='follow-box'>
+                            {!isFollowing && <button type="button" className="NomNom-button" onClick={followRestaurant}>Follow</button>}
+                            {isFollowing && <button type="button" className="NomNom-button unfollow" onClick={followRestaurant}>Following</button>}
+                        </div>
                     </div>
                     <section>
                         <h1>{alt}</h1>
@@ -163,9 +165,10 @@ export function OpenPost(props) {
           
 
 
-
-                        <button className="NomNom-button" onClick={savePost} >Save</button>
-                        <button className="material-icons" onClick={toggleComments}>
+                        <div className='follow-box'>
+                            <button className="NomNom-button unclicked" onClick={savePost} >Save</button>
+                        </div>
+                        <button className="material-icons clicked" onClick={toggleComments}>
                             maps_ugc
                         </button>
                     </div>

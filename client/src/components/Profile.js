@@ -100,8 +100,10 @@ export function Profile(props) {
                         <h1>{restaurantName}</h1>
                         <h2>Followers: {followers}</h2>
                     </div>
-                    {!isFollowing && <button type="button" className="NomNom-button" onClick={followRestaurant}>Follow</button>}
-                    {isFollowing && <button type="button" className="NomNom-button unfollow" onClick={followRestaurant}>Following</button>}
+                    <div className='follow-box'>
+                        {!isFollowing && <button type="button" className="NomNom-button unclicked" onClick={followRestaurant}>Follow</button>}
+                        {isFollowing && <button type="button" className="NomNom-button unfollow clicked" onClick={followRestaurant}>Following</button>}
+                    </div>
                 </div>
                 <div className="flex-container post-list post-storage">
                     {profileArray}
